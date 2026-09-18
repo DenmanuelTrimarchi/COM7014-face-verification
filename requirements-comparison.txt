@@ -1,0 +1,50 @@
+# Dependencies for the OPTIONAL Experiment 8 pipeline comparison
+# (InsightFace SCRFD detection + ArcFace buffalo_l recognition).
+#
+# Deliberately kept out of requirements.txt. The five baseline experiments, the
+# BFW open-set experiment, the review classifier and the whole test suite run
+# without anything below.
+#
+# LICENSING. InsightFace publishes its pretrained models for non-commercial
+# research use, and this artefact is non-commercial MSc academic research, so
+# that use is within those terms. The models are created and trained by the
+# InsightFace project; nothing here trains or fine-tunes them, no weight file is
+# redistributed or committed, and no ownership is claimed. The MIT licence
+# covering InsightFace source code does not automatically extend to the weights.
+#
+# --------------------------------------------------------------------------
+# INSTALLATION - one supported command
+# --------------------------------------------------------------------------
+#
+#   bash scripts/install_comparison_environment.sh
+#
+# Do NOT run "pip install -r" on this file. insightface declares a dependency
+# on opencv-python. Installing it normally pulls that distribution in alongside
+# opencv-python-headless. Both ship the same cv2 module, so whichever wins the
+# import shadows the other. That silently changed YuNet detection and SFace
+# embedding numerics, moved the frozen classifier threshold, and still passed
+# the dependency contract, because package metadata continued to report the
+# pinned headless version.
+#
+# A constraints file does NOT prevent this: constraints bound the version of a
+# package that is installed, they do not stop a different distribution being
+# resolved. The script installs insightface with --no-deps, supplies the pinned
+# dependencies itself, removes any conflicting opencv-python, and then verifies
+# every pinned version and the imported cv2 before exiting successfully.
+#
+# --------------------------------------------------------------------------
+# WHICH FILE IS WHICH
+# --------------------------------------------------------------------------
+#
+#   requirements-comparison.txt       this file: the two direct requirements
+#   requirements-comparison-deps.txt  direct, deliberately pinned requirements
+#                                     (NOT a complete transitive lock)
+#   requirements-comparison-lock.txt  full pip freeze of the verified clean
+#                                     environment, including transitive
+#                                     packages
+#
+# check_dependency_contract() also verifies the imported cv2 version at runtime
+# and refuses a reportable evaluation when another OpenCV shadows it.
+
+insightface==1.0.1
+onnxruntime==1.28.0

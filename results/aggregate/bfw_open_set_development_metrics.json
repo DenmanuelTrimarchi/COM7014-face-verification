@@ -1,0 +1,220 @@
+{
+  "artifact_type": "bfw_open_set_development_metrics",
+  "created_at": "2026-09-17T13:45:31.280966+00:00",
+  "dataset_provenance": {
+    "dataset_name": "BFW",
+    "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+    "images_per_identity_max": 25,
+    "images_per_identity_median": 25.0,
+    "images_per_identity_min": 25,
+    "metadata_filename": "bfw-v0.1.5-datatable.csv",
+    "metadata_sha256": "e098dc77da1b71c5dbe981ae6823a316de1092b7698d124ed2e78ece843aff4c",
+    "protocol_provenance": "Project-defined open-set protocol constructed from the official BFW data. BFW publishes verification and bias-analysis protocols; it does not publish an open-set identification protocol, and none is implied here.",
+    "protocol_version": "acp-arden-bfw-open-set-v1",
+    "subgroup_identity_counts": {
+      "asian_females": 100,
+      "asian_males": 100,
+      "black_females": 100,
+      "black_males": 100,
+      "indian_females": 100,
+      "indian_males": 100,
+      "white_females": 100,
+      "white_males": 100
+    },
+    "total_identities": 800,
+    "total_images": 20000
+  },
+  "limitations": [
+    "This remains a proof of concept. No result here proves fraud, misuse or misrepresentation by any person.",
+    "No automatic sanction is applied. Every outcome opens a case for human review and nothing else. In this gallery-screening experiment the referral is triggered by a high similarity to another enrolled identity; profile-photo consistency refers a low similarity to the profile's own template instead, and an extraction failure makes no decision at all.",
+    "The BFW open-set evaluation uses a protocol defined by this project. BFW publishes verification and bias-analysis protocols, not an open-set identification protocol.",
+    "Development and test identities are completely disjoint, and the operating threshold was frozen before the held-out test partition was scored.",
+    "Extraction failures are counted as coverage failures, never as genuine no-match decisions.",
+    "Confidence intervals describe sampling uncertainty over these benchmark identities only. They do not extend to any other population.",
+    "Benchmark demographics do not represent any real deployed user population, so subgroup figures must not be read as deployment estimates."
+  ],
+  "methodology_revision": "open-set-gallery-accounting-v2",
+  "methods": {
+    "single_image_pairwise_threshold": {
+      "conditional_duplicate_detection_rate": 0.9080459770114943,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 20.363464675894605,
+        "complete_pipeline_latency_p95_ms": 24.365424993447956,
+        "detection_latency_mean_ms": 2.519344627367261,
+        "detection_latency_p95_ms": 6.042559002526103,
+        "embedding_latency_mean_ms": 17.108725452503965,
+        "embedding_latency_p95_ms": 17.59903358761221,
+        "enrolled_gallery_identities": 199,
+        "gallery_enrolment_coverage": 0.995,
+        "gallery_enrolment_failure_count": 1,
+        "gallery_enrolment_failure_rate": 0.005,
+        "gallery_size": 199,
+        "image_load_latency_mean_ms": 0.7353945960233812,
+        "image_load_latency_p95_ms": 1.4501083816867322,
+        "images_timed": 4017,
+        "intended_gallery_identities": 200,
+        "intended_mated_probes": 1000,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.043,
+        "method": "single_image_pairwise_threshold",
+        "non_mated_extraction_failure_rate": 0.04633333333333333,
+        "partition": "development",
+        "probe_failure_breakdown": {
+          "gallery_reference_unavailable": 5,
+          "zero_faces": 177
+        },
+        "scored_mated_probes": 957,
+        "scored_non_mated_probes": 2861,
+        "similarity_comparisons": 759782,
+        "top1_search_time_mean_ms": 0.8511375244736751,
+        "top1_search_time_p95_ms": 0.8683107516844757,
+        "top5_search_time_mean_ms": 0.8697989606606468,
+        "top5_search_time_p95_ms": 0.8878044551238418
+      },
+      "end_to_end_duplicate_detection_rate": 0.869,
+      "operating_threshold": 0.3630116835391414,
+      "rates": {
+        "cmc_rank1": 0.9299895506792059,
+        "cmc_rank5": 0.9602925809822361,
+        "false_reviews_per_1000_non_mated": 76.54666200629151,
+        "fnir_rank1": 0.09195402298850575,
+        "fnir_rank5": 0.08986415882967602,
+        "fpir": 0.07654666200629151,
+        "scored_mated_probes": 957,
+        "scored_non_mated_probes": 2861,
+        "threshold": 0.3630116835391414,
+        "tpir_rank1": 0.9080459770114943,
+        "tpir_rank5": 0.910135841170324
+      },
+      "threshold_role": "Control only. This is the LFW 1:1 verification threshold reused unchanged; it is not a valid open-set operating threshold."
+    },
+    "three_image_open_set_calibrated": {
+      "at_lfw_control_threshold": {
+        "cmc_rank1": 0.9718456725755996,
+        "cmc_rank5": 0.9812304483837331,
+        "false_reviews_per_1000_non_mated": 119.88815099615519,
+        "fnir_rank1": 0.037539103232533844,
+        "fnir_rank5": 0.037539103232533844,
+        "fpir": 0.11988815099615519,
+        "scored_mated_probes": 959,
+        "scored_non_mated_probes": 2861,
+        "threshold": 0.3630116835391414,
+        "tpir_rank1": 0.9624608967674662,
+        "tpir_rank5": 0.9624608967674662
+      },
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 21.386204378413748,
+        "complete_pipeline_latency_p95_ms": 26.29474001150811,
+        "detection_latency_mean_ms": 2.750059248477092,
+        "detection_latency_p95_ms": 6.665343265922274,
+        "embedding_latency_mean_ms": 17.76969406311712,
+        "embedding_latency_p95_ms": 18.46424950781511,
+        "enrolled_gallery_identities": 199,
+        "gallery_enrolment_coverage": 0.995,
+        "gallery_enrolment_failure_count": 1,
+        "gallery_enrolment_failure_rate": 0.005,
+        "gallery_size": 199,
+        "image_load_latency_mean_ms": 0.8664510668195358,
+        "image_load_latency_p95_ms": 1.6626460055704229,
+        "images_timed": 4406,
+        "intended_gallery_identities": 200,
+        "intended_mated_probes": 1000,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.041,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.04633333333333333,
+        "partition": "development",
+        "probe_failure_breakdown": {
+          "gallery_reference_unavailable": 5,
+          "zero_faces": 175
+        },
+        "scored_mated_probes": 959,
+        "scored_non_mated_probes": 2861,
+        "similarity_comparisons": 760180,
+        "top1_search_time_mean_ms": 0.8915883556074775,
+        "top1_search_time_p95_ms": 1.0019642577390186,
+        "top5_search_time_mean_ms": 0.9124153699599089,
+        "top5_search_time_p95_ms": 1.0244190969388
+      },
+      "operating_points": {
+        "0.001": {
+          "cmc_rank1": 0.9718456725755996,
+          "cmc_rank5": 0.9812304483837331,
+          "false_reviews_per_1000_non_mated": 0.6990562740300593,
+          "fnir_rank1": 0.5985401459854014,
+          "fnir_rank5": 0.5985401459854014,
+          "fpir": 0.0006990562740300594,
+          "scored_mated_probes": 959,
+          "scored_non_mated_probes": 2861,
+          "threshold": 0.710967208853,
+          "tpir_rank1": 0.40145985401459855,
+          "tpir_rank5": 0.40145985401459855
+        },
+        "0.003": {
+          "cmc_rank1": 0.9718456725755996,
+          "cmc_rank5": 0.9812304483837331,
+          "false_reviews_per_1000_non_mated": 2.7962250961202373,
+          "fnir_rank1": 0.07299270072992703,
+          "fnir_rank5": 0.07299270072992703,
+          "fpir": 0.0027962250961202375,
+          "scored_mated_probes": 959,
+          "scored_non_mated_probes": 2861,
+          "threshold": 0.477117869159,
+          "tpir_rank1": 0.927007299270073,
+          "tpir_rank5": 0.927007299270073
+        },
+        "0.01": {
+          "cmc_rank1": 0.9718456725755996,
+          "cmc_rank5": 0.9812304483837331,
+          "false_reviews_per_1000_non_mated": 9.786787836420832,
+          "fnir_rank1": 0.051094890510948954,
+          "fnir_rank5": 0.051094890510948954,
+          "fpir": 0.009786787836420832,
+          "scored_mated_probes": 959,
+          "scored_non_mated_probes": 2861,
+          "threshold": 0.439414136573,
+          "tpir_rank1": 0.948905109489051,
+          "tpir_rank5": 0.948905109489051
+        }
+      }
+    }
+  },
+  "model_sha256": {
+    "sface": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+    "yunet": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+  },
+  "model_version": "opencv-sface-2021dec-yunet-2023mar",
+  "opaque_id_version": "hmac-sha256-v1",
+  "pipeline_name": "opencv-sface-2021dec-yunet-2023mar",
+  "policy_note": "Duplicate-profile screening: a high similarity to another enrolled gallery identity opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity. This polarity applies to gallery screening; profile-photo consistency refers a *low* similarity instead, and an extraction failure makes no decision at all.",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "protocol_digest": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "public_manifest_sha256": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "schema_version": 1,
+  "seed": 20260727,
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "status": "open_set_development",
+  "threshold_source": "results/aggregate/bfw_open_set_threshold.json"
+}

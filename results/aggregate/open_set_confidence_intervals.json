@@ -1,0 +1,138 @@
+{
+  "artifact_type": "open_set_confidence_intervals",
+  "cache_schema_version": 3,
+  "canonical_development_context_sha256": "f03a419ee5f410851b5a087220aa99d4eec85090ec77e7629bd2a119a5bb6b40",
+  "canonical_development_run_digest": "075c533342de36315d20488c7f3c97464daef983f157f7da017cebe4a78d1515",
+  "canonical_run_digest": "69e2c6b6c8414f47d97127e78f7714de98f9586b5182786f1ced9b18b5b71e1a",
+  "canonical_test_context_sha256": "1b14ced717122ff65352bea5bd1b899835ba3882285d648091a9f4825bdca698",
+  "canonical_test_run_digest": "69e2c6b6c8414f47d97127e78f7714de98f9586b5182786f1ced9b18b5b71e1a",
+  "created_at": "2026-09-17T13:45:31.280966+00:00",
+  "dataset_provenance": {
+    "dataset_name": "BFW",
+    "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+    "images_per_identity_max": 25,
+    "images_per_identity_median": 25.0,
+    "images_per_identity_min": 25,
+    "metadata_filename": "bfw-v0.1.5-datatable.csv",
+    "metadata_sha256": "e098dc77da1b71c5dbe981ae6823a316de1092b7698d124ed2e78ece843aff4c",
+    "protocol_provenance": "Project-defined open-set protocol constructed from the official BFW data. BFW publishes verification and bias-analysis protocols; it does not publish an open-set identification protocol, and none is implied here.",
+    "protocol_version": "acp-arden-bfw-open-set-v1",
+    "subgroup_identity_counts": {
+      "asian_females": 100,
+      "asian_males": 100,
+      "black_females": 100,
+      "black_males": 100,
+      "indian_females": 100,
+      "indian_males": 100,
+      "white_females": 100,
+      "white_males": 100
+    },
+    "total_identities": 800,
+    "total_images": 20000
+  },
+  "intervals": {
+    "end_to_end_duplicate_detection_rate": {
+      "lower_95": 0.843,
+      "requested_replicates": 2000,
+      "upper_95": 0.8990249999999999,
+      "valid_replicates": 2000
+    },
+    "extraction_coverage": {
+      "lower_95": 0.94174375,
+      "requested_replicates": 2000,
+      "upper_95": 0.959,
+      "valid_replicates": 2000
+    },
+    "fnir_rank1": {
+      "lower_95": 0.051063829787234005,
+      "requested_replicates": 2000,
+      "upper_95": 0.09850185626618899,
+      "valid_replicates": 2000
+    },
+    "fnir_rank5": {
+      "lower_95": 0.051063829787234005,
+      "requested_replicates": 2000,
+      "upper_95": 0.09850185626618899,
+      "valid_replicates": 2000
+    },
+    "fpir": {
+      "lower_95": 0.002092031979419301,
+      "requested_replicates": 2000,
+      "upper_95": 0.009381596462611257,
+      "valid_replicates": 2000
+    },
+    "mated_extraction_coverage": {
+      "lower_95": 0.923,
+      "requested_replicates": 2000,
+      "upper_95": 0.959,
+      "valid_replicates": 2000
+    },
+    "non_mated_extraction_coverage": {
+      "lower_95": 0.943,
+      "requested_replicates": 2000,
+      "upper_95": 0.9623333333333334,
+      "valid_replicates": 2000
+    },
+    "tpir_rank1": {
+      "lower_95": 0.901498143733811,
+      "requested_replicates": 2000,
+      "upper_95": 0.948936170212766,
+      "valid_replicates": 2000
+    },
+    "tpir_rank5": {
+      "lower_95": 0.901498143733811,
+      "requested_replicates": 2000,
+      "upper_95": 0.948936170212766,
+      "valid_replicates": 2000
+    }
+  },
+  "limitations": [
+    "This remains a proof of concept. No result here proves fraud, misuse or misrepresentation by any person.",
+    "No automatic sanction is applied. Every outcome opens a case for human review and nothing else. In this gallery-screening experiment the referral is triggered by a high similarity to another enrolled identity; profile-photo consistency refers a low similarity to the profile's own template instead, and an extraction failure makes no decision at all.",
+    "The BFW open-set evaluation uses a protocol defined by this project. BFW publishes verification and bias-analysis protocols, not an open-set identification protocol.",
+    "Development and test identities are completely disjoint, and the operating threshold was frozen before the held-out test partition was scored.",
+    "Extraction failures are counted as coverage failures, never as genuine no-match decisions.",
+    "Confidence intervals describe sampling uncertainty over these benchmark identities only. They do not extend to any other population.",
+    "Benchmark demographics do not represent any real deployed user population, so subgroup figures must not be read as deployment estimates."
+  ],
+  "method": "three_image_open_set_calibrated",
+  "methodology_revision": "open-set-gallery-accounting-v2",
+  "model_sha256": {
+    "sface": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+    "yunet": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+  },
+  "model_version": "opencv-sface-2021dec-yunet-2023mar",
+  "opaque_id_version": "hmac-sha256-v1",
+  "operating_threshold": 0.477117869159,
+  "partition": "test",
+  "pipeline_name": "opencv-sface-2021dec-yunet-2023mar",
+  "policy_note": "Duplicate-profile screening: a high similarity to another enrolled gallery identity opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity. This polarity applies to gallery screening; profile-photo consistency refers a *low* similarity instead, and an extraction failure makes no decision at all.",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "replicates": 2000,
+  "resampling_unit": "identity (cluster bootstrap, subgroup-stratified)",
+  "schema_version": 1,
+  "seed": 20260727,
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  }
+}

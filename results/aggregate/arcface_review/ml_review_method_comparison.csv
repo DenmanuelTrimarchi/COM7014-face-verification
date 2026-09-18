@@ -1,0 +1,3 @@
+method,fpir,tpir_rank1,tpir_rank5,false_reviews_per_1000_non_mated,end_to_end_duplicate_detection_rate
+three_image_open_set_calibrated,0.0013391362571141614,0.9679679679679679,0.9679679679679679,1.3391362571141614,0.967
+logistic_regression_review_classifier,0.0,0.958958958958959,0.95995995995996,0.0,0.958

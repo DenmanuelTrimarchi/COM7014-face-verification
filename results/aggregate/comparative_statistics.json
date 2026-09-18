@@ -1,0 +1,983 @@
+{
+  "analyses": {
+    "common_success": {
+      "detector_embedder_interaction": {
+        "contrast": "(SCRFD+ArcFace - YuNet+ArcFace) - (SCRFD+SFace - YuNet+SFace)",
+        "metrics": {
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": -0.0286624203821656,
+            "lower_95": -0.042062095301344915,
+            "requested_replicates": 2000,
+            "upper_95": -0.016895013789938424,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": -0.0010537407797681772,
+            "lower_95": -0.004197418788120471,
+            "requested_replicates": 2000,
+            "upper_95": 0.00174771717495107,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 0.0,
+            "lower_95": 0.0,
+            "requested_replicates": 2000,
+            "upper_95": 0.0,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": 0.0,
+            "lower_95": 0.0,
+            "requested_replicates": 2000,
+            "upper_95": 0.0,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": -0.0286624203821656,
+            "lower_95": -0.042062095301344915,
+            "requested_replicates": 2000,
+            "upper_95": -0.016895013789938424,
+            "valid_replicates": 2000
+          }
+        }
+      },
+      "paired_differences": [
+        {
+          "direction": "right minus left",
+          "left": "YuNet + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.0286624203821656,
+              "lower_95": 0.01689501378993842,
+              "requested_replicates": 2000,
+              "upper_95": 0.04206209530134491,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": 0.0010537407797681772,
+              "lower_95": -0.001763668430335097,
+              "requested_replicates": 2000,
+              "upper_95": 0.004215000144398772,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.0286624203821656,
+              "lower_95": 0.01689501378993842,
+              "requested_replicates": 2000,
+              "upper_95": 0.04206209530134491,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "SCRFD + SFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "YuNet + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.04670912951167727,
+              "lower_95": 0.029722417143474032,
+              "requested_replicates": 2000,
+              "upper_95": 0.065628065349947,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": -0.0038637161924833154,
+              "lower_95": -0.007044796118495506,
+              "requested_replicates": 2000,
+              "upper_95": -0.001049675915693288,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.04670912951167727,
+              "lower_95": 0.029722417143474032,
+              "requested_replicates": 2000,
+              "upper_95": 0.065628065349947,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "YuNet + ArcFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "YuNet + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.04670912951167727,
+              "lower_95": 0.029722417143474032,
+              "requested_replicates": 2000,
+              "upper_95": 0.065628065349947,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": -0.0038637161924833154,
+              "lower_95": -0.00704237759183714,
+              "requested_replicates": 2000,
+              "upper_95": -0.001048951048951049,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.04670912951167727,
+              "lower_95": 0.029722417143474032,
+              "requested_replicates": 2000,
+              "upper_95": 0.065628065349947,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "SCRFD + ArcFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "SCRFD + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.018046709129511673,
+              "lower_95": 0.009584409625450357,
+              "requested_replicates": 2000,
+              "upper_95": 0.02786934273761363,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": -0.004917456972251493,
+              "lower_95": -0.008744545824625758,
+              "requested_replicates": 2000,
+              "upper_95": -0.0017507002801120449,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.018046709129511673,
+              "lower_95": 0.009584409625450357,
+              "requested_replicates": 2000,
+              "upper_95": 0.02786934273761363,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "YuNet + ArcFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "SCRFD + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.018046709129511673,
+              "lower_95": 0.009584409625450357,
+              "requested_replicates": 2000,
+              "upper_95": 0.02786934273761363,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": -0.004917456972251493,
+              "lower_95": -0.008095812201615182,
+              "requested_replicates": 2000,
+              "upper_95": -0.0021201039108821942,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.018046709129511673,
+              "lower_95": 0.009584409625450357,
+              "requested_replicates": 2000,
+              "upper_95": 0.02786934273761363,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "SCRFD + ArcFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "YuNet + ArcFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": 0.0,
+              "lower_95": -0.001415954281988345,
+              "requested_replicates": 2000,
+              "upper_95": 0.0017643063242194711,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "SCRFD + ArcFace"
+        }
+      ],
+      "pipelines": {
+        "SCRFD + ArcFace": {
+          "counts": {
+            "detected": 916,
+            "false_referrals": 4,
+            "intended_mated": 942,
+            "intended_non_mated": 2847,
+            "scored_mated": 942,
+            "scored_non_mated": 2847
+          },
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": 0.9723991507430998,
+            "lower_95": 0.9597457627118644,
+            "requested_replicates": 2000,
+            "upper_95": 0.9840768552728452,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": 0.0014049877063575693,
+            "lower_95": 0.0,
+            "requested_replicates": 2000,
+            "upper_95": 0.003873341831035561,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 1.0,
+            "lower_95": 1.0,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": 1.0,
+            "lower_95": 1.0,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": 0.9723991507430998,
+            "lower_95": 0.9597457627118644,
+            "requested_replicates": 2000,
+            "upper_95": 0.9840768552728452,
+            "valid_replicates": 2000
+          }
+        },
+        "SCRFD + SFace": {
+          "counts": {
+            "detected": 899,
+            "false_referrals": 18,
+            "intended_mated": 942,
+            "intended_non_mated": 2847,
+            "scored_mated": 942,
+            "scored_non_mated": 2847
+          },
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": 0.9543524416135881,
+            "lower_95": 0.9384288747346072,
+            "requested_replicates": 2000,
+            "upper_95": 0.9686216729179925,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": 0.006322444678609062,
+            "lower_95": 0.002465591853094738,
+            "requested_replicates": 2000,
+            "upper_95": 0.010900524454745347,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 1.0,
+            "lower_95": 1.0,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": 1.0,
+            "lower_95": 1.0,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": 0.9543524416135881,
+            "lower_95": 0.9384288747346072,
+            "requested_replicates": 2000,
+            "upper_95": 0.9686216729179925,
+            "valid_replicates": 2000
+          }
+        },
+        "YuNet + ArcFace": {
+          "counts": {
+            "detected": 916,
+            "false_referrals": 4,
+            "intended_mated": 942,
+            "intended_non_mated": 2847,
+            "scored_mated": 942,
+            "scored_non_mated": 2847
+          },
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": 0.9723991507430998,
+            "lower_95": 0.9597457627118644,
+            "requested_replicates": 2000,
+            "upper_95": 0.9840768552728452,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": 0.0014049877063575693,
+            "lower_95": 0.0003485535029627048,
+            "requested_replicates": 2000,
+            "upper_95": 0.0028218694885361554,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 1.0,
+            "lower_95": 1.0,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": 1.0,
+            "lower_95": 1.0,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": 0.9723991507430998,
+            "lower_95": 0.9597457627118644,
+            "requested_replicates": 2000,
+            "upper_95": 0.9840768552728452,
+            "valid_replicates": 2000
+          }
+        },
+        "YuNet + SFace": {
+          "counts": {
+            "detected": 872,
+            "false_referrals": 15,
+            "intended_mated": 942,
+            "intended_non_mated": 2847,
+            "scored_mated": 942,
+            "scored_non_mated": 2847
+          },
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": 0.9256900212314225,
+            "lower_95": 0.9015824529168581,
+            "requested_replicates": 2000,
+            "upper_95": 0.9476592877341816,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": 0.005268703898840885,
+            "lower_95": 0.0017767042080273935,
+            "requested_replicates": 2000,
+            "upper_95": 0.009164772137395801,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 1.0,
+            "lower_95": 1.0,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": 1.0,
+            "lower_95": 1.0,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": 0.9256900212314225,
+            "lower_95": 0.9015824529168581,
+            "requested_replicates": 2000,
+            "upper_95": 0.9476592877341816,
+            "valid_replicates": 2000
+          }
+        }
+      }
+    },
+    "full_protocol": {
+      "detector_embedder_interaction": {
+        "contrast": "(SCRFD+ArcFace - YuNet+ArcFace) - (SCRFD+SFace - YuNet+SFace)",
+        "metrics": {
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": -0.026000000000000023,
+            "lower_95": -0.039000000000000035,
+            "requested_replicates": 2000,
+            "upper_95": -0.015000000000000013,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": -0.0015234229957456985,
+            "lower_95": -0.00495554231293143,
+            "requested_replicates": 2000,
+            "upper_95": 0.0015007395758302553,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 0.0,
+            "lower_95": 0.0,
+            "requested_replicates": 2000,
+            "upper_95": 0.0,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": -0.00033333333333340764,
+            "lower_95": -0.0010000000000000009,
+            "requested_replicates": 2000,
+            "upper_95": 0.0,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": -0.028691111493659327,
+            "lower_95": -0.04225657905745855,
+            "requested_replicates": 2000,
+            "upper_95": -0.016789372905676305,
+            "valid_replicates": 2000
+          }
+        }
+      },
+      "paired_differences": [
+        {
+          "direction": "right minus left",
+          "left": "YuNet + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.07699999999999996,
+              "lower_95": 0.05797499999999994,
+              "requested_replicates": 2000,
+              "upper_95": 0.09899999999999998,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": 0.0011143075046081115,
+              "lower_95": -0.001895988725955687,
+              "requested_replicates": 2000,
+              "upper_95": 0.004405285757767171,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.05700000000000005,
+              "lower_95": 0.041000000000000036,
+              "requested_replicates": 2000,
+              "upper_95": 0.07599999999999996,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.04266666666666674,
+              "lower_95": 0.033333333333333326,
+              "requested_replicates": 2000,
+              "upper_95": 0.05300000000000005,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.024259928718527446,
+              "lower_95": 0.011318753912067405,
+              "requested_replicates": 2000,
+              "upper_95": 0.03864940647792516,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "SCRFD + SFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "YuNet + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.04400000000000004,
+              "lower_95": 0.028000000000000025,
+              "requested_replicates": 2000,
+              "upper_95": 0.062000000000000055,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": -0.003498337968432407,
+              "lower_95": -0.006954102920723227,
+              "requested_replicates": 2000,
+              "upper_95": -0.0006907116945796069,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.00033333333333340764,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0010000000000000009,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.04670912951167727,
+              "lower_95": 0.029722417143474032,
+              "requested_replicates": 2000,
+              "upper_95": 0.065628065349947,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "YuNet + ArcFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "YuNet + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.09499999999999997,
+              "lower_95": 0.07299999999999995,
+              "requested_replicates": 2000,
+              "upper_95": 0.121,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": -0.003907453459569993,
+              "lower_95": -0.007073796897966638,
+              "requested_replicates": 2000,
+              "upper_95": -0.0010985535835798068,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.05700000000000005,
+              "lower_95": 0.041000000000000036,
+              "requested_replicates": 2000,
+              "upper_95": 0.07599999999999996,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.04266666666666674,
+              "lower_95": 0.033333333333333326,
+              "requested_replicates": 2000,
+              "upper_95": 0.05300000000000005,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.04227794673654539,
+              "lower_95": 0.024987440106307282,
+              "requested_replicates": 2000,
+              "upper_95": 0.06238041767752989,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "SCRFD + ArcFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "SCRFD + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": -0.03299999999999992,
+              "lower_95": -0.052999999999999936,
+              "requested_replicates": 2000,
+              "upper_95": -0.014999999999999902,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": -0.0046126454730405185,
+              "lower_95": -0.008575769563285814,
+              "requested_replicates": 2000,
+              "upper_95": -0.001307012788513913,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": -0.05700000000000005,
+              "lower_95": -0.07599999999999996,
+              "requested_replicates": 2000,
+              "upper_95": -0.041000000000000036,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": -0.042333333333333334,
+              "lower_95": -0.05266666666666664,
+              "requested_replicates": 2000,
+              "upper_95": -0.03300000000000003,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.022449200793149826,
+              "lower_95": 0.012995755262914886,
+              "requested_replicates": 2000,
+              "upper_95": 0.03282212483389953,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "YuNet + ArcFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "SCRFD + SFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.018000000000000016,
+              "lower_95": 0.010000000000000009,
+              "requested_replicates": 2000,
+              "upper_95": 0.027999999999999914,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": -0.0050217609641781055,
+              "lower_95": -0.008366800535475234,
+              "requested_replicates": 2000,
+              "upper_95": -0.0023426845555524207,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.0,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.0,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.018018018018017945,
+              "lower_95": 0.010000000000000009,
+              "requested_replicates": 2000,
+              "upper_95": 0.027999999999999914,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "SCRFD + ArcFace"
+        },
+        {
+          "direction": "right minus left",
+          "left": "YuNet + ArcFace",
+          "metrics": {
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.050999999999999934,
+              "lower_95": 0.03599999999999992,
+              "requested_replicates": 2000,
+              "upper_95": 0.06899999999999995,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": -0.0004091154911375868,
+              "lower_95": -0.002104524728165556,
+              "requested_replicates": 2000,
+              "upper_95": 0.0012999251888766749,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.05700000000000005,
+              "lower_95": 0.041000000000000036,
+              "requested_replicates": 2000,
+              "upper_95": 0.07599999999999996,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.042333333333333334,
+              "lower_95": 0.03300000000000003,
+              "requested_replicates": 2000,
+              "upper_95": 0.05266666666666664,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": -0.004431182775131881,
+              "lower_95": -0.010250777593850341,
+              "requested_replicates": 2000,
+              "upper_95": 0.00031694540433330193,
+              "valid_replicates": 2000
+            }
+          },
+          "right": "SCRFD + ArcFace"
+        }
+      ],
+      "pipelines": {
+        "SCRFD + ArcFace": {
+          "counts": {
+            "detected": 967,
+            "false_referrals": 4,
+            "intended_mated": 1000,
+            "intended_non_mated": 3000,
+            "scored_mated": 999,
+            "scored_non_mated": 2987
+          },
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": 0.967,
+            "lower_95": 0.954,
+            "requested_replicates": 2000,
+            "upper_95": 0.979,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": 0.0013391362571141614,
+            "lower_95": 0.0,
+            "requested_replicates": 2000,
+            "upper_95": 0.003686327077747989,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 0.999,
+            "lower_95": 0.997,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": 0.9956666666666667,
+            "lower_95": 0.9933333333333333,
+            "requested_replicates": 2000,
+            "upper_95": 0.9976666666666667,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": 0.9679679679679679,
+            "lower_95": 0.955,
+            "requested_replicates": 2000,
+            "upper_95": 0.97997997997998,
+            "valid_replicates": 2000
+          }
+        },
+        "SCRFD + SFace": {
+          "counts": {
+            "detected": 949,
+            "false_referrals": 19,
+            "intended_mated": 1000,
+            "intended_non_mated": 3000,
+            "scored_mated": 999,
+            "scored_non_mated": 2987
+          },
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": 0.949,
+            "lower_95": 0.933,
+            "requested_replicates": 2000,
+            "upper_95": 0.963,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": 0.0063608972212922665,
+            "lower_95": 0.002677376171352075,
+            "requested_replicates": 2000,
+            "upper_95": 0.011036789297658863,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 0.999,
+            "lower_95": 0.997,
+            "requested_replicates": 2000,
+            "upper_95": 1.0,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": 0.9956666666666667,
+            "lower_95": 0.9933333333333333,
+            "requested_replicates": 2000,
+            "upper_95": 0.9976666666666667,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": 0.94994994994995,
+            "lower_95": 0.9348044132397192,
+            "requested_replicates": 2000,
+            "upper_95": 0.9648955634438385,
+            "valid_replicates": 2000
+          }
+        },
+        "YuNet + ArcFace": {
+          "counts": {
+            "detected": 916,
+            "false_referrals": 5,
+            "intended_mated": 1000,
+            "intended_non_mated": 3000,
+            "scored_mated": 942,
+            "scored_non_mated": 2860
+          },
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": 0.916,
+            "lower_95": 0.894,
+            "requested_replicates": 2000,
+            "upper_95": 0.936,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": 0.0017482517482517483,
+            "lower_95": 0.0003498950314905528,
+            "requested_replicates": 2000,
+            "upper_95": 0.003485535029627048,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 0.942,
+            "lower_95": 0.923,
+            "requested_replicates": 2000,
+            "upper_95": 0.959,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": 0.9533333333333334,
+            "lower_95": 0.9433333333333334,
+            "requested_replicates": 2000,
+            "upper_95": 0.9623333333333334,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": 0.9723991507430998,
+            "lower_95": 0.9597457627118644,
+            "requested_replicates": 2000,
+            "upper_95": 0.9840768552728452,
+            "valid_replicates": 2000
+          }
+        },
+        "YuNet + SFace": {
+          "counts": {
+            "detected": 872,
+            "false_referrals": 15,
+            "intended_mated": 1000,
+            "intended_non_mated": 3000,
+            "scored_mated": 942,
+            "scored_non_mated": 2859
+          },
+          "end_to_end_duplicate_detection_rate": {
+            "estimate": 0.872,
+            "lower_95": 0.843,
+            "requested_replicates": 2000,
+            "upper_95": 0.9,
+            "valid_replicates": 2000
+          },
+          "fpir": {
+            "estimate": 0.005246589716684155,
+            "lower_95": 0.0017661291961582613,
+            "requested_replicates": 2000,
+            "upper_95": 0.009110100851560622,
+            "valid_replicates": 2000
+          },
+          "mated_extraction_coverage": {
+            "estimate": 0.942,
+            "lower_95": 0.923,
+            "requested_replicates": 2000,
+            "upper_95": 0.959,
+            "valid_replicates": 2000
+          },
+          "non_mated_extraction_coverage": {
+            "estimate": 0.953,
+            "lower_95": 0.943,
+            "requested_replicates": 2000,
+            "upper_95": 0.9620083333333332,
+            "valid_replicates": 2000
+          },
+          "tpir_rank1": {
+            "estimate": 0.9256900212314225,
+            "lower_95": 0.9015824529168581,
+            "requested_replicates": 2000,
+            "upper_95": 0.9476592877341816,
+            "valid_replicates": 2000
+          }
+        }
+      }
+    }
+  },
+  "artifact_type": "paired_pipeline_comparison",
+  "canonical_run_digests": {
+    "SCRFD + ArcFace": "064bd758f41c05fe2ce9730179502f2d4b025b68e5fa4b9209806c02bbed4de5",
+    "SCRFD + SFace": "f068bed6625cb902990dd8d8022336d8dea4a93bb19744bc9c2a8ab876758ba1",
+    "YuNet + ArcFace": "616bdedd70727de2ce06d1a3a187652edb68035a00e954719d4eaeeadd48c15a",
+    "YuNet + SFace": "69e2c6b6c8414f47d97127e78f7714de98f9586b5182786f1ced9b18b5b71e1a"
+  },
+  "common_success_probes": 3789,
+  "created_at": "2026-09-17T14:04:34.694998+00:00",
+  "independent_identities": 400,
+  "intended_probes": 4000,
+  "limitations": "Exploratory unadjusted 95% intervals. Fixed galleries and frozen policies; uncertainty excludes model fitting, threshold estimation, gallery selection and population shift. Common-success analysis describes a selected subset only. Zero-event bootstrap intervals cannot bound population FPIR.",
+  "method": "Paired percentile identity bootstrap stratified by role and subgroup; identical identity draws across methods",
+  "public_manifest_sha256": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "replicates": 2000,
+  "schema_version": 1,
+  "seed": 20260727,
+  "thresholds": {
+    "SCRFD + ArcFace": 0.393957955447,
+    "SCRFD + SFace": 0.47143248235,
+    "YuNet + ArcFace": 0.391290467338,
+    "YuNet + SFace": 0.477117869159
+  }
+}

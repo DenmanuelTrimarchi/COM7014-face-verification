@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-09-17T14:03:34.051285+00:00",
+  "developed_on": "development identities only",
+  "diagnostic_revision": "calibrated-controls-gallery-features-quality-v1",
+  "policies": {
+    "one_image": {
+      "candidates_admissible": 800,
+      "candidates_evaluated": 3819,
+      "development_fpir": 0.002797202797202797,
+      "development_tpir_rank1": 0.8244514106583072,
+      "development_tpir_rank5": 0.8254963427377221,
+      "selected_candidate": "score_0.471241107981",
+      "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+      "target_fpir": 0.003,
+      "threshold": 0.471241107981
+    },
+    "three_images": {
+      "candidates_admissible": 898,
+      "candidates_evaluated": 3821,
+      "development_fpir": 0.002797202797202797,
+      "development_tpir_rank1": 0.927007299270073,
+      "development_tpir_rank5": 0.927007299270073,
+      "selected_candidate": "score_0.477117869159",
+      "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+      "target_fpir": 0.003,
+      "threshold": 0.477117869159
+    }
+  },
+  "schema_version": 1,
+  "status": "open_set_frozen"
+}

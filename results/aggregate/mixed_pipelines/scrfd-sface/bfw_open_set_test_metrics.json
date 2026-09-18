@@ -1,0 +1,241 @@
+{
+  "artifact_type": "bfw_open_set_test_metrics",
+  "cache_schema_version": 3,
+  "canonical_development_context_sha256": "dc7824b4dc24de21e0b92337428dea36383b2c11c47c1131797277ea7e689ddb",
+  "canonical_development_run_digest": "b9b67a2a1993abaef333a9d71ed4a8af916cba1e9211685a73f0eae65f5b3e56",
+  "canonical_test_context_sha256": "c8aed06d57fec5083b90bb805942f0bacbb84422655c3ca138b5ef437e6e03ae",
+  "canonical_test_run_digest": "f068bed6625cb902990dd8d8022336d8dea4a93bb19744bc9c2a8ab876758ba1",
+  "created_at": "2026-09-17T14:02:59.654171+00:00",
+  "crossing": "scrfd-sface",
+  "dataset_name": "BFW",
+  "dataset_provenance": {
+    "dataset_name": "BFW",
+    "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+    "images_per_identity_max": 25,
+    "images_per_identity_median": 25.0,
+    "images_per_identity_min": 25,
+    "metadata_filename": "bfw-v0.1.5-datatable.csv",
+    "metadata_sha256": "e098dc77da1b71c5dbe981ae6823a316de1092b7698d124ed2e78ece843aff4c",
+    "protocol_provenance": "Project-defined open-set protocol constructed from the official BFW data. BFW publishes verification and bias-analysis protocols; it does not publish an open-set identification protocol, and none is implied here.",
+    "protocol_version": "acp-arden-bfw-open-set-v1",
+    "subgroup_identity_counts": {
+      "asian_females": 100,
+      "asian_males": 100,
+      "black_females": 100,
+      "black_males": 100,
+      "indian_females": 100,
+      "indian_males": 100,
+      "white_females": 100,
+      "white_males": 100
+    },
+    "total_identities": 800,
+    "total_images": 20000
+  },
+  "dependency_versions": {
+    "Pillow": "12.3.0",
+    "easydict": "not_required_by_insightface_1_0_1",
+    "insightface": "1.0.1",
+    "matplotlib": "3.11.1",
+    "numpy": "2.5.1",
+    "onnx": "1.22.0",
+    "onnxruntime": "1.28.0",
+    "opencv-python-headless": "4.13.0.92",
+    "prettytable": "not_required_by_insightface_1_0_1",
+    "requests": "2.34.2",
+    "scikit-image": "0.26.0",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.0",
+    "tqdm": "4.70.0"
+  },
+  "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+  "limitations": [
+    "A benchmark-validated, human-review-only research proof of concept. Nothing here is production-ready, unbiased, secure, or capable of proving fraudulent behaviour.",
+    "The classifier predicts whether a search should open a human-review case. Its output is not evidence of duplication, fraud or misuse, and no sanction follows from it.",
+    "Coefficients describe association within this classifier on these benchmark identities. They are not causal, and they do not transfer to another population.",
+    "Demographic subgroup is never a classifier input. It is used only for post-hoc fairness reporting.",
+    "Extraction failures are reported separately and are never counted as genuine negative decisions."
+  ],
+  "methods": {
+    "three_image_open_set_calibrated": {
+      "conditional_duplicate_detection_rate": 0.94994994994995,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 42.54822016340717,
+        "complete_pipeline_latency_p95_ms": 44.066900053439895,
+        "detection_latency_mean_ms": 24.20565460071621,
+        "detection_latency_p95_ms": 24.846901855562464,
+        "embedding_latency_mean_ms": 17.42654905277734,
+        "embedding_latency_p95_ms": 18.008781149910646,
+        "enrolled_gallery_identities": 200,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 200,
+        "image_load_latency_mean_ms": 0.9160165099136218,
+        "image_load_latency_p95_ms": 1.7926472501130775,
+        "images_timed": 4584,
+        "intended_gallery_identities": 200,
+        "intended_mated_probes": 1000,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.001,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 2
+        },
+        "scored_mated_probes": 999,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 797200,
+        "top1_search_time_mean_ms": 0.8879882217415482,
+        "top1_search_time_p95_ms": 0.9252294985344633,
+        "top5_search_time_mean_ms": 0.9085261377240212,
+        "top5_search_time_p95_ms": 0.9462712459935574
+      },
+      "end_to_end_duplicate_detection_rate": 0.949,
+      "operating_points": {
+        "0.001": {
+          "cmc_rank1": 0.97997997997998,
+          "cmc_rank5": 0.98998998998999,
+          "false_reviews_per_1000_non_mated": 0.0,
+          "fnir_rank1": 0.7597597597597597,
+          "fnir_rank5": 0.7597597597597597,
+          "fpir": 0.0,
+          "scored_mated_probes": 999,
+          "scored_non_mated_probes": 2987,
+          "threshold": 0.772257744317,
+          "tpir_rank1": 0.24024024024024024,
+          "tpir_rank5": 0.24024024024024024
+        },
+        "0.003": {
+          "cmc_rank1": 0.97997997997998,
+          "cmc_rank5": 0.98998998998999,
+          "false_reviews_per_1000_non_mated": 6.360897221292267,
+          "fnir_rank1": 0.05005005005005003,
+          "fnir_rank5": 0.05005005005005003,
+          "fpir": 0.0063608972212922665,
+          "scored_mated_probes": 999,
+          "scored_non_mated_probes": 2987,
+          "threshold": 0.47143248235,
+          "tpir_rank1": 0.94994994994995,
+          "tpir_rank5": 0.94994994994995
+        },
+        "0.01": {
+          "cmc_rank1": 0.97997997997998,
+          "cmc_rank5": 0.98998998998999,
+          "false_reviews_per_1000_non_mated": 17.408771342484098,
+          "fnir_rank1": 0.041041041041041004,
+          "fnir_rank5": 0.041041041041041004,
+          "fpir": 0.017408771342484097,
+          "scored_mated_probes": 999,
+          "scored_non_mated_probes": 2987,
+          "threshold": 0.443377220002,
+          "tpir_rank1": 0.958958958958959,
+          "tpir_rank5": 0.958958958958959
+        }
+      },
+      "primary_operating_point": {
+        "cmc_rank1": 0.97997997997998,
+        "cmc_rank5": 0.98998998998999,
+        "false_reviews_per_1000_non_mated": 6.360897221292267,
+        "fnir_rank1": 0.05005005005005003,
+        "fnir_rank5": 0.05005005005005003,
+        "fpir": 0.0063608972212922665,
+        "scored_mated_probes": 999,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.47143248235,
+        "tpir_rank1": 0.94994994994995,
+        "tpir_rank5": 0.94994994994995
+      }
+    }
+  },
+  "opaque_id_version": "hmac-sha256-v1",
+  "opencv_distribution": {
+    "conflicting_opencv_python_present": false,
+    "imported_cv2_version": "4.13.0",
+    "opencv_distribution": "opencv-python-headless"
+  },
+  "opencv_execution": {
+    "bitwise_reproducible_across_processes": false,
+    "opencv_opencl_enabled": false,
+    "opencv_parallel_framework": "GCD",
+    "opencv_threads_reported": 1,
+    "reproducibility_mechanism": "Canonical run cache. Detection is not bit-stable across fresh processes on this platform, so every derived artefact reads one cached extraction rather than re-deriving it."
+  },
+  "operating_threshold": 0.47143248235,
+  "pipeline": {
+    "comparison_scope": "Complete pipeline: detection, preprocessing and embedding. A difference between pipelines cannot be attributed to the embedding model alone.",
+    "detector_name": "InsightFace SCRFD (det_10g)",
+    "embedding_dimensions": 128,
+    "embedding_model_name": "OpenCV SFace 2021dec",
+    "licence_note": "This pipeline combines an OpenCV Zoo model with an InsightFace model. Both licences therefore apply together: the OpenCV weights are redistributable for research use, and the InsightFace weights are used here only for local, non-commercial academic evaluation that publishes aggregate metrics alone. Neither model is trained, fine-tuned or redistributed.",
+    "model_sha256": {
+      "detector": "5838f7fe053675b1c7a08b633df49e7af5495cee0493c7dcf6697200b85b5b91",
+      "recognition": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79"
+    },
+    "pipeline_name": "mixed-scrfd-sface",
+    "preprocessing_revision": "mixed-scrfd-sface-112x112-v1"
+  },
+  "policy_note": "Duplicate-profile screening: a high similarity to another enrolled gallery identity opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity. This polarity applies to gallery screening; profile-photo consistency refers a *low* similarity instead, and an extraction failure makes no decision at all.",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "primary_fpir_target": 0.003,
+  "protocol_digest": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "protocol_version": "acp-arden-bfw-open-set-v1",
+  "public_manifest_digest": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "public_manifest_sha256": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "schema_version": 1,
+  "seed": 20260727,
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "status": "open_set_tested",
+  "success_criteria": {
+    "criteria_declared_before_test": true,
+    "fpir_at_or_below_1_percent": {
+      "actual": 0.0063608972212922665,
+      "outcome": "achieved",
+      "target": 0.01
+    },
+    "gallery_enrolment_coverage_at_least_90_percent": {
+      "actual": 1.0,
+      "outcome": "achieved",
+      "target": 0.9
+    },
+    "probe_extraction_coverage_at_least_90_percent": {
+      "actual": 0.9956666666666667,
+      "outcome": "achieved",
+      "target": 0.9
+    },
+    "tpir_rank1_at_least_90_percent": {
+      "actual": 0.94994994994995,
+      "outcome": "achieved",
+      "target": 0.9
+    },
+    "tpir_rank5_at_least_95_percent": {
+      "actual": 0.94994994994995,
+      "outcome": "not_achieved",
+      "target": 0.95
+    }
+  },
+  "threshold_source": "results/aggregate/mixed_pipelines/scrfd-sface/bfw_open_set_threshold.json"
+}

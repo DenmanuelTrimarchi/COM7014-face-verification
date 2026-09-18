@@ -1,0 +1,149 @@
+{
+  "aggregation": "pooled over identity outcomes, not averaged over subgroup percentages",
+  "artifact_type": "bfw_sex_aggregated_metrics",
+  "cache_schema_version": 3,
+  "canonical_development_context_sha256": "f03a419ee5f410851b5a087220aa99d4eec85090ec77e7629bd2a119a5bb6b40",
+  "canonical_development_run_digest": "075c533342de36315d20488c7f3c97464daef983f157f7da017cebe4a78d1515",
+  "canonical_run_digest": "69e2c6b6c8414f47d97127e78f7714de98f9586b5182786f1ced9b18b5b71e1a",
+  "canonical_test_context_sha256": "1b14ced717122ff65352bea5bd1b899835ba3882285d648091a9f4825bdca698",
+  "canonical_test_run_digest": "69e2c6b6c8414f47d97127e78f7714de98f9586b5182786f1ced9b18b5b71e1a",
+  "created_at": "2026-09-17T13:45:31.280966+00:00",
+  "dataset_provenance": {
+    "dataset_name": "BFW",
+    "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+    "images_per_identity_max": 25,
+    "images_per_identity_median": 25.0,
+    "images_per_identity_min": 25,
+    "metadata_filename": "bfw-v0.1.5-datatable.csv",
+    "metadata_sha256": "e098dc77da1b71c5dbe981ae6823a316de1092b7698d124ed2e78ece843aff4c",
+    "protocol_provenance": "Project-defined open-set protocol constructed from the official BFW data. BFW publishes verification and bias-analysis protocols; it does not publish an open-set identification protocol, and none is implied here.",
+    "protocol_version": "acp-arden-bfw-open-set-v1",
+    "subgroup_identity_counts": {
+      "asian_females": 100,
+      "asian_males": 100,
+      "black_females": 100,
+      "black_males": 100,
+      "indian_females": 100,
+      "indian_males": 100,
+      "white_females": 100,
+      "white_males": 100
+    },
+    "total_identities": 800,
+    "total_images": 20000
+  },
+  "groups": {
+    "female": {
+      "fnir_rank1": 0.0935550935550935,
+      "fnir_rank1_lower_95": 0.05625000000000002,
+      "fnir_rank1_upper_95": 0.13361169102296455,
+      "fpir": 0.009015256588072122,
+      "fpir_lower_95": 0.0027912010372302684,
+      "fpir_upper_95": 0.01664412852519648,
+      "identities": 200,
+      "intended_mated_probes": 500,
+      "intended_non_mated_probes": 1500,
+      "mated_extraction_failures": 19,
+      "mated_probe_coverage": 0.962,
+      "mated_probe_coverage_lower_95": 0.944,
+      "mated_probe_coverage_upper_95": 0.978,
+      "non_mated_extraction_failures": 58,
+      "non_mated_probe_coverage": 0.9613333333333334,
+      "non_mated_probe_coverage_lower_95": 0.9466666666666667,
+      "non_mated_probe_coverage_upper_95": 0.9746666666666667,
+      "population_note": "These benchmark categories do not represent every identity or any real deployed population.",
+      "scored_mated_probes": 481,
+      "scored_non_mated_probes": 1442,
+      "subgroups_pooled": [
+        "asian_females",
+        "black_females",
+        "indian_females",
+        "white_females"
+      ],
+      "tpir_rank1": 0.9064449064449065,
+      "tpir_rank1_lower_95": 0.8663883089770354,
+      "tpir_rank1_upper_95": 0.94375,
+      "tpir_rank5": 0.9064449064449065,
+      "tpir_rank5_lower_95": 0.8663883089770354,
+      "tpir_rank5_upper_95": 0.94375
+    },
+    "male": {
+      "fnir_rank1": 0.05422993492407813,
+      "fnir_rank1_lower_95": 0.03282096547638381,
+      "fnir_rank1_upper_95": 0.07592190889370931,
+      "fpir": 0.0014114326040931546,
+      "fpir_lower_95": 0.0,
+      "fpir_upper_95": 0.0035486790478417955,
+      "identities": 200,
+      "intended_mated_probes": 500,
+      "intended_non_mated_probes": 1500,
+      "mated_extraction_failures": 39,
+      "mated_probe_coverage": 0.922,
+      "mated_probe_coverage_lower_95": 0.886,
+      "mated_probe_coverage_upper_95": 0.952,
+      "non_mated_extraction_failures": 83,
+      "non_mated_probe_coverage": 0.9446666666666667,
+      "non_mated_probe_coverage_lower_95": 0.93,
+      "non_mated_probe_coverage_upper_95": 0.9573333333333334,
+      "population_note": "These benchmark categories do not represent every identity or any real deployed population.",
+      "scored_mated_probes": 461,
+      "scored_non_mated_probes": 1417,
+      "subgroups_pooled": [
+        "asian_males",
+        "black_males",
+        "indian_males",
+        "white_males"
+      ],
+      "tpir_rank1": 0.9457700650759219,
+      "tpir_rank1_lower_95": 0.9240780911062907,
+      "tpir_rank1_upper_95": 0.9671790345236162,
+      "tpir_rank5": 0.9457700650759219,
+      "tpir_rank5_lower_95": 0.9240780911062907,
+      "tpir_rank5_upper_95": 0.9671790345236162
+    }
+  },
+  "limitations": [
+    "This remains a proof of concept. No result here proves fraud, misuse or misrepresentation by any person.",
+    "No automatic sanction is applied. Every outcome opens a case for human review and nothing else. In this gallery-screening experiment the referral is triggered by a high similarity to another enrolled identity; profile-photo consistency refers a low similarity to the profile's own template instead, and an extraction failure makes no decision at all.",
+    "The BFW open-set evaluation uses a protocol defined by this project. BFW publishes verification and bias-analysis protocols, not an open-set identification protocol.",
+    "Development and test identities are completely disjoint, and the operating threshold was frozen before the held-out test partition was scored.",
+    "Extraction failures are counted as coverage failures, never as genuine no-match decisions.",
+    "Confidence intervals describe sampling uncertainty over these benchmark identities only. They do not extend to any other population.",
+    "Benchmark demographics do not represent any real deployed user population, so subgroup figures must not be read as deployment estimates."
+  ],
+  "methodology_revision": "open-set-gallery-accounting-v2",
+  "model_sha256": {
+    "sface": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+    "yunet": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+  },
+  "model_version": "opencv-sface-2021dec-yunet-2023mar",
+  "opaque_id_version": "hmac-sha256-v1",
+  "operating_threshold": 0.477117869159,
+  "pipeline_name": "opencv-sface-2021dec-yunet-2023mar",
+  "policy_note": "Duplicate-profile screening: a high similarity to another enrolled gallery identity opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity. This polarity applies to gallery screening; profile-photo consistency refers a *low* similarity instead, and an extraction failure makes no decision at all.",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "schema_version": 1,
+  "seed": 20260727,
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  }
+}

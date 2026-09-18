@@ -1,0 +1,194 @@
+{
+  "artifact_type": "ml_review_development_metrics",
+  "calibration_operating_points": {
+    "0.001": {
+      "conditional_duplicate_detection_rate": 0.9638157894736842,
+      "end_to_end_duplicate_detection_rate": 0.9606557377049181,
+      "extraction_coverage": 0.9941176470588236,
+      "false_reviews_per_1000_non_mated": 0.0,
+      "fnir_rank1": 0.03618421052631582,
+      "fnir_rank5": 0.03618421052631582,
+      "fpir": 0.0,
+      "gallery_reference_unavailable": 0,
+      "intended_mated_probes": 305,
+      "intended_non_mated_probes": 885,
+      "mated_correct_rank1_referred": 293,
+      "mated_correct_rank5_referred": 293,
+      "mated_extraction_coverage": 0.9967213114754099,
+      "mated_extraction_failures": 1,
+      "mated_not_referred": 11,
+      "mated_wrong_identity_referred": 0,
+      "non_mated_correctly_not_referred": 879,
+      "non_mated_extraction_coverage": 0.9932203389830508,
+      "non_mated_extraction_failures": 6,
+      "non_mated_incorrectly_referred": 0,
+      "probability_threshold": 0.845732325306,
+      "scored_mated_probes": 304,
+      "scored_non_mated_probes": 879,
+      "tpir_rank1": 0.9638157894736842,
+      "tpir_rank5": 0.9638157894736842
+    },
+    "0.003": {
+      "conditional_duplicate_detection_rate": 0.9638157894736842,
+      "end_to_end_duplicate_detection_rate": 0.9606557377049181,
+      "extraction_coverage": 0.9941176470588236,
+      "false_reviews_per_1000_non_mated": 0.0,
+      "fnir_rank1": 0.03618421052631582,
+      "fnir_rank5": 0.03618421052631582,
+      "fpir": 0.0,
+      "gallery_reference_unavailable": 0,
+      "intended_mated_probes": 305,
+      "intended_non_mated_probes": 885,
+      "mated_correct_rank1_referred": 293,
+      "mated_correct_rank5_referred": 293,
+      "mated_extraction_coverage": 0.9967213114754099,
+      "mated_extraction_failures": 1,
+      "mated_not_referred": 11,
+      "mated_wrong_identity_referred": 0,
+      "non_mated_correctly_not_referred": 879,
+      "non_mated_extraction_coverage": 0.9932203389830508,
+      "non_mated_extraction_failures": 6,
+      "non_mated_incorrectly_referred": 0,
+      "probability_threshold": 0.845732325306,
+      "scored_mated_probes": 304,
+      "scored_non_mated_probes": 879,
+      "tpir_rank1": 0.9638157894736842,
+      "tpir_rank5": 0.9638157894736842
+    },
+    "0.01": {
+      "conditional_duplicate_detection_rate": 0.9638157894736842,
+      "end_to_end_duplicate_detection_rate": 0.9606557377049181,
+      "extraction_coverage": 0.9941176470588236,
+      "false_reviews_per_1000_non_mated": 0.0,
+      "fnir_rank1": 0.03618421052631582,
+      "fnir_rank5": 0.03618421052631582,
+      "fpir": 0.0,
+      "gallery_reference_unavailable": 0,
+      "intended_mated_probes": 305,
+      "intended_non_mated_probes": 885,
+      "mated_correct_rank1_referred": 293,
+      "mated_correct_rank5_referred": 293,
+      "mated_extraction_coverage": 0.9967213114754099,
+      "mated_extraction_failures": 1,
+      "mated_not_referred": 11,
+      "mated_wrong_identity_referred": 0,
+      "non_mated_correctly_not_referred": 879,
+      "non_mated_extraction_coverage": 0.9932203389830508,
+      "non_mated_extraction_failures": 6,
+      "non_mated_incorrectly_referred": 0,
+      "probability_threshold": 0.845732325306,
+      "scored_mated_probes": 304,
+      "scored_non_mated_probes": 879,
+      "tpir_rank1": 0.9638157894736842,
+      "tpir_rank5": 0.9638157894736842
+    }
+  },
+  "calibration_rows": 1183,
+  "created_at": "2026-09-17T14:02:40.225295+00:00",
+  "dataset_name": "BFW",
+  "dataset_provenance": {
+    "dataset_name": "BFW",
+    "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+    "images_per_identity_max": 25,
+    "images_per_identity_median": 25.0,
+    "images_per_identity_min": 25,
+    "metadata_filename": "bfw-v0.1.5-datatable.csv",
+    "metadata_sha256": "e098dc77da1b71c5dbe981ae6823a316de1092b7698d124ed2e78ece843aff4c",
+    "protocol_provenance": "Project-defined open-set protocol constructed from the official BFW data. BFW publishes verification and bias-analysis protocols; it does not publish an open-set identification protocol, and none is implied here.",
+    "protocol_version": "acp-arden-bfw-open-set-v1",
+    "subgroup_identity_counts": {
+      "asian_females": 100,
+      "asian_males": 100,
+      "black_females": 100,
+      "black_males": 100,
+      "indian_females": 100,
+      "indian_males": 100,
+      "white_females": 100,
+      "white_males": 100
+    },
+    "total_identities": 800,
+    "total_images": 20000
+  },
+  "dependency_versions": {
+    "Pillow": "12.3.0",
+    "easydict": "not_required_by_insightface_1_0_1",
+    "insightface": "1.0.1",
+    "matplotlib": "3.11.1",
+    "numpy": "2.5.1",
+    "onnx": "1.22.0",
+    "onnxruntime": "1.28.0",
+    "opencv-python-headless": "4.13.0.92",
+    "prettytable": "not_required_by_insightface_1_0_1",
+    "requests": "2.34.2",
+    "scikit-image": "0.26.0",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.0",
+    "tqdm": "4.70.0"
+  },
+  "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+  "limitations": [
+    "A benchmark-validated, human-review-only research proof of concept. Nothing here is production-ready, unbiased, secure, or capable of proving fraudulent behaviour.",
+    "The classifier predicts whether a search should open a human-review case. Its output is not evidence of duplication, fraud or misuse, and no sanction follows from it.",
+    "Coefficients describe association within this classifier on these benchmark identities. They are not causal, and they do not transfer to another population.",
+    "Demographic subgroup is never a classifier input. It is used only for post-hoc fairness reporting.",
+    "Extraction failures are reported separately and are never counted as genuine negative decisions."
+  ],
+  "opaque_id_version": "hmac-sha256-v1",
+  "opencv_distribution": {
+    "conflicting_opencv_python_present": false,
+    "imported_cv2_version": "4.13.0",
+    "opencv_distribution": "opencv-python-headless"
+  },
+  "opencv_execution": {
+    "bitwise_reproducible_across_processes": false,
+    "opencv_opencl_enabled": false,
+    "opencv_parallel_framework": "GCD",
+    "opencv_threads_reported": 1,
+    "reproducibility_mechanism": "Canonical run cache. Detection is not bit-stable across fresh processes on this platform, so every derived artefact reads one cached extraction rather than re-deriving it."
+  },
+  "pipeline": {
+    "comparison_scope": "Complete pipeline: detection, preprocessing and embedding. A difference between pipelines cannot be attributed to the embedding model alone.",
+    "detector_name": "InsightFace SCRFD (det_10g)",
+    "embedding_dimensions": 512,
+    "embedding_model_name": "InsightFace ArcFace buffalo_l (w600k_r50)",
+    "licence_note": "InsightFace publishes its pretrained models for non-commercial research use. This project is an MSc academic research artefact: it is not a commercial service, is not deployed to real users, makes no commercial decisions, and neither sells, licenses nor redistributes the pretrained weights. The evaluation is local and non-commercial and publishes only aggregate metrics, so it falls within those research terms. The models were created and trained externally by the InsightFace project; no face-recognition network is trained or fine-tuned here. The MIT licence covering InsightFace source code does not automatically extend to every pretrained weight file, and no ownership of the models, their training data or their weights is claimed here.",
+    "model_sha256": {
+      "detector": "5838f7fe053675b1c7a08b633df49e7af5495cee0493c7dcf6697200b85b5b91",
+      "recognition": "4c06341c33c2ca1f86781dab0e829f88ad5b64be9fba56e56bc9ebdefc619e43"
+    },
+    "pipeline_name": "insightface-scrfd-arcface-buffalo_l",
+    "preprocessing_revision": "insightface-arcface-112x112-v1"
+  },
+  "policy_note": "Duplicate-profile screening: a high similarity to another enrolled gallery identity opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity. This polarity applies to gallery screening; profile-photo consistency refers a *low* similarity instead, and an extraction failure makes no decision at all.",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "protocol_digest": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "protocol_version": "acp-arden-bfw-open-set-v1",
+  "public_manifest_digest": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "schema_version": 1,
+  "seed": 20260727,
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "status": "ml_review_development",
+  "training_rows": 2799
+}

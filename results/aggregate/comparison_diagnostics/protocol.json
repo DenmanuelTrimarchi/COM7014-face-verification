@@ -1,0 +1,66 @@
+{
+  "artifact_type": "comparison_diagnostics_protocol",
+  "created_at": "2026-09-17T14:03:28.876767+00:00",
+  "feature_sets": {
+    "all_features": [
+      "top1_similarity",
+      "top2_similarity",
+      "top1_top2_margin",
+      "top5_similarity_mean",
+      "top5_similarity_stdev",
+      "top1_gallery_image_count",
+      "gallery_size",
+      "probe_detection_confidence",
+      "probe_face_area_ratio"
+    ],
+    "similarity_and_margin": [
+      "top1_similarity",
+      "top1_top2_margin"
+    ],
+    "similarity_only": [
+      "top1_similarity"
+    ]
+  },
+  "fixed_probe_core_size": 25,
+  "gallery_sampling_seeds": [
+    20260917,
+    20260918,
+    20260919
+  ],
+  "gallery_sizes": [
+    25,
+    50,
+    100,
+    200
+  ],
+  "image_content_sha256": "d3ab6c1c50295dd6df150215106d24e1a83fcfb2a8fa3302eb46e44ae0765140",
+  "limitations": "Designed after inspection of the benchmark test results. Exploratory analyses without independent confirmatory data. Gallery repeats vary galleries, not the development/test identity split.",
+  "protocol_digest": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "revision": "calibrated-controls-gallery-features-quality-v1",
+  "schema_version": 1,
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "status": "exploratory_protocol_frozen_before_diagnostic_scoring",
+  "target_fpir": 0.003
+}

@@ -1,0 +1,153 @@
+{
+  "artifact_type": "ml_review_threshold",
+  "classifier_hyperparameters": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "estimator": "sklearn.linear_model.LogisticRegression",
+    "fit_intercept": true,
+    "l1_ratio": 0.0,
+    "max_iter": 1000,
+    "random_state": 20260727,
+    "solver": "lbfgs"
+  },
+  "created_at": "2026-09-17T13:48:48.130430+00:00",
+  "dataset_name": "BFW",
+  "dataset_provenance": {
+    "dataset_name": "BFW",
+    "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+    "images_per_identity_max": 25,
+    "images_per_identity_median": 25.0,
+    "images_per_identity_min": 25,
+    "metadata_filename": "bfw-v0.1.5-datatable.csv",
+    "metadata_sha256": "e098dc77da1b71c5dbe981ae6823a316de1092b7698d124ed2e78ece843aff4c",
+    "protocol_provenance": "Project-defined open-set protocol constructed from the official BFW data. BFW publishes verification and bias-analysis protocols; it does not publish an open-set identification protocol, and none is implied here.",
+    "protocol_version": "acp-arden-bfw-open-set-v1",
+    "subgroup_identity_counts": {
+      "asian_females": 100,
+      "asian_males": 100,
+      "black_females": 100,
+      "black_males": 100,
+      "indian_females": 100,
+      "indian_males": 100,
+      "white_females": 100,
+      "white_males": 100
+    },
+    "total_identities": 800,
+    "total_images": 20000
+  },
+  "dependency_versions": {
+    "Pillow": "12.3.0",
+    "easydict": "not_required_by_insightface_1_0_1",
+    "insightface": "1.0.1",
+    "matplotlib": "3.11.1",
+    "numpy": "2.5.1",
+    "onnx": "1.22.0",
+    "onnxruntime": "1.28.0",
+    "opencv-python-headless": "4.13.0.92",
+    "prettytable": "not_required_by_insightface_1_0_1",
+    "requests": "2.34.2",
+    "scikit-image": "0.26.0",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.18.0",
+    "tqdm": "4.70.0"
+  },
+  "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+  "limitations": [
+    "A benchmark-validated, human-review-only research proof of concept. Nothing here is production-ready, unbiased, secure, or capable of proving fraudulent behaviour.",
+    "The classifier predicts whether a search should open a human-review case. Its output is not evidence of duplication, fraud or misuse, and no sanction follows from it.",
+    "Coefficients describe association within this classifier on these benchmark identities. They are not causal, and they do not transfer to another population.",
+    "Demographic subgroup is never a classifier input. It is used only for post-hoc fairness reporting.",
+    "Extraction failures are reported separately and are never counted as genuine negative decisions."
+  ],
+  "method": "logistic_regression_review_classifier",
+  "opaque_id_version": "hmac-sha256-v1",
+  "opencv_distribution": {
+    "conflicting_opencv_python_present": false,
+    "imported_cv2_version": "4.13.0",
+    "opencv_distribution": "opencv-python-headless"
+  },
+  "opencv_execution": {
+    "bitwise_reproducible_across_processes": false,
+    "opencv_opencl_enabled": false,
+    "opencv_parallel_framework": "GCD",
+    "opencv_threads_reported": 1,
+    "reproducibility_mechanism": "Canonical run cache. Detection is not bit-stable across fresh processes on this platform, so every derived artefact reads one cached extraction rather than re-deriving it."
+  },
+  "operating_points": {
+    "0.001": {
+      "calibration_fpir": 0.0,
+      "calibration_tpir_rank1": 0.928082191780822,
+      "candidates_admissible": 273,
+      "candidates_evaluated": 1129,
+      "probability_threshold": 0.89029512477,
+      "selection_rule": "Among probability thresholds whose calibration FPIR is no greater than the target, select the highest calibration TPIR at rank 1; ties broken by lower calibration FPIR, then by higher probability threshold.",
+      "target_fpir": 0.001
+    },
+    "0.003": {
+      "calibration_fpir": 0.0023923444976076554,
+      "calibration_tpir_rank1": 0.952054794520548,
+      "candidates_admissible": 282,
+      "candidates_evaluated": 1129,
+      "probability_threshold": 0.571466685462,
+      "selection_rule": "Among probability thresholds whose calibration FPIR is no greater than the target, select the highest calibration TPIR at rank 1; ties broken by lower calibration FPIR, then by higher probability threshold.",
+      "target_fpir": 0.003
+    },
+    "0.01": {
+      "calibration_fpir": 0.004784688995215311,
+      "calibration_tpir_rank1": 0.9657534246575342,
+      "candidates_admissible": 292,
+      "candidates_evaluated": 1129,
+      "probability_threshold": 0.472821222351,
+      "selection_rule": "Among probability thresholds whose calibration FPIR is no greater than the target, select the highest calibration TPIR at rank 1; ties broken by lower calibration FPIR, then by higher probability threshold.",
+      "target_fpir": 0.01
+    }
+  },
+  "pipeline": {
+    "comparison_scope": "Complete pipeline: detection, preprocessing and embedding. A difference between pipelines cannot be attributed to the embedding model alone.",
+    "detector_name": "OpenCV YuNet 2023mar",
+    "embedding_dimensions": 128,
+    "embedding_model_name": "OpenCV SFace 2021dec",
+    "licence_note": "OpenCV Zoo release: YuNet weights MIT, SFace weights Apache-2.0. Both are redistributable for research use.",
+    "model_sha256": {
+      "sface": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+      "yunet": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+    },
+    "pipeline_name": "opencv-sface-2021dec-yunet-2023mar",
+    "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1"
+  },
+  "policy_note": "Duplicate-profile screening: a high similarity to another enrolled gallery identity opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity. This polarity applies to gallery screening; profile-photo consistency refers a *low* similarity instead, and an extraction failure makes no decision at all.",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "primary_fpir_target": 0.003,
+  "protocol_digest": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "protocol_version": "acp-arden-bfw-open-set-v1",
+  "public_manifest_digest": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "schema_version": 1,
+  "seed": 20260727,
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "status": "ml_review_frozen",
+  "threshold_selection_rule": "Among probability thresholds whose calibration FPIR is no greater than the target, select the highest calibration TPIR at rank 1; ties broken by lower calibration FPIR, then by higher probability threshold.",
+  "threshold_source": "BFW classifier-calibration identities only",
+  "threshold_status": "ml_review_frozen"
+}

@@ -1,0 +1,195 @@
+{
+  "artifact_type": "calibrated_threshold",
+  "candidates": {
+    "balanced_accuracy": {
+      "metrics": {
+        "accuracy": 0.9986772486772487,
+        "f1": 0.9986431478968791,
+        "false_match_rate": 0.0,
+        "false_non_match_rate": 0.0027100271002710027,
+        "precision": 1.0,
+        "recall": 0.997289972899729,
+        "true_match_rate": 0.997289972899729
+      },
+      "threshold": 0.3290490369439799
+    },
+    "eer": {
+      "metrics": {
+        "accuracy": 0.9973544973544973,
+        "equal_error_rate": 0.0027100271002710175,
+        "f1": 0.997289972899729,
+        "false_match_rate": 0.002583979328165375,
+        "false_non_match_rate": 0.0027100271002710027,
+        "precision": 0.997289972899729,
+        "recall": 0.997289972899729,
+        "true_match_rate": 0.997289972899729
+      },
+      "threshold": 0.18226695366798065
+    },
+    "f1": {
+      "metrics": {
+        "accuracy": 0.9986772486772487,
+        "f1": 0.9986431478968791,
+        "false_match_rate": 0.0,
+        "false_non_match_rate": 0.0027100271002710027,
+        "precision": 1.0,
+        "recall": 0.997289972899729,
+        "true_match_rate": 0.997289972899729
+      },
+      "threshold": 0.3290490369439799
+    },
+    "target_fmr_0.001": {
+      "metrics": {
+        "accuracy": 0.9986772486772487,
+        "f1": 0.9986431478968791,
+        "false_match_rate": 0.0,
+        "false_non_match_rate": 0.0027100271002710027,
+        "precision": 1.0,
+        "recall": 0.997289972899729,
+        "true_match_rate": 0.997289972899729
+      },
+      "threshold": 0.3290490369439799
+    },
+    "target_fmr_0.01": {
+      "metrics": {
+        "accuracy": 0.9947089947089947,
+        "f1": 0.9946018893387315,
+        "false_match_rate": 0.00904392764857881,
+        "false_non_match_rate": 0.0013550135501355014,
+        "precision": 0.9905913978494624,
+        "recall": 0.9986449864498645,
+        "true_match_rate": 0.9986449864498645
+      },
+      "threshold": 0.14424522655366562
+    },
+    "target_fmr_0.05": {
+      "metrics": {
+        "accuracy": 0.9742063492063492,
+        "f1": 0.9742233972240582,
+        "false_match_rate": 0.04909560723514212,
+        "false_non_match_rate": 0.0013550135501355014,
+        "precision": 0.9509677419354838,
+        "recall": 0.9986449864498645,
+        "true_match_rate": 0.9986449864498645
+      },
+      "threshold": 0.09565935602930503
+    }
+  },
+  "created_at": "2026-09-17T13:53:23.535698+00:00",
+  "dataset": "LFW",
+  "dataset_archive_md5": "1b42dfed7d15c9b2dd63d5e5840c86ad",
+  "evaluated_image_set_sha256": "094554d088c661087c7d886e79b3e0376daaeb42c17b228db3f2a0130c4f0d8f",
+  "failure_breakdown": {
+    "multiple_faces_left": 376,
+    "multiple_faces_right": 312
+  },
+  "frozen_from_protocol": "pairsDevTest.txt",
+  "frozen_from_protocol_sha256": "7cb06600ea8b2814ac26e946201cdb304296262aad67d046a16a7ec85d0ff87c",
+  "model_sha256": {
+    "detector": "5838f7fe053675b1c7a08b633df49e7af5495cee0493c7dcf6697200b85b5b91",
+    "recognition": "4c06341c33c2ca1f86781dab0e829f88ad5b64be9fba56e56bc9ebdefc619e43"
+  },
+  "model_version": "insightface-scrfd-arcface-buffalo_l",
+  "operating_strategy": "balanced_accuracy",
+  "preprocessing_revision": "insightface-arcface-112x112-v1",
+  "protocol_file": "pairsDevTrain.txt",
+  "protocol_sha256": "1d454dada7dfeca0e7eab6f65dc4e97a6312d44cf142207be28d688be92aabfa",
+  "schema_version": 1,
+  "scored_pairs": 1512,
+  "selection_evidence": {
+    "balanced_accuracy": {
+      "accuracy": 0.9942528735632183,
+      "balanced_accuracy": 0.993993993993994,
+      "f1": 0.9939577039274925,
+      "false_match_rate": 0.0,
+      "false_non_match_rate": 0.012012012012012012,
+      "precision": 1.0,
+      "recall": 0.987987987987988,
+      "threshold": 0.3290490369439799,
+      "true_match_rate": 0.987987987987988
+    },
+    "eer": {
+      "accuracy": 0.992816091954023,
+      "balanced_accuracy": 0.9926165835256744,
+      "f1": 0.9924585218702866,
+      "false_match_rate": 0.0027548209366391185,
+      "false_non_match_rate": 0.012012012012012012,
+      "precision": 0.996969696969697,
+      "recall": 0.987987987987988,
+      "threshold": 0.18226695366798065,
+      "true_match_rate": 0.987987987987988
+    },
+    "f1": {
+      "accuracy": 0.9942528735632183,
+      "balanced_accuracy": 0.993993993993994,
+      "f1": 0.9939577039274925,
+      "false_match_rate": 0.0,
+      "false_non_match_rate": 0.012012012012012012,
+      "precision": 1.0,
+      "recall": 0.987987987987988,
+      "threshold": 0.3290490369439799,
+      "true_match_rate": 0.987987987987988
+    },
+    "target_fmr_0.001": {
+      "accuracy": 0.9942528735632183,
+      "balanced_accuracy": 0.993993993993994,
+      "f1": 0.9939577039274925,
+      "false_match_rate": 0.0,
+      "false_non_match_rate": 0.012012012012012012,
+      "precision": 1.0,
+      "recall": 0.987987987987988,
+      "threshold": 0.3290490369439799,
+      "true_match_rate": 0.987987987987988
+    },
+    "target_fmr_0.01": {
+      "accuracy": 0.9899425287356322,
+      "balanced_accuracy": 0.9899858536222172,
+      "f1": 0.9895052473763118,
+      "false_match_rate": 0.011019283746556474,
+      "false_non_match_rate": 0.009009009009009009,
+      "precision": 0.9880239520958084,
+      "recall": 0.990990990990991,
+      "threshold": 0.14424522655366562,
+      "true_match_rate": 0.990990990990991
+    },
+    "target_fmr_0.05": {
+      "accuracy": 0.9669540229885057,
+      "balanced_accuracy": 0.9680713771622862,
+      "f1": 0.9664233576642336,
+      "false_match_rate": 0.05785123966942149,
+      "false_non_match_rate": 0.006006006006006006,
+      "precision": 0.9403409090909091,
+      "recall": 0.993993993993994,
+      "threshold": 0.09565935602930503,
+      "true_match_rate": 0.993993993993994
+    }
+  },
+  "selection_rule": "Maximum balanced accuracy on the development split (pairsDevTest.txt); ties broken by lower development-split false match rate, then by candidate name, for full determinism.",
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "split": "validation",
+  "status": "frozen",
+  "threshold": 0.3290490369439799,
+  "total_pairs": 2200
+}

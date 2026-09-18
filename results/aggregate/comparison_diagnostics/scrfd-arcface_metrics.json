@@ -1,0 +1,1952 @@
+{
+  "created_at": "2026-09-17T14:04:25.821856+00:00",
+  "enrolment_controls": {
+    "one_image": {
+      "calibration": {
+        "candidates_admissible": 926,
+        "candidates_evaluated": 3979,
+        "development_fpir": 0.002678272514228323,
+        "development_tpir_rank1": 0.9252525252525252,
+        "development_tpir_rank5": 0.9252525252525252,
+        "selected_candidate": "score_0.350058215882",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.350058215882
+      },
+      "conditional_duplicate_detection_rate": 0.958958958958959,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.78481322381165,
+        "complete_pipeline_latency_p95_ms": 87.11631274491083,
+        "detection_latency_mean_ms": 26.723910110191778,
+        "detection_latency_p95_ms": 29.167145505198278,
+        "embedding_latency_mean_ms": 53.76796516713244,
+        "embedding_latency_p95_ms": 57.30946874973597,
+        "enrolled_gallery_identities": 200,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 200,
+        "image_load_latency_mean_ms": 1.292937946487434,
+        "image_load_latency_p95_ms": 2.4254892632598057,
+        "images_timed": 4186,
+        "intended_gallery_identities": 200,
+        "intended_mated_probes": 1000,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.001,
+        "method": "single_image_pairwise_threshold",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 2
+        },
+        "scored_mated_probes": 999,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 797200,
+        "top1_search_time_mean_ms": 1.0700378145916716,
+        "top1_search_time_p95_ms": 1.155750003817957,
+        "top5_search_time_mean_ms": 1.091950841379638,
+        "top5_search_time_p95_ms": 1.1794054953497835
+      },
+      "end_to_end_duplicate_detection_rate": 0.958,
+      "rates": {
+        "cmc_rank1": 0.968968968968969,
+        "cmc_rank5": 0.977977977977978,
+        "false_reviews_per_1000_non_mated": 3.3478406427854033,
+        "fnir_rank1": 0.041041041041041004,
+        "fnir_rank5": 0.041041041041041004,
+        "fpir": 0.0033478406427854034,
+        "scored_mated_probes": 999,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.350058215882,
+        "tpir_rank1": 0.958958958958959,
+        "tpir_rank5": 0.958958958958959
+      }
+    },
+    "three_images": {
+      "calibration": {
+        "candidates_admissible": 962,
+        "candidates_evaluated": 3984,
+        "development_fpir": 0.0013391362571141614,
+        "development_tpir_rank1": 0.9567839195979899,
+        "development_tpir_rank5": 0.9567839195979899,
+        "selected_candidate": "score_0.393957955447",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.393957955447
+      },
+      "conditional_duplicate_detection_rate": 0.9679679679679679,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.52342659900768,
+        "complete_pipeline_latency_p95_ms": 86.82651244744193,
+        "detection_latency_mean_ms": 26.681965362202337,
+        "detection_latency_p95_ms": 29.064364386431407,
+        "embedding_latency_mean_ms": 53.570194777592846,
+        "embedding_latency_p95_ms": 56.965770534588955,
+        "enrolled_gallery_identities": 200,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 200,
+        "image_load_latency_mean_ms": 1.2712664592124923,
+        "image_load_latency_p95_ms": 2.398949993948915,
+        "images_timed": 4584,
+        "intended_gallery_identities": 200,
+        "intended_mated_probes": 1000,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.001,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 2
+        },
+        "scored_mated_probes": 999,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 797200,
+        "top1_search_time_mean_ms": 0.9298984357918137,
+        "top1_search_time_p95_ms": 0.9709897421998903,
+        "top5_search_time_mean_ms": 0.9422262571205918,
+        "top5_search_time_p95_ms": 0.984614496701397
+      },
+      "end_to_end_duplicate_detection_rate": 0.967,
+      "rates": {
+        "cmc_rank1": 0.983983983983984,
+        "cmc_rank5": 0.987987987987988,
+        "false_reviews_per_1000_non_mated": 1.3391362571141614,
+        "fnir_rank1": 0.03203203203203209,
+        "fnir_rank5": 0.03203203203203209,
+        "fpir": 0.0013391362571141614,
+        "scored_mated_probes": 999,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.393957955447,
+        "tpir_rank1": 0.9679679679679679,
+        "tpir_rank5": 0.9679679679679679
+      }
+    }
+  },
+  "enrolment_paired_statistics": {
+    "analyses": {
+      "common_success": {
+        "paired_differences": [
+          {
+            "direction": "right minus left",
+            "left": "one_image",
+            "metrics": {
+              "end_to_end_duplicate_detection_rate": {
+                "estimate": 0.009009009009008917,
+                "lower_95": 0.0,
+                "requested_replicates": 2000,
+                "upper_95": 0.02202202202202197,
+                "valid_replicates": 2000
+              },
+              "fpir": {
+                "estimate": -0.002008704385671242,
+                "lower_95": -0.003681392235609103,
+                "requested_replicates": 2000,
+                "upper_95": -0.0006693440428380188,
+                "valid_replicates": 2000
+              },
+              "mated_extraction_coverage": {
+                "estimate": 0.0,
+                "lower_95": 0.0,
+                "requested_replicates": 2000,
+                "upper_95": 0.0,
+                "valid_replicates": 2000
+              },
+              "non_mated_extraction_coverage": {
+                "estimate": 0.0,
+                "lower_95": 0.0,
+                "requested_replicates": 2000,
+                "upper_95": 0.0,
+                "valid_replicates": 2000
+              },
+              "tpir_rank1": {
+                "estimate": 0.009009009009008917,
+                "lower_95": 0.0,
+                "requested_replicates": 2000,
+                "upper_95": 0.02202202202202197,
+                "valid_replicates": 2000
+              }
+            },
+            "right": "three_images"
+          }
+        ],
+        "pipelines": {
+          "one_image": {
+            "counts": {
+              "detected": 958,
+              "false_referrals": 10,
+              "intended_mated": 999,
+              "intended_non_mated": 2987,
+              "scored_mated": 999,
+              "scored_non_mated": 2987
+            },
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.958958958958959,
+              "lower_95": 0.93993993993994,
+              "requested_replicates": 2000,
+              "upper_95": 0.974974974974975,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": 0.0033478406427854034,
+              "lower_95": 0.001003344481605351,
+              "requested_replicates": 2000,
+              "upper_95": 0.006693440428380187,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 1.0,
+              "lower_95": 1.0,
+              "requested_replicates": 2000,
+              "upper_95": 1.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 1.0,
+              "lower_95": 1.0,
+              "requested_replicates": 2000,
+              "upper_95": 1.0,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.958958958958959,
+              "lower_95": 0.93993993993994,
+              "requested_replicates": 2000,
+              "upper_95": 0.974974974974975,
+              "valid_replicates": 2000
+            }
+          },
+          "three_images": {
+            "counts": {
+              "detected": 967,
+              "false_referrals": 4,
+              "intended_mated": 999,
+              "intended_non_mated": 2987,
+              "scored_mated": 999,
+              "scored_non_mated": 2987
+            },
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.9679679679679679,
+              "lower_95": 0.955,
+              "requested_replicates": 2000,
+              "upper_95": 0.97997997997998,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": 0.0013391362571141614,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.003686327077747989,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 1.0,
+              "lower_95": 1.0,
+              "requested_replicates": 2000,
+              "upper_95": 1.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 1.0,
+              "lower_95": 1.0,
+              "requested_replicates": 2000,
+              "upper_95": 1.0,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.9679679679679679,
+              "lower_95": 0.955,
+              "requested_replicates": 2000,
+              "upper_95": 0.97997997997998,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      },
+      "full_protocol": {
+        "paired_differences": [
+          {
+            "direction": "right minus left",
+            "left": "one_image",
+            "metrics": {
+              "end_to_end_duplicate_detection_rate": {
+                "estimate": 0.009000000000000008,
+                "lower_95": 0.0,
+                "requested_replicates": 2000,
+                "upper_95": 0.02200000000000002,
+                "valid_replicates": 2000
+              },
+              "fpir": {
+                "estimate": -0.002008704385671242,
+                "lower_95": -0.003681392235609103,
+                "requested_replicates": 2000,
+                "upper_95": -0.0006693440428380188,
+                "valid_replicates": 2000
+              },
+              "mated_extraction_coverage": {
+                "estimate": 0.0,
+                "lower_95": 0.0,
+                "requested_replicates": 2000,
+                "upper_95": 0.0,
+                "valid_replicates": 2000
+              },
+              "non_mated_extraction_coverage": {
+                "estimate": 0.0,
+                "lower_95": 0.0,
+                "requested_replicates": 2000,
+                "upper_95": 0.0,
+                "valid_replicates": 2000
+              },
+              "tpir_rank1": {
+                "estimate": 0.009009009009008917,
+                "lower_95": 0.0,
+                "requested_replicates": 2000,
+                "upper_95": 0.02202202202202197,
+                "valid_replicates": 2000
+              }
+            },
+            "right": "three_images"
+          }
+        ],
+        "pipelines": {
+          "one_image": {
+            "counts": {
+              "detected": 958,
+              "false_referrals": 10,
+              "intended_mated": 1000,
+              "intended_non_mated": 3000,
+              "scored_mated": 999,
+              "scored_non_mated": 2987
+            },
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.958,
+              "lower_95": 0.939,
+              "requested_replicates": 2000,
+              "upper_95": 0.974,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": 0.0033478406427854034,
+              "lower_95": 0.001003344481605351,
+              "requested_replicates": 2000,
+              "upper_95": 0.006693440428380187,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.999,
+              "lower_95": 0.997,
+              "requested_replicates": 2000,
+              "upper_95": 1.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.9956666666666667,
+              "lower_95": 0.9933333333333333,
+              "requested_replicates": 2000,
+              "upper_95": 0.9976666666666667,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.958958958958959,
+              "lower_95": 0.93993993993994,
+              "requested_replicates": 2000,
+              "upper_95": 0.974974974974975,
+              "valid_replicates": 2000
+            }
+          },
+          "three_images": {
+            "counts": {
+              "detected": 967,
+              "false_referrals": 4,
+              "intended_mated": 1000,
+              "intended_non_mated": 3000,
+              "scored_mated": 999,
+              "scored_non_mated": 2987
+            },
+            "end_to_end_duplicate_detection_rate": {
+              "estimate": 0.967,
+              "lower_95": 0.954,
+              "requested_replicates": 2000,
+              "upper_95": 0.979,
+              "valid_replicates": 2000
+            },
+            "fpir": {
+              "estimate": 0.0013391362571141614,
+              "lower_95": 0.0,
+              "requested_replicates": 2000,
+              "upper_95": 0.003686327077747989,
+              "valid_replicates": 2000
+            },
+            "mated_extraction_coverage": {
+              "estimate": 0.999,
+              "lower_95": 0.997,
+              "requested_replicates": 2000,
+              "upper_95": 1.0,
+              "valid_replicates": 2000
+            },
+            "non_mated_extraction_coverage": {
+              "estimate": 0.9956666666666667,
+              "lower_95": 0.9933333333333333,
+              "requested_replicates": 2000,
+              "upper_95": 0.9976666666666667,
+              "valid_replicates": 2000
+            },
+            "tpir_rank1": {
+              "estimate": 0.9679679679679679,
+              "lower_95": 0.955,
+              "requested_replicates": 2000,
+              "upper_95": 0.97997997997998,
+              "valid_replicates": 2000
+            }
+          }
+        }
+      }
+    },
+    "artifact_type": "paired_pipeline_comparison",
+    "common_success_probes": 3986,
+    "independent_identities": 400,
+    "intended_probes": 4000,
+    "limitations": "Exploratory unadjusted 95% intervals. Fixed galleries and frozen policies; uncertainty excludes model fitting, threshold estimation, gallery selection and population shift. Common-success analysis describes a selected subset only. Zero-event bootstrap intervals cannot bound population FPIR.",
+    "method": "Paired percentile identity bootstrap stratified by role and subgroup; identical identity draws across methods",
+    "replicates": 2000,
+    "seed": 20260727,
+    "thresholds": {
+      "one_image": 0.350058215882,
+      "three_images": 0.393957955447
+    }
+  },
+  "feature_ablations": {
+    "all_features": {
+      "calibration": {
+        "calibration_fpir": 0.0,
+        "calibration_tpir_rank1": 0.9638157894736842,
+        "candidates_admissible": 297,
+        "candidates_evaluated": 1184,
+        "probability_threshold": 0.845732325306,
+        "selection_rule": "Among probability thresholds whose calibration FPIR is no greater than the target, select the highest calibration TPIR at rank 1; ties broken by lower calibration FPIR, then by higher probability threshold.",
+        "target_fpir": 0.003
+      },
+      "calibration_rows": 1183,
+      "features": [
+        "top1_similarity",
+        "top2_similarity",
+        "top1_top2_margin",
+        "top5_similarity_mean",
+        "top5_similarity_stdev",
+        "top1_gallery_image_count",
+        "gallery_size",
+        "probe_detection_confidence",
+        "probe_face_area_ratio"
+      ],
+      "model": {
+        "class_imbalance_handling": "class_weight='balanced', declared before fitting",
+        "coefficients": [
+          1.4482001796061286,
+          -0.08499639077829022,
+          1.5411355837727876,
+          0.7152803316678193,
+          1.7269540944412416,
+          0.183009384348281,
+          0.0,
+          0.009655781812598907,
+          -0.2907669789592053
+        ],
+        "feature_order": [
+          "top1_similarity",
+          "top2_similarity",
+          "top1_top2_margin",
+          "top5_similarity_mean",
+          "top5_similarity_stdev",
+          "top1_gallery_image_count",
+          "gallery_size",
+          "probe_detection_confidence",
+          "probe_face_area_ratio"
+        ],
+        "hyperparameters": {
+          "C": 1.0,
+          "class_weight": "balanced",
+          "estimator": "sklearn.linear_model.LogisticRegression",
+          "fit_intercept": true,
+          "l1_ratio": 0.0,
+          "max_iter": 1000,
+          "random_state": 20260727,
+          "solver": "lbfgs"
+        },
+        "intercept": -1.4209498752489154,
+        "method": "logistic_regression_review_classifier",
+        "scaler_mean": [
+          0.32045029683240533,
+          0.17646801624573893,
+          0.14398228058666704,
+          0.1881100215809513,
+          0.07785146304490989,
+          2.9882100750267955,
+          200.0,
+          0.8402559147983332,
+          0.7259456525836993
+        ],
+        "scaler_scale": [
+          0.22519348906854278,
+          0.034775311992879324,
+          0.21353152233184336,
+          0.05449700307526074,
+          0.09627639862978625,
+          0.10793943969805693,
+          1.0,
+          0.04269200430608757,
+          0.13957879950816754
+        ],
+        "serialisation": "plain JSON numerics; no pickle is written or read"
+      },
+      "rates": {
+        "conditional_duplicate_detection_rate": 0.958958958958959,
+        "end_to_end_duplicate_detection_rate": 0.958,
+        "extraction_coverage": 0.9965,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.041041041041041004,
+        "fnir_rank5": 0.040040040040040026,
+        "fpir": 0.0,
+        "gallery_reference_unavailable": 0,
+        "intended_mated_probes": 1000,
+        "intended_non_mated_probes": 3000,
+        "mated_correct_rank1_referred": 958,
+        "mated_correct_rank5_referred": 959,
+        "mated_extraction_coverage": 0.999,
+        "mated_extraction_failures": 1,
+        "mated_not_referred": 40,
+        "mated_wrong_identity_referred": 1,
+        "non_mated_correctly_not_referred": 2987,
+        "non_mated_extraction_coverage": 0.9956666666666667,
+        "non_mated_extraction_failures": 13,
+        "non_mated_incorrectly_referred": 0,
+        "probability_threshold": 0.845732325306,
+        "scored_mated_probes": 999,
+        "scored_non_mated_probes": 2987,
+        "tpir_rank1": 0.958958958958959,
+        "tpir_rank5": 0.95995995995996
+      },
+      "test_excluded_records": {
+        "missing_feature": 0,
+        "outside_partition": 0,
+        "unscored": 14
+      },
+      "test_rows": 3986,
+      "threshold_status": "ml_review_frozen",
+      "training_rows": 2799
+    },
+    "similarity_and_margin": {
+      "calibration": {
+        "calibration_fpir": 0.0011376564277588168,
+        "calibration_tpir_rank1": 0.9638157894736842,
+        "candidates_admissible": 296,
+        "candidates_evaluated": 1184,
+        "probability_threshold": 0.25606525302,
+        "selection_rule": "Among probability thresholds whose calibration FPIR is no greater than the target, select the highest calibration TPIR at rank 1; ties broken by lower calibration FPIR, then by higher probability threshold.",
+        "target_fpir": 0.003
+      },
+      "calibration_rows": 1183,
+      "features": [
+        "top1_similarity",
+        "top1_top2_margin"
+      ],
+      "model": {
+        "class_imbalance_handling": "class_weight='balanced', declared before fitting",
+        "coefficients": [
+          3.069671519007359,
+          2.1309669898531562
+        ],
+        "feature_order": [
+          "top1_similarity",
+          "top1_top2_margin"
+        ],
+        "hyperparameters": {
+          "C": 1.0,
+          "class_weight": "balanced",
+          "estimator": "sklearn.linear_model.LogisticRegression",
+          "fit_intercept": true,
+          "l1_ratio": 0.0,
+          "max_iter": 1000,
+          "random_state": 20260727,
+          "solver": "lbfgs"
+        },
+        "intercept": -1.3880569293513136,
+        "method": "logistic_regression_review_classifier",
+        "scaler_mean": [
+          0.32045029683240533,
+          0.14398228058666704
+        ],
+        "scaler_scale": [
+          0.22519348906854278,
+          0.21353152233184336
+        ],
+        "serialisation": "plain JSON numerics; no pickle is written or read"
+      },
+      "rates": {
+        "conditional_duplicate_detection_rate": 0.972972972972973,
+        "end_to_end_duplicate_detection_rate": 0.972,
+        "extraction_coverage": 0.9965,
+        "false_reviews_per_1000_non_mated": 5.356545028456646,
+        "fnir_rank1": 0.027027027027026973,
+        "fnir_rank5": 0.026026026026025995,
+        "fpir": 0.005356545028456646,
+        "gallery_reference_unavailable": 0,
+        "intended_mated_probes": 1000,
+        "intended_non_mated_probes": 3000,
+        "mated_correct_rank1_referred": 972,
+        "mated_correct_rank5_referred": 973,
+        "mated_extraction_coverage": 0.999,
+        "mated_extraction_failures": 1,
+        "mated_not_referred": 26,
+        "mated_wrong_identity_referred": 1,
+        "non_mated_correctly_not_referred": 2971,
+        "non_mated_extraction_coverage": 0.9956666666666667,
+        "non_mated_extraction_failures": 13,
+        "non_mated_incorrectly_referred": 16,
+        "probability_threshold": 0.25606525302,
+        "scored_mated_probes": 999,
+        "scored_non_mated_probes": 2987,
+        "tpir_rank1": 0.972972972972973,
+        "tpir_rank5": 0.973973973973974
+      },
+      "test_excluded_records": {
+        "missing_feature": 0,
+        "outside_partition": 0,
+        "unscored": 14
+      },
+      "test_rows": 3986,
+      "threshold_status": "ml_review_frozen",
+      "training_rows": 2799
+    },
+    "similarity_only": {
+      "calibration": {
+        "calibration_fpir": 0.0,
+        "calibration_tpir_rank1": 0.9638157894736842,
+        "candidates_admissible": 296,
+        "candidates_evaluated": 1184,
+        "probability_threshold": 0.833925101214,
+        "selection_rule": "Among probability thresholds whose calibration FPIR is no greater than the target, select the highest calibration TPIR at rank 1; ties broken by lower calibration FPIR, then by higher probability threshold.",
+        "target_fpir": 0.003
+      },
+      "calibration_rows": 1183,
+      "features": [
+        "top1_similarity"
+      ],
+      "model": {
+        "class_imbalance_handling": "class_weight='balanced', declared before fitting",
+        "coefficients": [
+          4.907964188166351
+        ],
+        "feature_order": [
+          "top1_similarity"
+        ],
+        "hyperparameters": {
+          "C": 1.0,
+          "class_weight": "balanced",
+          "estimator": "sklearn.linear_model.LogisticRegression",
+          "fit_intercept": true,
+          "l1_ratio": 0.0,
+          "max_iter": 1000,
+          "random_state": 20260727,
+          "solver": "lbfgs"
+        },
+        "intercept": -1.5646356015739422,
+        "method": "logistic_regression_review_classifier",
+        "scaler_mean": [
+          0.32045029683240545
+        ],
+        "scaler_scale": [
+          0.22519348906854306
+        ],
+        "serialisation": "plain JSON numerics; no pickle is written or read"
+      },
+      "rates": {
+        "conditional_duplicate_detection_rate": 0.960960960960961,
+        "end_to_end_duplicate_detection_rate": 0.96,
+        "extraction_coverage": 0.9965,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.03903903903903905,
+        "fnir_rank5": 0.03803803803803807,
+        "fpir": 0.0,
+        "gallery_reference_unavailable": 0,
+        "intended_mated_probes": 1000,
+        "intended_non_mated_probes": 3000,
+        "mated_correct_rank1_referred": 960,
+        "mated_correct_rank5_referred": 961,
+        "mated_extraction_coverage": 0.999,
+        "mated_extraction_failures": 1,
+        "mated_not_referred": 38,
+        "mated_wrong_identity_referred": 1,
+        "non_mated_correctly_not_referred": 2987,
+        "non_mated_extraction_coverage": 0.9956666666666667,
+        "non_mated_extraction_failures": 13,
+        "non_mated_incorrectly_referred": 0,
+        "probability_threshold": 0.833925101214,
+        "scored_mated_probes": 999,
+        "scored_non_mated_probes": 2987,
+        "tpir_rank1": 0.960960960960961,
+        "tpir_rank5": 0.9619619619619619
+      },
+      "test_excluded_records": {
+        "missing_feature": 0,
+        "outside_partition": 0,
+        "unscored": 14
+      },
+      "test_rows": 3986,
+      "threshold_status": "ml_review_frozen",
+      "training_rows": 2799
+    }
+  },
+  "gallery_sensitivity": [
+    {
+      "calibration": {
+        "candidates_admissible": 132,
+        "candidates_evaluated": 3113,
+        "development_fpir": 0.00033478406427854036,
+        "development_tpir_rank1": 0.9838709677419355,
+        "development_tpir_rank5": 0.9838709677419355,
+        "selected_candidate": "score_0.358636879620",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.35863687962
+      },
+      "conditional_duplicate_detection_rate": 0.976,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.51596354396514,
+        "complete_pipeline_latency_p95_ms": 87.48355820425786,
+        "detection_latency_mean_ms": 26.611071597354602,
+        "detection_latency_p95_ms": 29.287741999723945,
+        "embedding_latency_mean_ms": 53.615111683796776,
+        "embedding_latency_p95_ms": 57.515608711401,
+        "enrolled_gallery_identities": 25,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 25,
+        "image_load_latency_mean_ms": 1.2897802628137687,
+        "image_load_latency_p95_ms": 2.39400461432524,
+        "images_timed": 3187,
+        "intended_gallery_identities": 25,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 77800,
+        "top1_search_time_mean_ms": 0.11698780611468955,
+        "top1_search_time_p95_ms": 0.1188750029541552,
+        "top5_search_time_mean_ms": 0.1200767747717724,
+        "top5_search_time_p95_ms": 0.1221249985974282
+      },
+      "end_to_end_duplicate_detection_rate": 0.976,
+      "gallery_seed": 20260917,
+      "gallery_size_intended": 25,
+      "rates": {
+        "cmc_rank1": 0.984,
+        "cmc_rank5": 0.984,
+        "false_reviews_per_1000_non_mated": 2.678272514228323,
+        "fnir_rank1": 0.02400000000000002,
+        "fnir_rank5": 0.02400000000000002,
+        "fpir": 0.002678272514228323,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.35863687962,
+        "tpir_rank1": 0.976,
+        "tpir_rank5": 0.976
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 131,
+        "candidates_evaluated": 3113,
+        "development_fpir": 0.0013391362571141614,
+        "development_tpir_rank1": 0.9838709677419355,
+        "development_tpir_rank5": 0.9838709677419355,
+        "selected_candidate": "score_0.358636879620",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.35863687962
+      },
+      "conditional_duplicate_detection_rate": 0.976,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.47790471815733,
+        "complete_pipeline_latency_p95_ms": 87.42499311338179,
+        "detection_latency_mean_ms": 26.60774808666424,
+        "detection_latency_p95_ms": 29.260300584428474,
+        "embedding_latency_mean_ms": 53.58149981488818,
+        "embedding_latency_p95_ms": 57.488904792990056,
+        "enrolled_gallery_identities": 50,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 50,
+        "image_load_latency_mean_ms": 1.2886568166049035,
+        "image_load_latency_p95_ms": 2.3844309500418603,
+        "images_timed": 3262,
+        "intended_gallery_identities": 50,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 155600,
+        "top1_search_time_mean_ms": 0.23141611065913967,
+        "top1_search_time_p95_ms": 0.2349170099478215,
+        "top5_search_time_mean_ms": 0.2360456264538901,
+        "top5_search_time_p95_ms": 0.23979144461918622
+      },
+      "end_to_end_duplicate_detection_rate": 0.976,
+      "gallery_seed": 20260917,
+      "gallery_size_intended": 50,
+      "rates": {
+        "cmc_rank1": 0.984,
+        "cmc_rank5": 0.984,
+        "false_reviews_per_1000_non_mated": 3.013056578506863,
+        "fnir_rank1": 0.02400000000000002,
+        "fnir_rank5": 0.02400000000000002,
+        "fpir": 0.003013056578506863,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.35863687962,
+        "tpir_rank1": 0.976,
+        "tpir_rank5": 0.976
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 132,
+        "candidates_evaluated": 3113,
+        "development_fpir": 0.0013391362571141614,
+        "development_tpir_rank1": 0.9838709677419355,
+        "development_tpir_rank5": 0.9838709677419355,
+        "selected_candidate": "score_0.416602551817",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.416602551817
+      },
+      "conditional_duplicate_detection_rate": 0.976,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.4406075708082,
+        "complete_pipeline_latency_p95_ms": 87.23059360636395,
+        "detection_latency_mean_ms": 26.634326886736975,
+        "detection_latency_p95_ms": 29.222939253668297,
+        "embedding_latency_mean_ms": 53.522154112041605,
+        "embedding_latency_p95_ms": 57.306656250148066,
+        "enrolled_gallery_identities": 100,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 100,
+        "image_load_latency_mean_ms": 1.284126572029616,
+        "image_load_latency_p95_ms": 2.3842145572416484,
+        "images_timed": 3410,
+        "intended_gallery_identities": 100,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 311200,
+        "top1_search_time_mean_ms": 0.4704307660417527,
+        "top1_search_time_p95_ms": 0.47922688390826806,
+        "top5_search_time_mean_ms": 0.47791122885631604,
+        "top5_search_time_p95_ms": 0.4874994425335899
+      },
+      "end_to_end_duplicate_detection_rate": 0.976,
+      "gallery_seed": 20260917,
+      "gallery_size_intended": 100,
+      "rates": {
+        "cmc_rank1": 0.984,
+        "cmc_rank5": 0.984,
+        "false_reviews_per_1000_non_mated": 0.33478406427854035,
+        "fnir_rank1": 0.02400000000000002,
+        "fnir_rank5": 0.02400000000000002,
+        "fpir": 0.00033478406427854036,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.416602551817,
+        "tpir_rank1": 0.976,
+        "tpir_rank5": 0.976
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 132,
+        "candidates_evaluated": 3113,
+        "development_fpir": 0.0013391362571141614,
+        "development_tpir_rank1": 0.9838709677419355,
+        "development_tpir_rank5": 0.9838709677419355,
+        "selected_candidate": "score_0.416602551817",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.416602551817
+      },
+      "conditional_duplicate_detection_rate": 0.976,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.32019769281119,
+        "complete_pipeline_latency_p95_ms": 86.95409390784334,
+        "detection_latency_mean_ms": 26.61186012316582,
+        "detection_latency_p95_ms": 29.107548092724752,
+        "embedding_latency_mean_ms": 53.425665281074764,
+        "embedding_latency_p95_ms": 57.06758545857155,
+        "enrolled_gallery_identities": 200,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 200,
+        "image_load_latency_mean_ms": 1.282672288570606,
+        "image_load_latency_p95_ms": 2.3934859142173073,
+        "images_timed": 3710,
+        "intended_gallery_identities": 200,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 622400,
+        "top1_search_time_mean_ms": 0.983140465779054,
+        "top1_search_time_p95_ms": 1.0106207962962799,
+        "top5_search_time_mean_ms": 0.9962006366446885,
+        "top5_search_time_p95_ms": 1.025417004711926
+      },
+      "end_to_end_duplicate_detection_rate": 0.976,
+      "gallery_seed": 20260917,
+      "gallery_size_intended": 200,
+      "rates": {
+        "cmc_rank1": 0.984,
+        "cmc_rank5": 0.984,
+        "false_reviews_per_1000_non_mated": 0.33478406427854035,
+        "fnir_rank1": 0.02400000000000002,
+        "fnir_rank5": 0.02400000000000002,
+        "fpir": 0.00033478406427854036,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.416602551817,
+        "tpir_rank1": 0.976,
+        "tpir_rank5": 0.976
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 129,
+        "candidates_evaluated": 3113,
+        "development_fpir": 0.001004352192835621,
+        "development_tpir_rank1": 0.967741935483871,
+        "development_tpir_rank5": 0.967741935483871,
+        "selected_candidate": "score_0.473506107984",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.473506107984
+      },
+      "conditional_duplicate_detection_rate": 0.952,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.52420966384123,
+        "complete_pipeline_latency_p95_ms": 87.44238289946225,
+        "detection_latency_mean_ms": 26.65423906340052,
+        "detection_latency_p95_ms": 29.317899895249866,
+        "embedding_latency_mean_ms": 53.577725743641636,
+        "embedding_latency_p95_ms": 57.50460020499304,
+        "enrolled_gallery_identities": 25,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 25,
+        "image_load_latency_mean_ms": 1.2922448567990716,
+        "image_load_latency_p95_ms": 2.409450089908204,
+        "images_timed": 3187,
+        "intended_gallery_identities": 25,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 77800,
+        "top1_search_time_mean_ms": 0.11666428013565558,
+        "top1_search_time_p95_ms": 0.11850000009872019,
+        "top5_search_time_mean_ms": 0.11977799389438624,
+        "top5_search_time_p95_ms": 0.1217500088387169
+      },
+      "end_to_end_duplicate_detection_rate": 0.952,
+      "gallery_seed": 20260918,
+      "gallery_size_intended": 25,
+      "rates": {
+        "cmc_rank1": 0.984,
+        "cmc_rank5": 1.0,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.04800000000000004,
+        "fnir_rank5": 0.04800000000000004,
+        "fpir": 0.0,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.473506107984,
+        "tpir_rank1": 0.952,
+        "tpir_rank5": 0.952
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 130,
+        "candidates_evaluated": 3113,
+        "development_fpir": 0.001004352192835621,
+        "development_tpir_rank1": 0.967741935483871,
+        "development_tpir_rank5": 0.967741935483871,
+        "selected_candidate": "score_0.473506107984",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.473506107984
+      },
+      "conditional_duplicate_detection_rate": 0.952,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.48561488031483,
+        "complete_pipeline_latency_p95_ms": 87.41796634567436,
+        "detection_latency_mean_ms": 26.647525692230776,
+        "detection_latency_p95_ms": 29.31106702162651,
+        "embedding_latency_mean_ms": 53.54785726728552,
+        "embedding_latency_p95_ms": 57.41176249430282,
+        "enrolled_gallery_identities": 50,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 50,
+        "image_load_latency_mean_ms": 1.2902319207985227,
+        "image_load_latency_p95_ms": 2.406291985244024,
+        "images_timed": 3262,
+        "intended_gallery_identities": 50,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 155600,
+        "top1_search_time_mean_ms": 0.23082320258067143,
+        "top1_search_time_p95_ms": 0.23395800963044167,
+        "top5_search_time_mean_ms": 0.23545045622595728,
+        "top5_search_time_p95_ms": 0.2387089902185835
+      },
+      "end_to_end_duplicate_detection_rate": 0.952,
+      "gallery_seed": 20260918,
+      "gallery_size_intended": 50,
+      "rates": {
+        "cmc_rank1": 0.976,
+        "cmc_rank5": 1.0,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.04800000000000004,
+        "fnir_rank5": 0.04800000000000004,
+        "fpir": 0.0,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.473506107984,
+        "tpir_rank1": 0.952,
+        "tpir_rank5": 0.952
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 129,
+        "candidates_evaluated": 3113,
+        "development_fpir": 0.001004352192835621,
+        "development_tpir_rank1": 0.967741935483871,
+        "development_tpir_rank5": 0.967741935483871,
+        "selected_candidate": "score_0.473506107984",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.473506107984
+      },
+      "conditional_duplicate_detection_rate": 0.952,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.42632932154342,
+        "complete_pipeline_latency_p95_ms": 87.23059360636395,
+        "detection_latency_mean_ms": 26.63562483407893,
+        "detection_latency_p95_ms": 29.265609000867695,
+        "embedding_latency_mean_ms": 53.502065697290575,
+        "embedding_latency_p95_ms": 57.3359671398066,
+        "enrolled_gallery_identities": 100,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 100,
+        "image_load_latency_mean_ms": 1.2886387901739123,
+        "image_load_latency_p95_ms": 2.4029418520512986,
+        "images_timed": 3410,
+        "intended_gallery_identities": 100,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 311200,
+        "top1_search_time_mean_ms": 0.46058898587382857,
+        "top1_search_time_p95_ms": 0.46704200212843716,
+        "top5_search_time_mean_ms": 0.46788009483740395,
+        "top5_search_time_p95_ms": 0.4744160105474293
+      },
+      "end_to_end_duplicate_detection_rate": 0.952,
+      "gallery_seed": 20260918,
+      "gallery_size_intended": 100,
+      "rates": {
+        "cmc_rank1": 0.976,
+        "cmc_rank5": 0.992,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.04800000000000004,
+        "fnir_rank5": 0.04800000000000004,
+        "fpir": 0.0,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.473506107984,
+        "tpir_rank1": 0.952,
+        "tpir_rank5": 0.952
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 130,
+        "candidates_evaluated": 3113,
+        "development_fpir": 0.001004352192835621,
+        "development_tpir_rank1": 0.967741935483871,
+        "development_tpir_rank5": 0.967741935483871,
+        "selected_candidate": "score_0.473506107984",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.473506107984
+      },
+      "conditional_duplicate_detection_rate": 0.952,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.29444872836345,
+        "complete_pipeline_latency_p95_ms": 86.9350126478821,
+        "detection_latency_mean_ms": 26.611486269644967,
+        "detection_latency_p95_ms": 29.12942223047139,
+        "embedding_latency_mean_ms": 53.399687721947835,
+        "embedding_latency_p95_ms": 57.050570646242704,
+        "enrolled_gallery_identities": 200,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 200,
+        "image_load_latency_mean_ms": 1.2832747367706472,
+        "image_load_latency_p95_ms": 2.4029418520512986,
+        "images_timed": 3710,
+        "intended_gallery_identities": 200,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 622400,
+        "top1_search_time_mean_ms": 0.938725985422345,
+        "top1_search_time_p95_ms": 1.0041623434517533,
+        "top5_search_time_mean_ms": 0.9514865599889734,
+        "top5_search_time_p95_ms": 1.0189796652412042
+      },
+      "end_to_end_duplicate_detection_rate": 0.952,
+      "gallery_seed": 20260918,
+      "gallery_size_intended": 200,
+      "rates": {
+        "cmc_rank1": 0.976,
+        "cmc_rank5": 0.992,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.04800000000000004,
+        "fnir_rank5": 0.04800000000000004,
+        "fpir": 0.0,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.473506107984,
+        "tpir_rank1": 0.952,
+        "tpir_rank5": 0.952
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 128,
+        "candidates_evaluated": 3114,
+        "development_fpir": 0.0,
+        "development_tpir_rank1": 0.944,
+        "development_tpir_rank5": 0.944,
+        "selected_candidate": "score_0.513728728612",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.513728728612
+      },
+      "conditional_duplicate_detection_rate": 0.944,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.60390649957526,
+        "complete_pipeline_latency_p95_ms": 87.5667082509608,
+        "detection_latency_mean_ms": 26.656803465486686,
+        "detection_latency_p95_ms": 29.29594775196165,
+        "embedding_latency_mean_ms": 53.65602480352778,
+        "embedding_latency_p95_ms": 57.559531240258366,
+        "enrolled_gallery_identities": 25,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 25,
+        "image_load_latency_mean_ms": 1.291078230560794,
+        "image_load_latency_p95_ms": 2.4119687295751646,
+        "images_timed": 3186,
+        "intended_gallery_identities": 25,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 77800,
+        "top1_search_time_mean_ms": 0.11667580269003265,
+        "top1_search_time_p95_ms": 0.11868545116158201,
+        "top5_search_time_mean_ms": 0.11980679089078981,
+        "top5_search_time_p95_ms": 0.12187499669380486
+      },
+      "end_to_end_duplicate_detection_rate": 0.944,
+      "gallery_seed": 20260919,
+      "gallery_size_intended": 25,
+      "rates": {
+        "cmc_rank1": 0.984,
+        "cmc_rank5": 0.992,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.05600000000000005,
+        "fnir_rank5": 0.05600000000000005,
+        "fpir": 0.0,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.513728728612,
+        "tpir_rank1": 0.944,
+        "tpir_rank5": 0.944
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 127,
+        "candidates_evaluated": 3114,
+        "development_fpir": 0.001004352192835621,
+        "development_tpir_rank1": 0.944,
+        "development_tpir_rank5": 0.944,
+        "selected_candidate": "score_0.513728728612",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.513728728612
+      },
+      "conditional_duplicate_detection_rate": 0.944,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.5655800817242,
+        "complete_pipeline_latency_p95_ms": 87.44970799307339,
+        "detection_latency_mean_ms": 26.652900491902468,
+        "detection_latency_p95_ms": 29.261208983371034,
+        "embedding_latency_mean_ms": 53.62475583342934,
+        "embedding_latency_p95_ms": 57.5098330155015,
+        "enrolled_gallery_identities": 50,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 50,
+        "image_load_latency_mean_ms": 1.2879237563923922,
+        "image_load_latency_p95_ms": 2.4039169948082417,
+        "images_timed": 3261,
+        "intended_gallery_identities": 50,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 155600,
+        "top1_search_time_mean_ms": 0.23188291644148712,
+        "top1_search_time_p95_ms": 0.2379774537985213,
+        "top5_search_time_mean_ms": 0.23658802109374844,
+        "top5_search_time_p95_ms": 0.24272691662190482
+      },
+      "end_to_end_duplicate_detection_rate": 0.944,
+      "gallery_seed": 20260919,
+      "gallery_size_intended": 50,
+      "rates": {
+        "cmc_rank1": 0.984,
+        "cmc_rank5": 0.992,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.05600000000000005,
+        "fnir_rank5": 0.05600000000000005,
+        "fpir": 0.0,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.513728728612,
+        "tpir_rank1": 0.944,
+        "tpir_rank5": 0.944
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 127,
+        "candidates_evaluated": 3114,
+        "development_fpir": 0.001004352192835621,
+        "development_tpir_rank1": 0.944,
+        "development_tpir_rank5": 0.944,
+        "selected_candidate": "score_0.513728728612",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.513728728612
+      },
+      "conditional_duplicate_detection_rate": 0.944,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.5416554212495,
+        "complete_pipeline_latency_p95_ms": 87.35849723889258,
+        "detection_latency_mean_ms": 26.684573376860232,
+        "detection_latency_p95_ms": 29.22884116123896,
+        "embedding_latency_mean_ms": 53.57146398646551,
+        "embedding_latency_p95_ms": 57.45647119329076,
+        "enrolled_gallery_identities": 100,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 100,
+        "image_load_latency_mean_ms": 1.2856180579237684,
+        "image_load_latency_p95_ms": 2.400793753622565,
+        "images_timed": 3410,
+        "intended_gallery_identities": 100,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 311200,
+        "top1_search_time_mean_ms": 0.46704326849109085,
+        "top1_search_time_p95_ms": 0.4737914350698702,
+        "top5_search_time_mean_ms": 0.4745586439408272,
+        "top5_search_time_p95_ms": 0.4815373380552046
+      },
+      "end_to_end_duplicate_detection_rate": 0.944,
+      "gallery_seed": 20260919,
+      "gallery_size_intended": 100,
+      "rates": {
+        "cmc_rank1": 0.984,
+        "cmc_rank5": 0.984,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.05600000000000005,
+        "fnir_rank5": 0.05600000000000005,
+        "fpir": 0.0,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.513728728612,
+        "tpir_rank1": 0.944,
+        "tpir_rank5": 0.944
+      }
+    },
+    {
+      "calibration": {
+        "candidates_admissible": 128,
+        "candidates_evaluated": 3114,
+        "development_fpir": 0.001004352192835621,
+        "development_tpir_rank1": 0.944,
+        "development_tpir_rank5": 0.944,
+        "selected_candidate": "score_0.513728728612",
+        "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+        "target_fpir": 0.003,
+        "threshold": 0.513728728612
+      },
+      "conditional_duplicate_detection_rate": 0.944,
+      "coverage": {
+        "complete_pipeline_latency_mean_ms": 81.40494466203546,
+        "complete_pipeline_latency_p95_ms": 86.99390624533407,
+        "detection_latency_mean_ms": 26.653749607335538,
+        "detection_latency_p95_ms": 29.12942223047139,
+        "embedding_latency_mean_ms": 53.46843804784415,
+        "embedding_latency_p95_ms": 57.15226219035684,
+        "enrolled_gallery_identities": 200,
+        "gallery_enrolment_coverage": 1.0,
+        "gallery_enrolment_failure_count": 0,
+        "gallery_enrolment_failure_rate": 0.0,
+        "gallery_size": 200,
+        "image_load_latency_mean_ms": 1.2827570068557694,
+        "image_load_latency_p95_ms": 2.4088001388008693,
+        "images_timed": 3710,
+        "intended_gallery_identities": 200,
+        "intended_mated_probes": 125,
+        "intended_non_mated_probes": 3000,
+        "mated_extraction_failure_rate": 0.0,
+        "method": "three_image_open_set_calibrated",
+        "non_mated_extraction_failure_rate": 0.004333333333333333,
+        "partition": "test",
+        "probe_failure_breakdown": {
+          "multiple_faces": 12,
+          "zero_faces": 1
+        },
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "similarity_comparisons": 622400,
+        "top1_search_time_mean_ms": 0.9182913051908422,
+        "top1_search_time_p95_ms": 0.9281018967158161,
+        "top5_search_time_mean_ms": 0.9304317650030568,
+        "top5_search_time_p95_ms": 0.9403744435985573
+      },
+      "end_to_end_duplicate_detection_rate": 0.944,
+      "gallery_seed": 20260919,
+      "gallery_size_intended": 200,
+      "rates": {
+        "cmc_rank1": 0.984,
+        "cmc_rank5": 0.984,
+        "false_reviews_per_1000_non_mated": 0.0,
+        "fnir_rank1": 0.05600000000000005,
+        "fnir_rank5": 0.05600000000000005,
+        "fpir": 0.0,
+        "scored_mated_probes": 125,
+        "scored_non_mated_probes": 2987,
+        "threshold": 0.513728728612,
+        "tpir_rank1": 0.944,
+        "tpir_rank5": 0.944
+      }
+    }
+  ],
+  "pipeline": {
+    "comparison_scope": "Complete pipeline: detection, preprocessing and embedding. A difference between pipelines cannot be attributed to the embedding model alone.",
+    "detector_name": "InsightFace SCRFD (det_10g)",
+    "embedding_dimensions": 512,
+    "embedding_model_name": "InsightFace ArcFace buffalo_l (w600k_r50)",
+    "licence_note": "InsightFace publishes its pretrained models for non-commercial research use. This project is an MSc academic research artefact: it is not a commercial service, is not deployed to real users, makes no commercial decisions, and neither sells, licenses nor redistributes the pretrained weights. The evaluation is local and non-commercial and publishes only aggregate metrics, so it falls within those research terms. The models were created and trained externally by the InsightFace project; no face-recognition network is trained or fine-tuned here. The MIT licence covering InsightFace source code does not automatically extend to every pretrained weight file, and no ownership of the models, their training data or their weights is claimed here.",
+    "model_sha256": {
+      "detector": "5838f7fe053675b1c7a08b633df49e7af5495cee0493c7dcf6697200b85b5b91",
+      "recognition": "4c06341c33c2ca1f86781dab0e829f88ad5b64be9fba56e56bc9ebdefc619e43"
+    },
+    "pipeline_name": "insightface-scrfd-arcface-buffalo_l",
+    "preprocessing_revision": "insightface-arcface-112x112-v1"
+  },
+  "quality_analysis": {
+    "image_short_side_pixels": {
+      "bins_low_to_high": {
+        "0": {
+          "end_to_end_duplicate_detection_rate": 0.9294605809128631,
+          "failure_breakdown": {
+            "multiple_faces": 3,
+            "zero_faces": 2
+          },
+          "failure_count": 5,
+          "intended_mated": 241,
+          "intended_probes": 967,
+          "rates": {
+            "cmc_rank1": 0.9708333333333333,
+            "cmc_rank5": 0.9791666666666666,
+            "false_reviews_per_1000_non_mated": 0.0,
+            "fnir_rank1": 0.06666666666666665,
+            "fnir_rank5": 0.06666666666666665,
+            "fpir": 0.0,
+            "scored_mated_probes": 240,
+            "scored_non_mated_probes": 722,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9333333333333333,
+            "tpir_rank5": 0.9333333333333333
+          }
+        },
+        "1": {
+          "end_to_end_duplicate_detection_rate": 0.9613733905579399,
+          "failure_breakdown": {
+            "multiple_faces": 3
+          },
+          "failure_count": 3,
+          "intended_mated": 233,
+          "intended_probes": 950,
+          "rates": {
+            "cmc_rank1": 0.9785407725321889,
+            "cmc_rank5": 0.9828326180257511,
+            "false_reviews_per_1000_non_mated": 0.0,
+            "fnir_rank1": 0.03862660944206009,
+            "fnir_rank5": 0.03862660944206009,
+            "fpir": 0.0,
+            "scored_mated_probes": 233,
+            "scored_non_mated_probes": 714,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9613733905579399,
+            "tpir_rank5": 0.9613733905579399
+          }
+        },
+        "2": {
+          "end_to_end_duplicate_detection_rate": 0.9809160305343512,
+          "failure_breakdown": {
+            "multiple_faces": 4
+          },
+          "failure_count": 4,
+          "intended_mated": 262,
+          "intended_probes": 1025,
+          "rates": {
+            "cmc_rank1": 0.9923664122137404,
+            "cmc_rank5": 0.9923664122137404,
+            "false_reviews_per_1000_non_mated": 3.952569169960474,
+            "fnir_rank1": 0.01908396946564883,
+            "fnir_rank5": 0.01908396946564883,
+            "fpir": 0.003952569169960474,
+            "scored_mated_probes": 262,
+            "scored_non_mated_probes": 759,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9809160305343512,
+            "tpir_rank5": 0.9809160305343512
+          }
+        },
+        "3": {
+          "end_to_end_duplicate_detection_rate": 0.9924242424242424,
+          "failure_breakdown": {
+            "multiple_faces": 2
+          },
+          "failure_count": 2,
+          "intended_mated": 264,
+          "intended_probes": 1058,
+          "rates": {
+            "cmc_rank1": 0.9924242424242424,
+            "cmc_rank5": 0.9962121212121212,
+            "false_reviews_per_1000_non_mated": 1.2626262626262628,
+            "fnir_rank1": 0.007575757575757569,
+            "fnir_rank5": 0.007575757575757569,
+            "fpir": 0.0012626262626262627,
+            "scored_mated_probes": 264,
+            "scored_non_mated_probes": 792,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9924242424242424,
+            "tpir_rank5": 0.9924242424242424
+          }
+        },
+        "unavailable": {
+          "end_to_end_duplicate_detection_rate": null,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 0,
+          "intended_probes": 0,
+          "rates": {
+            "cmc_rank1": NaN,
+            "cmc_rank5": NaN,
+            "false_reviews_per_1000_non_mated": NaN,
+            "fnir_rank1": NaN,
+            "fnir_rank5": NaN,
+            "fpir": NaN,
+            "scored_mated_probes": 0,
+            "scored_non_mated_probes": 0,
+            "threshold": 0.393957955447,
+            "tpir_rank1": NaN,
+            "tpir_rank5": NaN
+          }
+        }
+      },
+      "development_cutoffs": [
+        77.0,
+        113.0,
+        172.0
+      ]
+    },
+    "laplacian_variance": {
+      "bins_low_to_high": {
+        "0": {
+          "end_to_end_duplicate_detection_rate": 0.957345971563981,
+          "failure_breakdown": {
+            "multiple_faces": 2,
+            "zero_faces": 1
+          },
+          "failure_count": 3,
+          "intended_mated": 211,
+          "intended_probes": 933,
+          "rates": {
+            "cmc_rank1": 0.9857142857142858,
+            "cmc_rank5": 0.9904761904761905,
+            "false_reviews_per_1000_non_mated": 0.0,
+            "fnir_rank1": 0.03809523809523807,
+            "fnir_rank5": 0.03809523809523807,
+            "fpir": 0.0,
+            "scored_mated_probes": 210,
+            "scored_non_mated_probes": 720,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9619047619047619,
+            "tpir_rank5": 0.9619047619047619
+          }
+        },
+        "1": {
+          "end_to_end_duplicate_detection_rate": 0.9646017699115044,
+          "failure_breakdown": {
+            "multiple_faces": 3,
+            "zero_faces": 1
+          },
+          "failure_count": 4,
+          "intended_mated": 226,
+          "intended_probes": 925,
+          "rates": {
+            "cmc_rank1": 0.9867256637168141,
+            "cmc_rank5": 0.9911504424778761,
+            "false_reviews_per_1000_non_mated": 1.4388489208633093,
+            "fnir_rank1": 0.03539823008849563,
+            "fnir_rank5": 0.03539823008849563,
+            "fpir": 0.0014388489208633094,
+            "scored_mated_probes": 226,
+            "scored_non_mated_probes": 695,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9646017699115044,
+            "tpir_rank5": 0.9646017699115044
+          }
+        },
+        "2": {
+          "end_to_end_duplicate_detection_rate": 0.9672727272727273,
+          "failure_breakdown": {
+            "multiple_faces": 2
+          },
+          "failure_count": 2,
+          "intended_mated": 275,
+          "intended_probes": 1008,
+          "rates": {
+            "cmc_rank1": 0.9745454545454545,
+            "cmc_rank5": 0.9781818181818182,
+            "false_reviews_per_1000_non_mated": 1.3679890560875512,
+            "fnir_rank1": 0.032727272727272716,
+            "fnir_rank5": 0.032727272727272716,
+            "fpir": 0.0013679890560875513,
+            "scored_mated_probes": 275,
+            "scored_non_mated_probes": 731,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9672727272727273,
+            "tpir_rank5": 0.9672727272727273
+          }
+        },
+        "3": {
+          "end_to_end_duplicate_detection_rate": 0.9756944444444444,
+          "failure_breakdown": {
+            "multiple_faces": 5
+          },
+          "failure_count": 5,
+          "intended_mated": 288,
+          "intended_probes": 1134,
+          "rates": {
+            "cmc_rank1": 0.9895833333333334,
+            "cmc_rank5": 0.9930555555555556,
+            "false_reviews_per_1000_non_mated": 2.378121284185493,
+            "fnir_rank1": 0.02430555555555558,
+            "fnir_rank5": 0.02430555555555558,
+            "fpir": 0.0023781212841854932,
+            "scored_mated_probes": 288,
+            "scored_non_mated_probes": 841,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9756944444444444,
+            "tpir_rank5": 0.9756944444444444
+          }
+        },
+        "unavailable": {
+          "end_to_end_duplicate_detection_rate": null,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 0,
+          "intended_probes": 0,
+          "rates": {
+            "cmc_rank1": NaN,
+            "cmc_rank5": NaN,
+            "false_reviews_per_1000_non_mated": NaN,
+            "fnir_rank1": NaN,
+            "fnir_rank5": NaN,
+            "fpir": NaN,
+            "scored_mated_probes": 0,
+            "scored_non_mated_probes": 0,
+            "threshold": 0.393957955447,
+            "tpir_rank1": NaN,
+            "tpir_rank5": NaN
+          }
+        }
+      },
+      "development_cutoffs": [
+        238.9972153417766,
+        391.7266369983554,
+        640.133464041166
+      ]
+    },
+    "probe_detection_confidence": {
+      "bins_low_to_high": {
+        "0": {
+          "end_to_end_duplicate_detection_rate": 0.9390243902439024,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 246,
+          "intended_probes": 1006,
+          "rates": {
+            "cmc_rank1": 0.9715447154471545,
+            "cmc_rank5": 0.9796747967479674,
+            "false_reviews_per_1000_non_mated": 1.3157894736842104,
+            "fnir_rank1": 0.060975609756097615,
+            "fnir_rank5": 0.060975609756097615,
+            "fpir": 0.0013157894736842105,
+            "scored_mated_probes": 246,
+            "scored_non_mated_probes": 760,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9390243902439024,
+            "tpir_rank5": 0.9390243902439024
+          }
+        },
+        "1": {
+          "end_to_end_duplicate_detection_rate": 0.972,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 250,
+          "intended_probes": 992,
+          "rates": {
+            "cmc_rank1": 0.984,
+            "cmc_rank5": 0.988,
+            "false_reviews_per_1000_non_mated": 1.3477088948787064,
+            "fnir_rank1": 0.028000000000000025,
+            "fnir_rank5": 0.028000000000000025,
+            "fpir": 0.0013477088948787063,
+            "scored_mated_probes": 250,
+            "scored_non_mated_probes": 742,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.972,
+            "tpir_rank5": 0.972
+          }
+        },
+        "2": {
+          "end_to_end_duplicate_detection_rate": 0.9880478087649402,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 251,
+          "intended_probes": 1034,
+          "rates": {
+            "cmc_rank1": 0.9960159362549801,
+            "cmc_rank5": 1.0,
+            "false_reviews_per_1000_non_mated": 0.0,
+            "fnir_rank1": 0.01195219123505975,
+            "fnir_rank5": 0.01195219123505975,
+            "fpir": 0.0,
+            "scored_mated_probes": 251,
+            "scored_non_mated_probes": 783,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9880478087649402,
+            "tpir_rank5": 0.9880478087649402
+          }
+        },
+        "3": {
+          "end_to_end_duplicate_detection_rate": 0.9722222222222222,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 252,
+          "intended_probes": 954,
+          "rates": {
+            "cmc_rank1": 0.9841269841269841,
+            "cmc_rank5": 0.9841269841269841,
+            "false_reviews_per_1000_non_mated": 2.849002849002849,
+            "fnir_rank1": 0.02777777777777779,
+            "fnir_rank5": 0.02777777777777779,
+            "fpir": 0.002849002849002849,
+            "scored_mated_probes": 252,
+            "scored_non_mated_probes": 702,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9722222222222222,
+            "tpir_rank5": 0.9722222222222222
+          }
+        },
+        "unavailable": {
+          "end_to_end_duplicate_detection_rate": 0.0,
+          "failure_breakdown": {
+            "multiple_faces": 12,
+            "zero_faces": 2
+          },
+          "failure_count": 14,
+          "intended_mated": 1,
+          "intended_probes": 14,
+          "rates": {
+            "cmc_rank1": NaN,
+            "cmc_rank5": NaN,
+            "false_reviews_per_1000_non_mated": NaN,
+            "fnir_rank1": NaN,
+            "fnir_rank5": NaN,
+            "fpir": NaN,
+            "scored_mated_probes": 0,
+            "scored_non_mated_probes": 0,
+            "threshold": 0.393957955447,
+            "tpir_rank1": NaN,
+            "tpir_rank5": NaN
+          }
+        }
+      },
+      "development_cutoffs": [
+        0.8218032717704773,
+        0.8480210900306702,
+        0.868772953748703
+      ]
+    },
+    "probe_face_area_ratio": {
+      "bins_low_to_high": {
+        "0": {
+          "end_to_end_duplicate_detection_rate": 0.9961977186311787,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 263,
+          "intended_probes": 1083,
+          "rates": {
+            "cmc_rank1": 1.0,
+            "cmc_rank5": 1.0,
+            "false_reviews_per_1000_non_mated": 3.658536585365854,
+            "fnir_rank1": 0.0038022813688213253,
+            "fnir_rank5": 0.0038022813688213253,
+            "fpir": 0.003658536585365854,
+            "scored_mated_probes": 263,
+            "scored_non_mated_probes": 820,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9961977186311787,
+            "tpir_rank5": 0.9961977186311787
+          }
+        },
+        "1": {
+          "end_to_end_duplicate_detection_rate": 0.9571984435797666,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 257,
+          "intended_probes": 1006,
+          "rates": {
+            "cmc_rank1": 0.980544747081712,
+            "cmc_rank5": 0.980544747081712,
+            "false_reviews_per_1000_non_mated": 1.335113484646195,
+            "fnir_rank1": 0.04280155642023342,
+            "fnir_rank5": 0.04280155642023342,
+            "fpir": 0.0013351134846461949,
+            "scored_mated_probes": 257,
+            "scored_non_mated_probes": 749,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9571984435797666,
+            "tpir_rank5": 0.9571984435797666
+          }
+        },
+        "2": {
+          "end_to_end_duplicate_detection_rate": 0.971830985915493,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 213,
+          "intended_probes": 902,
+          "rates": {
+            "cmc_rank1": 0.9859154929577465,
+            "cmc_rank5": 0.9859154929577465,
+            "false_reviews_per_1000_non_mated": 0.0,
+            "fnir_rank1": 0.028169014084507005,
+            "fnir_rank5": 0.028169014084507005,
+            "fpir": 0.0,
+            "scored_mated_probes": 213,
+            "scored_non_mated_probes": 689,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.971830985915493,
+            "tpir_rank5": 0.971830985915493
+          }
+        },
+        "3": {
+          "end_to_end_duplicate_detection_rate": 0.9473684210526315,
+          "failure_breakdown": {},
+          "failure_count": 0,
+          "intended_mated": 266,
+          "intended_probes": 995,
+          "rates": {
+            "cmc_rank1": 0.9699248120300752,
+            "cmc_rank5": 0.9849624060150376,
+            "false_reviews_per_1000_non_mated": 0.0,
+            "fnir_rank1": 0.052631578947368474,
+            "fnir_rank5": 0.052631578947368474,
+            "fpir": 0.0,
+            "scored_mated_probes": 266,
+            "scored_non_mated_probes": 729,
+            "threshold": 0.393957955447,
+            "tpir_rank1": 0.9473684210526315,
+            "tpir_rank5": 0.9473684210526315
+          }
+        },
+        "unavailable": {
+          "end_to_end_duplicate_detection_rate": 0.0,
+          "failure_breakdown": {
+            "multiple_faces": 12,
+            "zero_faces": 2
+          },
+          "failure_count": 14,
+          "intended_mated": 1,
+          "intended_probes": 14,
+          "rates": {
+            "cmc_rank1": NaN,
+            "cmc_rank5": NaN,
+            "false_reviews_per_1000_non_mated": NaN,
+            "fnir_rank1": NaN,
+            "fnir_rank5": NaN,
+            "fpir": NaN,
+            "scored_mated_probes": 0,
+            "scored_non_mated_probes": 0,
+            "threshold": 0.393957955447,
+            "tpir_rank1": NaN,
+            "tpir_rank5": NaN
+          }
+        }
+      },
+      "development_cutoffs": [
+        0.6311533915375765,
+        0.7031449584426912,
+        0.7905844614362012
+      ]
+    }
+  },
+  "quality_note": "Development quartile bins; whole-image Laplacian variance at 128x128 is a blur proxy, not a causal or face-quality label. Missing detection metadata retains unresolved failures. Pose is assessed separately by CPLFW; lighting is not labelled.",
+  "schema_version": 1,
+  "status": "evaluated",
+  "timing_note": "Extraction times originate from the first in-memory extraction per image; each gallery search is timed separately. Gallery-size results describe this Python exact-search implementation."
+}

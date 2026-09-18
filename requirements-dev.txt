@@ -1,0 +1,11 @@
+# Test and type-checking dependencies, pinned to the versions under which the
+# suite and the type checker were last run green. Install on top of
+# requirements.txt:
+#
+#   pip install -r requirements.txt -r requirements-dev.txt
+#
+# Versions read from the project virtual environment after a full green run,
+# not guessed.
+pytest==9.1.1
+pytest-cov==7.1.0
+pyright==1.1.411

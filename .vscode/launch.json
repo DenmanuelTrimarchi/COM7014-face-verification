@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run COM7014 Advanced Computing Project",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/ACP_arden.py",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# Direct, deliberately pinned requirements for the Experiment 8 comparison.
+#
+# This is NOT a complete transitive lock. It pins the packages this project
+# chose explicitly; pip still resolves their own dependencies. For the full
+# resolved set, including transitive packages, see
+# requirements-comparison-lock.txt.
+#
+# Installed by scripts/install_comparison_environment.sh, which verifies every
+# version below after installation rather than merely printing it.
+
+onnxruntime==1.28.0
+onnx==1.22.0
+scipy==1.18.0
+scikit-image==0.26.0
+tqdm==4.70.0
+requests==2.34.2
+numpy==2.5.1
+opencv-python-headless==4.13.0.92

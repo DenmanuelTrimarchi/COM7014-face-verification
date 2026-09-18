@@ -1,0 +1,113 @@
+{
+  "artifact_type": "bfw_open_set_threshold",
+  "created_at": "2026-09-17T13:45:31.280966+00:00",
+  "dataset_provenance": {
+    "dataset_name": "BFW",
+    "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+    "images_per_identity_max": 25,
+    "images_per_identity_median": 25.0,
+    "images_per_identity_min": 25,
+    "metadata_filename": "bfw-v0.1.5-datatable.csv",
+    "metadata_sha256": "e098dc77da1b71c5dbe981ae6823a316de1092b7698d124ed2e78ece843aff4c",
+    "protocol_provenance": "Project-defined open-set protocol constructed from the official BFW data. BFW publishes verification and bias-analysis protocols; it does not publish an open-set identification protocol, and none is implied here.",
+    "protocol_version": "acp-arden-bfw-open-set-v1",
+    "subgroup_identity_counts": {
+      "asian_females": 100,
+      "asian_males": 100,
+      "black_females": 100,
+      "black_males": 100,
+      "indian_females": 100,
+      "indian_males": 100,
+      "white_females": 100,
+      "white_males": 100
+    },
+    "total_identities": 800,
+    "total_images": 20000
+  },
+  "developed_on": "BFW development partition (identity-disjoint from test)",
+  "limitations": [
+    "This remains a proof of concept. No result here proves fraud, misuse or misrepresentation by any person.",
+    "No automatic sanction is applied. Every outcome opens a case for human review and nothing else. In this gallery-screening experiment the referral is triggered by a high similarity to another enrolled identity; profile-photo consistency refers a low similarity to the profile's own template instead, and an extraction failure makes no decision at all.",
+    "The BFW open-set evaluation uses a protocol defined by this project. BFW publishes verification and bias-analysis protocols, not an open-set identification protocol.",
+    "Development and test identities are completely disjoint, and the operating threshold was frozen before the held-out test partition was scored.",
+    "Extraction failures are counted as coverage failures, never as genuine no-match decisions.",
+    "Confidence intervals describe sampling uncertainty over these benchmark identities only. They do not extend to any other population.",
+    "Benchmark demographics do not represent any real deployed user population, so subgroup figures must not be read as deployment estimates."
+  ],
+  "method": "three_image_open_set_calibrated",
+  "methodology_revision": "open-set-gallery-accounting-v2",
+  "model_sha256": {
+    "sface": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+    "yunet": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+  },
+  "model_version": "opencv-sface-2021dec-yunet-2023mar",
+  "opaque_id_version": "hmac-sha256-v1",
+  "operating_points": {
+    "0.001": {
+      "candidates_admissible": 389,
+      "candidates_evaluated": 3822,
+      "development_fpir": 0.0006990562740300594,
+      "development_tpir_rank1": 0.40145985401459855,
+      "development_tpir_rank5": 0.40145985401459855,
+      "selected_candidate": "score_0.710967208853",
+      "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+      "target_fpir": 0.001,
+      "threshold": 0.710967208853
+    },
+    "0.003": {
+      "candidates_admissible": 898,
+      "candidates_evaluated": 3822,
+      "development_fpir": 0.0027962250961202375,
+      "development_tpir_rank1": 0.927007299270073,
+      "development_tpir_rank5": 0.927007299270073,
+      "selected_candidate": "score_0.477117869159",
+      "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+      "target_fpir": 0.003,
+      "threshold": 0.477117869159
+    },
+    "0.01": {
+      "candidates_admissible": 941,
+      "candidates_evaluated": 3822,
+      "development_fpir": 0.009786787836420832,
+      "development_tpir_rank1": 0.948905109489051,
+      "development_tpir_rank5": 0.948905109489051,
+      "selected_candidate": "score_0.439414136573",
+      "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+      "target_fpir": 0.01,
+      "threshold": 0.439414136573
+    }
+  },
+  "pipeline_name": "opencv-sface-2021dec-yunet-2023mar",
+  "policy_note": "Duplicate-profile screening: a high similarity to another enrolled gallery identity opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity. This polarity applies to gallery screening; profile-photo consistency refers a *low* similarity instead, and an extraction failure makes no decision at all.",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "primary_fpir_target": 0.003,
+  "protocol_digest": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "public_manifest_sha256": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "schema_version": 1,
+  "seed": 20260727,
+  "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "status": "open_set_frozen"
+}

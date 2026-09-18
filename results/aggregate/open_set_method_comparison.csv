@@ -1,0 +1,3 @@
+method,operating_point,threshold,gallery_size,fpir,fnir_rank1,tpir_rank1,tpir_rank5,false_reviews_per_1000_non_mated,gallery_enrolment_coverage,scored_mated_probes,scored_non_mated_probes,end_to_end_duplicate_detection_rate
+single_image_pairwise_threshold,lfw_1to1_control,0.3630116835391414,196,0.08954179783140959,0.06538049303322613,0.9346195069667739,0.9356913183279743,89.54179783140958,0.98,933,2859,0.872
+three_image_open_set_calibrated,open_set_fpir_0.003,0.477117869159,198,0.005246589716684155,0.07430997876857748,0.9256900212314225,0.9256900212314225,5.246589716684155,0.99,942,2859,0.872

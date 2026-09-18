@@ -1,0 +1,197 @@
+{
+  "artifact_type": "calibrated_threshold",
+  "candidates": {
+    "balanced_accuracy": {
+      "metrics": {
+        "accuracy": 0.9954361054766734,
+        "f1": 0.9954522486104093,
+        "false_match_rate": 0.0,
+        "false_non_match_rate": 0.009054325955734407,
+        "precision": 1.0,
+        "recall": 0.9909456740442656,
+        "true_match_rate": 0.9909456740442656
+      },
+      "threshold": 0.3630116835391414
+    },
+    "eer": {
+      "metrics": {
+        "accuracy": 0.9934077079107505,
+        "equal_error_rate": 0.007042253521126751,
+        "f1": 0.9934574735782588,
+        "false_match_rate": 0.006134969325153374,
+        "false_non_match_rate": 0.007042253521126761,
+        "precision": 0.9939577039274925,
+        "recall": 0.9929577464788732,
+        "true_match_rate": 0.9929577464788732
+      },
+      "threshold": 0.3072762511476803
+    },
+    "f1": {
+      "metrics": {
+        "accuracy": 0.9954361054766734,
+        "f1": 0.9954522486104093,
+        "false_match_rate": 0.0,
+        "false_non_match_rate": 0.009054325955734407,
+        "precision": 1.0,
+        "recall": 0.9909456740442656,
+        "true_match_rate": 0.9909456740442656
+      },
+      "threshold": 0.3630116835391414
+    },
+    "target_fmr_0.001": {
+      "metrics": {
+        "accuracy": 0.9954361054766734,
+        "f1": 0.9954522486104093,
+        "false_match_rate": 0.0,
+        "false_non_match_rate": 0.009054325955734407,
+        "precision": 1.0,
+        "recall": 0.9909456740442656,
+        "true_match_rate": 0.9909456740442656
+      },
+      "threshold": 0.3630116835391414
+    },
+    "target_fmr_0.01": {
+      "metrics": {
+        "accuracy": 0.9929006085192698,
+        "f1": 0.9929718875502008,
+        "false_match_rate": 0.009202453987730062,
+        "false_non_match_rate": 0.005030181086519115,
+        "precision": 0.9909819639278558,
+        "recall": 0.9949698189134809,
+        "true_match_rate": 0.9949698189134809
+      },
+      "threshold": 0.2993276213451092
+    },
+    "target_fmr_0.05": {
+      "metrics": {
+        "accuracy": 0.9741379310344828,
+        "f1": 0.9749139203148056,
+        "false_match_rate": 0.049079754601226995,
+        "false_non_match_rate": 0.0030181086519114686,
+        "precision": 0.9538017324350336,
+        "recall": 0.9969818913480886,
+        "true_match_rate": 0.9969818913480886
+      },
+      "threshold": 0.2343152375423717
+    }
+  },
+  "created_at": "2026-09-17T13:41:09.949256+00:00",
+  "dataset": "LFW",
+  "dataset_archive_md5": "1b42dfed7d15c9b2dd63d5e5840c86ad",
+  "evaluated_image_set_sha256": "094554d088c661087c7d886e79b3e0376daaeb42c17b228db3f2a0130c4f0d8f",
+  "failure_breakdown": {
+    "multiple_faces_left": 118,
+    "multiple_faces_right": 85,
+    "zero_faces_left": 13,
+    "zero_faces_right": 12
+  },
+  "frozen_from_protocol": "pairsDevTest.txt",
+  "frozen_from_protocol_sha256": "7cb06600ea8b2814ac26e946201cdb304296262aad67d046a16a7ec85d0ff87c",
+  "model_sha256": {
+    "sface": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+    "yunet": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+  },
+  "model_version": "opencv-sface-2021dec-yunet-2023mar",
+  "operating_strategy": "balanced_accuracy",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "protocol_file": "pairsDevTrain.txt",
+  "protocol_sha256": "1d454dada7dfeca0e7eab6f65dc4e97a6312d44cf142207be28d688be92aabfa",
+  "schema_version": 1,
+  "scored_pairs": 1972,
+  "selection_evidence": {
+    "balanced_accuracy": {
+      "accuracy": 0.9921875,
+      "balanced_accuracy": 0.9920814479638009,
+      "f1": 0.9920182440136829,
+      "false_match_rate": 0.0,
+      "false_non_match_rate": 0.01583710407239819,
+      "precision": 1.0,
+      "recall": 0.9841628959276018,
+      "threshold": 0.3630116835391414,
+      "true_match_rate": 0.9841628959276018
+    },
+    "eer": {
+      "accuracy": 0.9888392857142857,
+      "balanced_accuracy": 0.9887774832060916,
+      "f1": 0.9886363636363636,
+      "false_match_rate": 0.006607929515418502,
+      "false_non_match_rate": 0.01583710407239819,
+      "precision": 0.9931506849315068,
+      "recall": 0.9841628959276018,
+      "threshold": 0.3072762511476803,
+      "true_match_rate": 0.9841628959276018
+    },
+    "f1": {
+      "accuracy": 0.9921875,
+      "balanced_accuracy": 0.9920814479638009,
+      "f1": 0.9920182440136829,
+      "false_match_rate": 0.0,
+      "false_non_match_rate": 0.01583710407239819,
+      "precision": 1.0,
+      "recall": 0.9841628959276018,
+      "threshold": 0.3630116835391414,
+      "true_match_rate": 0.9841628959276018
+    },
+    "target_fmr_0.001": {
+      "accuracy": 0.9921875,
+      "balanced_accuracy": 0.9920814479638009,
+      "f1": 0.9920182440136829,
+      "false_match_rate": 0.0,
+      "false_non_match_rate": 0.01583710407239819,
+      "precision": 1.0,
+      "recall": 0.9841628959276018,
+      "threshold": 0.3630116835391414,
+      "true_match_rate": 0.9841628959276018
+    },
+    "target_fmr_0.01": {
+      "accuracy": 0.9877232142857143,
+      "balanced_accuracy": 0.9877060617537425,
+      "f1": 0.9875424688561723,
+      "false_match_rate": 0.011013215859030838,
+      "false_non_match_rate": 0.013574660633484163,
+      "precision": 0.9886621315192744,
+      "recall": 0.9864253393665159,
+      "threshold": 0.2993276213451092,
+      "true_match_rate": 0.9864253393665159
+    },
+    "target_fmr_0.05": {
+      "accuracy": 0.9642857142857143,
+      "balanced_accuracy": 0.9645783084497778,
+      "f1": 0.9646017699115045,
+      "false_match_rate": 0.05726872246696035,
+      "false_non_match_rate": 0.013574660633484163,
+      "precision": 0.9437229437229437,
+      "recall": 0.9864253393665159,
+      "threshold": 0.2343152375423717,
+      "true_match_rate": 0.9864253393665159
+    }
+  },
+  "selection_rule": "Maximum balanced accuracy on the development split (pairsDevTest.txt); ties broken by lower development-split false match rate, then by candidate name, for full determinism.",
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "split": "validation",
+  "status": "frozen",
+  "threshold": 0.3630116835391414,
+  "total_pairs": 2200
+}

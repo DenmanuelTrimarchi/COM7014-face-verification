@@ -1,0 +1,172 @@
+{
+  "artifact_type": "bfw_open_set_protocol_summary",
+  "created_at": "2026-09-17T13:45:31.280260+00:00",
+  "dataset_provenance": {
+    "dataset_name": "BFW",
+    "evaluated_image_set_sha256": "3eacaebf889307b6b5375e40881fe173d23cb0d00a969938ed0ecdb145e00b73",
+    "images_per_identity_max": 25,
+    "images_per_identity_median": 25.0,
+    "images_per_identity_min": 25,
+    "metadata_filename": "bfw-v0.1.5-datatable.csv",
+    "metadata_sha256": "e098dc77da1b71c5dbe981ae6823a316de1092b7698d124ed2e78ece843aff4c",
+    "protocol_provenance": "Project-defined open-set protocol constructed from the official BFW data. BFW publishes verification and bias-analysis protocols; it does not publish an open-set identification protocol, and none is implied here.",
+    "protocol_version": "acp-arden-bfw-open-set-v1",
+    "subgroup_identity_counts": {
+      "asian_females": 100,
+      "asian_males": 100,
+      "black_females": 100,
+      "black_males": 100,
+      "indian_females": 100,
+      "indian_males": 100,
+      "white_females": 100,
+      "white_males": 100
+    },
+    "total_identities": 800,
+    "total_images": 20000
+  },
+  "development": {
+    "by_subgroup": {
+      "asian_females": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "asian_males": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "black_females": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "black_males": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "indian_females": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "indian_males": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "white_females": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "white_males": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      }
+    },
+    "identities": 400,
+    "images": 4600,
+    "mated_identities": 200,
+    "non_mated_identities": 200,
+    "roles": {
+      "gallery_enrolment": 600,
+      "mated_probe": 1000,
+      "non_mated_probe": 3000
+    }
+  },
+  "development_identities": 400,
+  "model_sha256": {
+    "sface": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+    "yunet": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+  },
+  "model_version": "opencv-sface-2021dec-yunet-2023mar",
+  "odd_count_rule": "When a subgroup holds an odd number of identities the extra identity is assigned to the development partition, and within a partition to the mated group, so the held-out test set is never enlarged by a tie.",
+  "opaque_id_version": "hmac-sha256-v1",
+  "pipeline_name": "opencv-sface-2021dec-yunet-2023mar",
+  "policy_note": "Duplicate-profile screening: a high similarity to another enrolled gallery identity opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity. This polarity applies to gallery screening; profile-photo consistency refers a *low* similarity instead, and an extraction failure makes no decision at all.",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "protocol_version": "acp-arden-bfw-open-set-v1",
+  "public_manifest_sha256": "549790b77cfc7abaf1a90748a7ebda86be9e988cb4aaf56af04136566b8191b1",
+  "schema_version": 1,
+  "seed": 20260727,
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      },
+      "scikit-learn": {
+        "expected": "1.9.0",
+        "installed": "1.9.0"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "test": {
+    "by_subgroup": {
+      "asian_females": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "asian_males": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "black_females": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "black_males": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "indian_females": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "indian_males": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "white_females": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      },
+      "white_males": {
+        "gallery_enrolment": 75,
+        "mated_probe": 125,
+        "non_mated_probe": 375
+      }
+    },
+    "identities": 400,
+    "images": 4600,
+    "mated_identities": 200,
+    "non_mated_identities": 200,
+    "roles": {
+      "gallery_enrolment": 600,
+      "mated_probe": 1000,
+      "non_mated_probe": 3000
+    }
+  },
+  "test_identities": 400
+}

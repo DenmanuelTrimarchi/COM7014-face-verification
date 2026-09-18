@@ -1,0 +1,49 @@
+{
+  "artifact_type": "duplicate_gallery_metrics",
+  "created_at": "2026-07-30T16:24:42.727433+00:00",
+  "dataset_archive_md5": "1b42dfed7d15c9b2dd63d5e5840c86ad",
+  "duplicate_detection_rate": 0.9658291457286432,
+  "duplicate_probe_count": 1047,
+  "duplicate_probe_failures": 52,
+  "duplicate_review_threshold": 0.3630116835391414,
+  "false_duplicate_review_rate": 0.5255750085822176,
+  "gallery_search_time_mean_ms": 4.446180135871747,
+  "gallery_search_time_p95_ms": 4.628216550213438,
+  "gallery_size": 986,
+  "manifest_sha256": "20d030d896c8ef3e5e5192129891f93a8d1493752febba0ae4004c342ddcc103",
+  "model_sha256": {
+    "sface": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+    "yunet": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4"
+  },
+  "model_version": "opencv-sface-2021dec-yunet-2023mar",
+  "policy_note": "A result above threshold opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity.",
+  "preprocessing_revision": "opencv-yunet-sface-exif-bgr-l2-v1",
+  "rank1_identification_rate": 0.9276381909547738,
+  "schema_version": 1,
+  "seed": 20260727,
+  "software_environment": {
+    "dependencies": {
+      "Pillow": {
+        "expected": "12.3.0",
+        "installed": "12.3.0"
+      },
+      "numpy": {
+        "expected": "2.5.1",
+        "installed": "2.5.1"
+      },
+      "opencv-python-headless": {
+        "expected": "4.13.0.92",
+        "installed": "4.13.0.92"
+      }
+    },
+    "platform": "macOS-14.8.3-arm64-arm-64bit-Mach-O",
+    "processor": "arm",
+    "python_version": "3.13.0"
+  },
+  "threshold_artifact_sha256": "aab80f173ccc9201153a4a95872947d999792511d31041402f1db021f7a11a59",
+  "threshold_source": "results/aggregate/calibrated_threshold.json",
+  "threshold_strategy": "balanced_accuracy",
+  "true_duplicate_miss_rate": 0.0341708542713568,
+  "unknown_probe_count": 3080,
+  "unknown_probe_failures": 167
+}

@@ -1,0 +1,9 @@
+{
+  "include": ["ACP_arden.py", "tests"],
+  "exclude": ["**/__pycache__", ".venv", "results", "datasets", "data", "models", "cache"],
+  "pythonVersion": "3.13",
+  "venvPath": ".",
+  "venv": ".venv",
+  "typeCheckingMode": "standard",
+  "reportMissingImports": "error"
+}

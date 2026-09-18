@@ -1,0 +1,28 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.pyright/
+*.pyc
+*.onnx
+*.rar
+*.zip
+*.tgz
+*.sqlite
+datasets/
+data/
+models/
+cache/
+results/raw/gallery_manifest.json
+
+# Local research inputs and derived biometric material never belong in Git.
+results/raw/
+*.db
+.coverage
+htmlcov/
+.DS_Store
+.mypy_cache/
+.ruff_cache/
+
+# Published aggregate results are deliberately kept.
+!results/aggregate/

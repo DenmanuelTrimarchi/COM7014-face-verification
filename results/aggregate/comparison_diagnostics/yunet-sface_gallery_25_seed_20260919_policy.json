@@ -1,0 +1,17 @@
+{
+  "calibration": {
+    "candidates_admissible": 122,
+    "candidates_evaluated": 2977,
+    "development_fpir": 0.002797202797202797,
+    "development_tpir_rank1": 0.9739130434782609,
+    "development_tpir_rank5": 0.9739130434782609,
+    "selected_candidate": "score_0.424985717420",
+    "selection_rule": "Among candidate thresholds whose development FPIR is no greater than the target, select the highest development TPIR at rank 1; ties broken by lower development FPIR, then by higher threshold, then by candidate name, for full determinism.",
+    "target_fpir": 0.003,
+    "threshold": 0.42498571742
+  },
+  "created_at": "2026-09-17T14:03:46.412861+00:00",
+  "protocol_digest": "78b4eb3e9f81d047a5b4d2151639c5c13e9bf85a673db4efb0d4b0824d8dd0b6",
+  "schema_version": 1,
+  "status": "open_set_frozen"
+}
