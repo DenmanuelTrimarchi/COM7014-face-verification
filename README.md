@@ -10,10 +10,17 @@ Everything lives in one executable Python file, [ACP_arden.py](ACP_arden.py).
 
 ## Research question
 
-> To what extent can gallery-specific threshold calibration and multi-image
-> profile enrolment reduce false duplicate-profile reviews while retaining
-> duplicate-detection performance in an open-set face-verification proof of
-> concept evaluated on real public benchmark datasets?
+> Which combination of pretrained face detector and face recogniser gives the
+> best duplicate-profile screening performance in an open-set evaluation on
+> public benchmark datasets, once each combination is given its own
+> gallery-calibrated threshold, and what detection, review-workload and
+> computational cost does that choice carry?
+
+Supporting questions: does gallery-specific calibration, rather than a
+threshold transferred from 1:1 verification, reduce false duplicate-profile
+reviews while retaining detection? Does multi-image enrolment contribute once
+both enrolment methods are separately calibrated? Does a learned review
+classifier improve on a calibrated threshold?
 
 Experiments 1–5 form the **baseline study**, using the official ten-fold LFW
 protocol to investigate:

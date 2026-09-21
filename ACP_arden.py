@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 """COM7014 Advanced Computing Project — face verification coursework.
 
-The whole project lives in this one file. It measures a face-verification
-pipeline assembled from two pretrained OpenCV models: YuNet, which finds the
-face in a photograph, and SFace, which turns that face into a vector of
-numbers that can be compared. Neither model is modified.
+The whole project lives in this one file. It measures face-verification
+pipelines assembled from four pretrained models, none of which is modified.
+Two of them find the face in a photograph: YuNet, from OpenCV Zoo, and SCRFD,
+from InsightFace. The other two turn that face into a vector of numbers that
+can be compared: SFace, from OpenCV Zoo, which produces 128 values, and
+ArcFace, from the InsightFace buffalo_l pack, which produces 512. Any detector
+can feed any recogniser, so the pipeline is a choice of pairing rather than a
+fixed design.
 
 Two questions are put to it. The first is the standard one-to-one problem:
 shown two unconstrained photographs, does the pipeline judge correctly whether
@@ -882,9 +886,11 @@ def load_image_bgr(
 # 6. YuNet face detection
 # =============================================================================
 #
-# Exactly one detectable face is required, matching the research question
-# ("does this photo show one identifiable face"). Zero and multiple detections
-# are counted as explicit outcomes in section 12, never silently dropped.
+# Exactly one detectable face is required, so that the face compared is
+# unambiguously the one the protocol entry refers to. Zero and multiple
+# detections are counted as explicit outcomes in section 12, never silently
+# dropped, because processing coverage is part of what separates the
+# combinations under comparison.
 
 
 # Accept the real OpenCV wrapper, the InsightFace comparison wrapper and the
@@ -11032,12 +11038,14 @@ def _write_figure_captions(
 
 
 # The five implementation layers, in the order the project developed them.
-# Together they are the experiment behind the research objective: each layer
-# adds one component to the previous combination, so comparing consecutive
-# layers can also reflect calibration and coverage. All five are measured on the
-# same BFW open-set protocol and are therefore directly comparable. LFW and
-# CPLFW are 1:1 verification and are never mixed into this series: an FMR and
-# an FPIR are not the same quantity.
+# They answer the supporting questions: layers 1 to 3 separate a transferred
+# threshold from a gallery-calibrated one, layer 4 tests the review
+# classifier, and layer 5 changes the model combination. Comparing consecutive
+# layers can also reflect calibration and coverage, so the combinations
+# themselves are compared separately by the crossed pipelines. All five are
+# measured on the same BFW open-set protocol and are therefore directly
+# comparable. LFW and CPLFW are 1:1 verification and are never mixed into this
+# series: an FMR and an FPIR are not the same quantity.
 IMPLEMENTATION_LAYERS = (
     "Layer 1\nsingle image\ntransferred threshold",
     "Layer 2\nthree images\ntransferred threshold",
