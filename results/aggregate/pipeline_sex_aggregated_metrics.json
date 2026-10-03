@@ -1,7 +1,7 @@
 {
   "aggregation": "pooled over identity outcomes, not averaged over subgroups",
   "artifact_type": "pipeline_sex_aggregated_metrics",
-  "created_at": "2026-09-17T13:49:39.240540+00:00",
+  "created_at": "2026-10-03T09:07:58.795429+00:00",
   "groups": {
     "insightface-scrfd-arcface-buffalo_l \u2014 female": {
       "bootstrap_replicates": 2000,

@@ -5,7 +5,7 @@
   "canonical_development_run_digest": "ada194938ef53bbfc9671211daabab3b66154e97cb1af67837ce3f6a47bb37cc",
   "canonical_test_context_sha256": "48f78f0c6746f1916b5da8254242ca069d443017de4f8dadfdf70fc30fe28110",
   "canonical_test_run_digest": "616bdedd70727de2ce06d1a3a187652edb68035a00e954719d4eaeeadd48c15a",
-  "created_at": "2026-09-17T14:03:17.674290+00:00",
+  "created_at": "2026-10-03T09:21:36.209629+00:00",
   "crossing": "yunet-arcface",
   "dataset_name": "BFW",
   "dataset_provenance": {

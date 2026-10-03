@@ -10,7 +10,7 @@
     "target_fpir": 0.003,
     "threshold": 0.469492999597
   },
-  "created_at": "2026-09-17T14:03:36.916758+00:00",
+  "created_at": "2026-10-03T09:21:55.275203+00:00",
   "protocol_digest": "3fb11ad62aa8317793b6855145c4cb068e0c8ae005d80c1f8e22accbe33d1534",
   "schema_version": 1,
   "status": "open_set_frozen"

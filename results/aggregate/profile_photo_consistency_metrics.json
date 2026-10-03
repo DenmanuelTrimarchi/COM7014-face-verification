@@ -1,6 +1,6 @@
 {
   "artifact_type": "profile_photo_consistency_metrics",
-  "created_at": "2026-09-17T13:49:39.239943+00:00",
+  "created_at": "2026-10-03T09:07:58.794865+00:00",
   "duplicate_screening_policy_note": "Applies to gallery screening only, not to profile consistency: Duplicate-profile screening: a high similarity to another enrolled gallery identity opens a case for human review only. It is not evidence of scam activity and does not ban, reject or accuse any identity. This polarity applies to gallery screening; profile-photo consistency refers a *low* similarity instead, and an extraction failure makes no decision at all.",
   "interpretation_note": "A non-match indicates that the photograph is inconsistent with the enrolled facial template under the evaluated model and threshold. It does not prove that the photograph belongs to another person or that fraud occurred. Pose, lighting, occlusion, image quality, age difference, face-detection failure and model error can all produce the same result. An inconsistent photograph opens a human-review case; a consistent one does not, and an extraction failure resolves nothing.",
   "outcome_fields": [

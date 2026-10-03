@@ -20,7 +20,7 @@
     "preprocessing_revision": "insightface-arcface-112x112-v1"
   },
   "comparison_scope": "Complete pretrained pipelines. Detection, landmarking, alignment, preprocessing, embedding dimensionality and runtime all differ, so no difference may be attributed to the embedding model alone.",
-  "created_at": "2026-09-17T13:49:39.217264+00:00",
+  "created_at": "2026-10-03T09:07:58.771559+00:00",
   "dataset_name": "BFW",
   "dataset_provenance": {
     "dataset_name": "BFW",

@@ -1,9 +1,9 @@
 {
   "artifact_type": "implementation_layer_comparison",
-  "created_at": "2026-09-17T14:04:43.653457+00:00",
+  "created_at": "2026-10-03T09:23:01.498742+00:00",
   "layers": [
     {
-      "complete_pipeline_latency_mean_ms": 20.610230971459536,
+      "complete_pipeline_latency_mean_ms": 19.599149605537086,
       "end_to_end_duplicate_detection_rate": 0.872,
       "false_reviews_per_1000_non_mated": 89.54179783140958,
       "fpir": 0.08954179783140959,
@@ -12,7 +12,7 @@
       "mated_probe_coverage": 0.933,
       "method": "Layer 1 single image transferred threshold",
       "non_mated_probe_coverage": 0.953,
-      "search_latency_mean_ms": 0.8458441369290653,
+      "search_latency_mean_ms": 0.8421242591678872,
       "threshold_source": "LFW 1:1 frozen threshold (transferred)",
       "tpir_rank1": 0.9346195069667739,
       "tpir_rank5": 0.9356913183279743

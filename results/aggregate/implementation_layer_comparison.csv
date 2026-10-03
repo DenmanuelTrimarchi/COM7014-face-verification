@@ -1,5 +1,5 @@
 layer,method,fpir,false_reviews_per_1000_non_mated,tpir_rank1,tpir_rank5,end_to_end_duplicate_detection_rate,gallery_enrolment_coverage,mated_probe_coverage,non_mated_probe_coverage,complete_pipeline_latency_mean_ms,search_latency_mean_ms,threshold_source
-1,Layer 1 single image transferred threshold,0.08954179783140959,89.54179783140958,0.9346195069667739,0.9356913183279743,0.872,0.98,0.933,0.953,20.610230971459536,0.8458441369290653,LFW 1:1 frozen threshold (transferred)
+1,Layer 1 single image transferred threshold,0.08954179783140959,89.54179783140958,0.9346195069667739,0.9356913183279743,0.872,0.98,0.933,0.953,19.599149605537086,0.8421242591678872,LFW 1:1 frozen threshold (transferred)
 2,Layer 2 three images transferred threshold,0.1521511017838405,152.15110178384052,0.9670912951167728,0.9681528662420382,0.911,0.99,0.942,0.953,21.71718460191623,0.9075322548111632,LFW 1:1 frozen threshold (transferred)
 3,Layer 3 three images BFW calibration,0.005246589716684155,5.246589716684155,0.9256900212314225,0.9256900212314225,0.872,0.99,0.942,0.953,21.71718460191623,0.9075322548111632,"BFW development calibration, frozen"
 4,Layer 4 review classifier,0.006995452955578874,6.995452955578874,0.9426751592356688,0.9437367303609342,0.888,0.99,0.942,0.953,21.71718460191623,0.9075322548111632,"BFW classifier-calibration identities, frozen probability"

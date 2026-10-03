@@ -1,6 +1,6 @@
 # Final evaluation report
 
-Generated from saved evaluation results on 2026-09-17T14:04:34.760132+00:00. Every number below is read directly from the corresponding `results/aggregate/*.json` file, each of which embeds its own software, model and dataset provenance (`software_environment`, `model_sha256`, `protocol_sha256`, `evaluated_image_set_sha256`, `dataset_archive_md5`/`dataset_archive_sha256`).
+Generated from saved evaluation results on 2026-10-03T09:22:52.744212+00:00. Every number below is read directly from the corresponding `results/aggregate/*.json` file, each of which embeds its own software, model and dataset provenance (`software_environment`, `model_sha256`, `protocol_sha256`, `evaluated_image_set_sha256`, `dataset_archive_md5`/`dataset_archive_sha256`).
 
 ## Experiments 1–2 — threshold calibration and selection
 

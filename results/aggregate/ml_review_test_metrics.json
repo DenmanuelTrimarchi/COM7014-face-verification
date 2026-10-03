@@ -33,8 +33,8 @@
     "tpir_rank1": 0.9426751592356688,
     "tpir_rank5": 0.9437367303609342
   },
-  "classifier_decision_latency_mean_ms": 0.006863629850391097,
-  "classifier_decision_latency_p95_ms": 0.006999995093792677,
+  "classifier_decision_latency_mean_ms": 0.0067416589587811215,
+  "classifier_decision_latency_p95_ms": 0.006834045052528381,
   "classifier_hyperparameters": {
     "C": 1.0,
     "class_weight": "balanced",
@@ -99,7 +99,7 @@
     "top5_search_time_mean_ms": 0.9290244705660572,
     "top5_search_time_p95_ms": 1.0725009778980166
   },
-  "created_at": "2026-09-17T13:48:52.134232+00:00",
+  "created_at": "2026-10-03T09:07:12.261986+00:00",
   "dataset_name": "BFW",
   "dataset_provenance": {
     "dataset_name": "BFW",
