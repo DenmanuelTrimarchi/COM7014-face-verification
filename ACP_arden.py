@@ -17,9 +17,20 @@ really about. When a single photograph is searched against a gallery of many
 enrolled profiles, can the same similarity score be trusted to flag a profile
 that may already be registered?
 
-The research question is whether a framework built by combining several
-existing models performs better than any of those models used on its own. No
-face detector or face-recognition network is trained or fine-tuned; each is
+The contribution is a deployment oriented evaluation methodology for duplicate
+face detection, which counts unprocessed images, human review workload and
+computational cost when comparing detector and recogniser pipelines. The
+novelty is the evaluation, not a new model.
+
+The research question is:
+
+    How effectively can pretrained face models screen new profile photographs
+    for duplicate identities under a human review policy, once unprocessed
+    photographs are counted, and which combination of detector and recogniser
+    best balances duplicates detected, moderator workload and computational
+    cost?
+
+No face detector or face-recognition network is trained or fine-tuned; each is
 used exactly as published. What this project supplies is the arrangement
 around them — enrolment, threshold calibration and a small review classifier —
 together with the measurements that show what each addition is actually worth.
@@ -13951,6 +13962,770 @@ def render_processing_coverage_explanation(aggregate_root: Path = AGGREGATE_ROOT
     ])
 
 
+# --- The deployment-oriented evaluation ----------------------------------------
+#
+# The contribution is the way the pipelines are evaluated, not any model. This
+# summary prints the evidence for that framing in five parts: threshold
+# validation, dataset limits, cost and workload, detector settings and
+# statistical support. Every figure is read back from the saved artefacts.
+# Nothing is written, and a missing file or field shows "not available" in its
+# own cell rather than stopping the summary.
+
+DEPLOYMENT_CONTRIBUTION = (
+    "A deployment oriented evaluation methodology for duplicate face detection, "
+    "which counts unprocessed images, human review workload and computational "
+    "cost when comparing detector and recogniser pipelines. The novelty is the "
+    "evaluation, not a new model."
+)
+
+DEPLOYMENT_RESEARCH_QUESTION = (
+    "How effectively can pretrained face models screen new profile photographs "
+    "for duplicate identities under a human review policy, once unprocessed "
+    "photographs are counted, and which combination of detector and recogniser "
+    "best balances duplicates detected, moderator workload and computational cost?"
+)
+
+# The weight file behind each component, so storage can be summed for any
+# pairing, including the two crossed combinations that have no size record of
+# their own.
+COMPONENT_WEIGHT_FILES = {
+    "YuNet": YUNET_FILENAME,
+    "SFace": SFACE_FILENAME,
+    "SCRFD": ARCFACE_DETECTOR_FILENAME,
+    "ArcFace": ARCFACE_RECOGNITION_FILENAME,
+}
+
+# The upload volume used to turn per-image figures into a moderation workload.
+DEPLOYMENT_SCALE_UPLOADS = 100_000
+
+STATISTICAL_SUPPORT_CAVEAT = (
+    "These intervals are exploratory and are not adjusted for making several "
+    "comparisons. A zero event interval, from a run with no false reviews, "
+    "cannot bound the population FPIR."
+)
+
+
+def _artefact_value(payload: Any, *keys: str) -> Any:
+    """Follow ``keys`` into a loaded artefact. Any missing level gives None, so
+    one absent field costs one cell rather than the whole summary."""
+    node = payload
+    for key in keys:
+        if not isinstance(node, Mapping):
+            return None
+        node = node.get(key)
+    return node
+
+
+def _is_number(value: Any) -> bool:
+    """A usable stored number: present, not a flag and not NaN."""
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and value == value
+
+
+def _join_names(names: Sequence[str]) -> str:
+    """'A', 'A and B' or 'A, B and C', the way the plain summaries list things."""
+    if len(names) <= 1:
+        return "".join(names)
+    return ", ".join(names[:-1]) + " and " + names[-1]
+
+
+def _wrap_keeping_names(text: str) -> str:
+    """wrap_plain, without splitting a combination such as 'SCRFD + SFace'
+    across two lines. textwrap breaks only at ASCII whitespace, so a
+    non-breaking space holds the name together until the line is filled."""
+    return wrap_plain(text.replace(" + ", " + ")).replace(" ", " ")
+
+
+def _primary_operating_point(payload: Any) -> Optional[Mapping[str, Any]]:
+    """The saved operating point at the artefact's own primary FPIR target, so
+    the target is read from the file rather than assumed."""
+    target = _artefact_value(payload, "primary_fpir_target")
+    points = _artefact_value(payload, "operating_points")
+    if not _is_number(target) or not isinstance(points, Mapping):
+        return None
+    for point in points.values():
+        stored = _artefact_value(point, "target_fpir")
+        if _is_number(stored) and math.isclose(float(stored), float(target)):
+            return point
+    return None
+
+
+def _detector_failure_counts(breakdown: Any) -> Optional[Dict[str, int]]:
+    """Zero-face and multiple-face failures from a saved breakdown, with the
+    left, right and gallery variants added together. Other reasons, such as a
+    profile with no usable enrolment photograph, are not detector failures and
+    are left out."""
+    if not isinstance(breakdown, Mapping):
+        return None
+    counts = {"zero faces": 0, "multiple faces": 0}
+    for reason, number in breakdown.items():
+        base = re.sub(r"_(left|right|gallery)$", "", str(reason))
+        label = {"zero_faces": "zero faces", "multiple_faces": "multiple faces"}.get(base)
+        if label and isinstance(number, int):
+            counts[label] += number
+    return counts
+
+
+def interval_verdict(lower: Any, upper: Any) -> str:
+    """"supported" when the whole 95% interval lies on one side of zero, and
+    "not distinguishable" when it reaches or crosses zero."""
+    if not (_is_number(lower) and _is_number(upper)):
+        return "not available"
+    return "supported" if lower > 0 or upper < 0 else "not distinguishable"
+
+
+def best_combination_by_detection(pipelines: Any) -> Optional[str]:
+    """The combination with the highest end-to-end detection in the saved
+    statistics. No combination is favoured by name, and the first one listed
+    wins a tie, so the choice is deterministic."""
+    if not isinstance(pipelines, Mapping):
+        return None
+    best: Optional[str] = None
+    best_rate = float("-inf")
+    for name, metrics in pipelines.items():
+        rate = _artefact_value(metrics, "end_to_end_duplicate_detection_rate", "estimate")
+        if _is_number(rate) and float(rate) > best_rate:
+            best, best_rate = str(name), float(rate)
+    return best
+
+
+def combination_cost_profile(aggregate_root: Path = AGGREGATE_ROOT) -> Dict[str, Dict[str, Any]]:
+    """Processing time and model storage for each detector and recogniser
+    combination.
+
+    YuNet + SFace and SCRFD + ArcFace were timed stage by stage in the same
+    pipeline-comparison run. The crossed combinations were not timed in that
+    run, so their time is one pipeline's measured detection plus the other's
+    measured embedding, which keeps all four on one timing run, and is flagged
+    as estimated. Storage is the sum of two weight files for every
+    combination, so none of it is estimated."""
+    comparison = _load_optional(Path(aggregate_root), "pipeline_comparison_metrics.json")
+    measured: Dict[str, Mapping[str, Any]] = {}
+    held_out = _artefact_value(comparison, "held_out_metrics")
+    if isinstance(held_out, Mapping):
+        for key, metrics in held_out.items():
+            coverage = _artefact_value(metrics, "coverage")
+            if isinstance(coverage, Mapping):
+                measured[pipeline_display_name(str(key))] = coverage
+
+    detection: Dict[str, float] = {}
+    embedding: Dict[str, float] = {}
+    for name, coverage in measured.items():
+        if " + " not in name:
+            continue
+        detector, recogniser = name.split(" + ", 1)
+        if _is_number(coverage.get("detection_latency_mean_ms")):
+            detection[detector] = float(coverage["detection_latency_mean_ms"])
+        if _is_number(coverage.get("embedding_latency_mean_ms")):
+            embedding[recogniser] = float(coverage["embedding_latency_mean_ms"])
+
+    megabytes: Dict[str, float] = {}
+    sizes = _artefact_value(comparison, "model_file_sizes")
+    for group in (sizes.values() if isinstance(sizes, Mapping) else ()):
+        if not isinstance(group, Mapping):
+            continue
+        for filename, entry in group.items():
+            value = _artefact_value(entry, "megabytes")
+            if _is_number(value):
+                megabytes[str(filename)] = float(value)
+
+    profile: Dict[str, Dict[str, Any]] = {}
+    for name in COMPARISON_PIPELINE_ORDER:
+        detector, recogniser = name.split(" + ", 1)
+        detection_ms, embedding_ms = detection.get(detector), embedding.get(recogniser)
+        detector_mb = megabytes.get(COMPONENT_WEIGHT_FILES.get(detector, ""))
+        recogniser_mb = megabytes.get(COMPONENT_WEIGHT_FILES.get(recogniser, ""))
+        complete = _artefact_value(measured.get(name), "complete_pipeline_latency_mean_ms")
+        profile[name] = {
+            "time_ms": (detection_ms + embedding_ms
+                        if detection_ms is not None and embedding_ms is not None else None),
+            "estimated": name not in measured,
+            "complete_ms": float(complete) if _is_number(complete) else None,
+            "storage_mb": (detector_mb + recogniser_mb
+                           if detector_mb is not None and recogniser_mb is not None else None),
+        }
+    return profile
+
+
+def render_threshold_validation_part(aggregate_root: Path = AGGREGATE_ROOT) -> str:
+    """Part A: where each threshold was fitted, how it was chosen, and the data
+    it was checked on after it was frozen."""
+    root = Path(aggregate_root)
+    verification = root / VERIFICATION_COMPARISON_DIRNAME
+    mixed = root / MIXED_PIPELINE_DIRNAME
+    missing = "not available"
+
+    def threshold(value: Any) -> str:
+        return f"{float(value):.6f}" if _is_number(value) else missing
+
+    def percent(value: Any) -> str:
+        return f"{float(value) * 100:.2f}%" if _is_number(value) else missing
+
+    def labelled(prefix: str, value: Any) -> str:
+        return f"{prefix} {value}" if isinstance(value, str) and value else missing
+
+    def fpir_rule(point: Any) -> str:
+        target = _artefact_value(point, "target_fpir")
+        return f"highest detection with FPIR at most {percent(target)}" if _is_number(target) else missing
+
+    rows: List[List[str]] = []
+    # One-to-one LFW: the official protocol fits a fresh threshold for every
+    # held-out fold, so a range is reported rather than one value.
+    for name, base in (("YuNet + SFace", root), ("SCRFD + ArcFace", verification)):
+        final = _load_optional(base, "lfw_final_metrics.json")
+        folds = _artefact_value(final, "fold_results")
+        fitted = [
+            float(fold["threshold"]) for fold in (folds if isinstance(folds, list) else [])
+            if isinstance(fold, Mapping) and _is_number(fold.get("threshold"))
+        ]
+        count = _artefact_value(final, "fold_count")
+        protocol = _artefact_value(final, "protocol_file")
+        training = int(count) - 1 if _is_number(count) else None
+        rows.append([
+            f"LFW one to one, {name}",
+            labelled(f"{training} folds of LFW", protocol) if training else missing,
+            f"highest accuracy on those {training} folds" if training else missing,
+            "each held out fold in turn" if fitted else missing,
+            f"{min(fitted):.6f} to {max(fitted):.6f} over {len(fitted)} folds"
+            if fitted else missing,
+        ])
+    # One-to-one transfer: fitted and frozen on the LFW development files, then
+    # applied unchanged to CPLFW.
+    for name, base in (("YuNet + SFace", root), ("SCRFD + ArcFace", verification)):
+        saved = _load_optional(base, "calibrated_threshold.json")
+        cplfw = _load_optional(base, "cplfw_metrics.json")
+        strategy = _artefact_value(saved, "operating_strategy")
+        selected_on = _artefact_value(saved, "frozen_from_protocol")
+        rule = missing
+        if isinstance(strategy, str) and strategy:
+            rule = f"highest {strategy.replace('_', ' ')}"
+            if isinstance(selected_on, str) and selected_on:
+                rule += f" on {selected_on}"
+        rows.append([
+            f"CPLFW one to one, {name}",
+            labelled("LFW", _artefact_value(saved, "protocol_file")),
+            rule,
+            labelled("CPLFW", _artefact_value(cplfw, "protocol_file")),
+            threshold(_artefact_value(saved, "threshold")),
+        ])
+
+    # Gallery search: SCRFD + ArcFace keeps its threshold beside its classifier
+    # run and its test result in the pipeline comparison; the others keep both
+    # in one directory.
+    arcface_test_fpir = None
+    comparison = _load_optional(root, "pipeline_comparison_metrics.json")
+    held_out = _artefact_value(comparison, "held_out_metrics")
+    if isinstance(held_out, Mapping):
+        for key, metrics in held_out.items():
+            if pipeline_display_name(str(key)) == "SCRFD + ArcFace":
+                arcface_test_fpir = _artefact_value(metrics, "rates", "fpir")
+
+    def saved_test_fpir(base: Path) -> Any:
+        return _artefact_value(_load_optional(base, "bfw_open_set_test_metrics.json"),
+                               "methods", METHOD_B, "primary_operating_point", "fpir")
+
+    gallery_sources = {
+        "YuNet + SFace": (root, saved_test_fpir(root)),
+        "SCRFD + SFace": (mixed / "scrfd-sface", saved_test_fpir(mixed / "scrfd-sface")),
+        "YuNet + ArcFace": (mixed / "yunet-arcface", saved_test_fpir(mixed / "yunet-arcface")),
+        "SCRFD + ArcFace": (root / ARCFACE_REVIEW_DIRNAME, arcface_test_fpir),
+    }
+    development_against_test: List[str] = []
+    above_target: List[str] = []
+    target_text = missing
+    every_rate_read = True
+    for name in COMPARISON_PIPELINE_ORDER:
+        base, test_fpir = gallery_sources[name]
+        point = _primary_operating_point(_load_optional(base, "bfw_open_set_threshold.json"))
+        target = _artefact_value(point, "target_fpir")
+        rows.append([
+            f"BFW gallery search, {name}",
+            "BFW development identities" if point else missing,
+            fpir_rule(point),
+            "BFW held out test identities" if point else missing,
+            threshold(_artefact_value(point, "threshold")),
+        ])
+        development_against_test.append(
+            f"{name} {percent(_artefact_value(point, 'development_fpir'))} "
+            f"against {percent(test_fpir)}"
+        )
+        if _is_number(target) and _is_number(test_fpir):
+            target_text = percent(target)
+            if float(test_fpir) > float(target):
+                above_target.append(name)
+        else:
+            every_rate_read = False
+
+    # The review classifier: fitted on part of the development identities,
+    # its probability cutoff chosen on the development identities kept back.
+    for name, base in (("YuNet + SFace", root), ("SCRFD + ArcFace", root / ARCFACE_REVIEW_DIRNAME)):
+        point = _primary_operating_point(_load_optional(base, "ml_review_threshold.json"))
+        probability = _artefact_value(point, "probability_threshold")
+        rows.append([
+            f"BFW review classifier, {name}",
+            "BFW development identities kept back from fitting" if point else missing,
+            fpir_rule(point),
+            "BFW held out test identities" if point else missing,
+            f"{threshold(probability)} (probability)" if _is_number(probability) else missing,
+        ])
+
+    if above_target:
+        target_note = (
+            f"Test FPIR rose above the {target_text} development target for "
+            f"{_join_names(above_target)}. The target guides the choice of threshold, "
+            "but it does not guarantee the rate on new identities."
+        )
+    elif every_rate_read:
+        target_note = (
+            f"Test FPIR stayed at or below the {target_text} development target for "
+            "every combination."
+        )
+    else:
+        target_note = "The comparison with the development target is not available."
+    return "\n\n".join([
+        "HOW EVERY THRESHOLD WAS CALIBRATED AND VALIDATED",
+        _wrap_keeping_names(
+            "Each combination has its own threshold, because SFace and ArcFace give "
+            "similarity scores on different scales. Every threshold was fitted on "
+            "development data, frozen, and only then applied to test data. No threshold "
+            "is shared between combinations or between tasks, with one deliberate "
+            "exception: BFW layers 1 and 2 and the LFW gallery reuse the YuNet + SFace "
+            "one to one threshold as a control, to show why a borrowed threshold fails."
+        ),
+        render_plain_pipeline_table(
+            ["Task and dataset", "Calibration data", "Selection rule", "Validation data",
+             "Frozen threshold"], rows
+        ),
+        _wrap_keeping_names(
+            "Development FPIR against test FPIR: "
+            + "; ".join(development_against_test) + "."
+        ),
+        _wrap_keeping_names(target_note),
+    ])
+
+
+def render_dataset_limits_part(aggregate_root: Path = AGGREGATE_ROOT) -> str:
+    """Part B: what the benchmarks can and cannot support. This is
+    interpretation rather than measurement, so it is fixed text apart from the
+    gallery size, which is read from the BFW test results."""
+    gallery = _artefact_value(
+        _load_optional(Path(aggregate_root), "bfw_open_set_test_metrics.json"),
+        "methods", METHOD_B, "coverage", "intended_gallery_identities",
+    )
+    gallery_sentence = (
+        f"The gallery holds only {gallery:,} identities, so a service with many more "
+        "profiles would offer more chances of a false match."
+        if isinstance(gallery, int) and not isinstance(gallery, bool)
+        else "The gallery size is not available."
+    )
+    return "\n\n".join([
+        "WHAT THESE DATASETS CAN AND CANNOT SHOW",
+        _wrap_keeping_names(
+            "LFW was collected from news photographs of public figures. CPLFW keeps "
+            "the LFW identities, so both verification datasets share one population. "
+            "BFW also shows public figures, and its gallery search split was designed "
+            "by this project rather than published with the dataset. None of the "
+            "datasets contains typical dating uploads, such as selfies, filtered "
+            "images, group photographs or edited images. Some identities may appear in "
+            "the web collections used to train the pretrained models, which could make "
+            "the results look better than they would be for unseen people. "
+            + gallery_sentence
+        ),
+        _wrap_keeping_names(
+            "So these results show how the combinations compare under the same "
+            "conditions. They cannot show how any combination would perform on a real "
+            "dating service."
+        ),
+    ])
+
+
+def render_cost_and_workload_part(aggregate_root: Path = AGGREGATE_ROOT) -> str:
+    """Part C: what each combination costs in time and storage, and what it
+    buys in detection and in fewer false reviews."""
+    root = Path(aggregate_root)
+    profile = combination_cost_profile(root)
+    pipelines = _artefact_value(_load_optional(root, "comparative_statistics.json"),
+                                "analyses", "full_protocol", "pipelines")
+    missing = "not available"
+    detection_key = "end_to_end_duplicate_detection_rate"
+
+    def estimate(name: str, metric: str) -> Optional[float]:
+        value = _artefact_value(pipelines, name, metric, "estimate")
+        return float(value) if _is_number(value) else None
+
+    def with_interval(name: str, metric: str, scale: float, unit: str = "") -> str:
+        entry = _artefact_value(pipelines, name, metric)
+        values = [_artefact_value(entry, key) for key in ("estimate", "lower_95", "upper_95")]
+        if not all(_is_number(value) for value in values):
+            return missing
+        point, lower, upper = (float(value) * scale for value in values)
+        return f"{point:.2f}{unit} ({lower:.2f} to {upper:.2f})"
+
+    rows: List[List[str]] = []
+    for name in COMPARISON_PIPELINE_ORDER:
+        cost = profile.get(name) or {}
+        time_ms, storage = cost.get("time_ms"), cost.get("storage_mb")
+        rows.append([
+            name,
+            with_interval(name, detection_key, 100.0, "%"),
+            with_interval(name, "fpir", 1000.0),
+            f"{time_ms:.2f}{' (estimated)' if cost.get('estimated') else ''}"
+            if _is_number(time_ms) else missing,
+            f"{storage:.1f}" if _is_number(storage) else missing,
+        ])
+
+    def swapped(name: str, part: int) -> Optional[str]:
+        # The combination that changes only the detector (part 0) or only the
+        # recogniser (part 1).
+        kept = name.split(" + ")[1 - part]
+        return next((other for other in COMPARISON_PIPELINE_ORDER
+                     if other != name and other.split(" + ")[1 - part] == kept), None)
+
+    def added_cost(base: str, other: str) -> Optional[str]:
+        before, after = profile.get(base) or {}, profile.get(other) or {}
+        values = (before.get("time_ms"), after.get("time_ms"),
+                  before.get("storage_mb"), after.get("storage_mb"))
+        if not all(_is_number(value) for value in values):
+            return None
+        time_change = after["time_ms"] - before["time_ms"]
+        storage_change = after["storage_mb"] - before["storage_mb"]
+        if time_change >= 0 and storage_change >= 0:
+            return f"adds {time_change:.2f} ms per image and {storage_change:.1f} MB of storage"
+        return (f"{'adds' if time_change >= 0 else 'saves'} {abs(time_change):.2f} ms per "
+                f"image and {'adds' if storage_change >= 0 else 'saves'} "
+                f"{abs(storage_change):.1f} MB of storage")
+
+    def movement(before: str, after: str, what: str, rise: str, fall: str, *, up: bool) -> str:
+        # The verb follows the stored values, so the sentence cannot contradict
+        # the table above it.
+        if before == after:
+            return f"leaves {what} at {before}"
+        return f"{rise if up else fall} {what} from {before} to {after}"
+
+    timed = [name for name in COMPARISON_PIPELINE_ORDER
+             if _is_number((profile.get(name) or {}).get("time_ms"))]
+    cheapest = min(timed, key=lambda name: (profile[name]["time_ms"],
+                                            profile[name]["storage_mb"] or 0.0)) if timed else None
+    best = best_combination_by_detection(pipelines)
+
+    detector_sentence = "The effect of swapping the detector is not available."
+    recogniser_sentence = "The effect of swapping the recogniser is not available."
+    if cheapest:
+        other = swapped(cheapest, 0)
+        words = added_cost(cheapest, other) if other else None
+        before = estimate(cheapest, detection_key)
+        after = estimate(other, detection_key) if other else None
+        if other and words and before is not None and after is not None:
+            detector_sentence = (
+                f"Starting from {cheapest}, swapping {cheapest.split(' + ')[0]} for "
+                f"{other.split(' + ')[0]} {words}, and "
+                + movement(f"{before * 100:.2f}%", f"{after * 100:.2f}%",
+                           "end to end detection", "raises", "lowers", up=after > before)
+                + "."
+            )
+        other = swapped(cheapest, 1)
+        words = added_cost(cheapest, other) if other else None
+        before = estimate(cheapest, "fpir")
+        after = estimate(other, "fpir") if other else None
+        if other and words and before is not None and after is not None:
+            recogniser_sentence = (
+                f"Swapping {cheapest.split(' + ')[1]} for {other.split(' + ')[1]} {words}, "
+                "and "
+                + movement(f"{before * 1000:.2f}", f"{after * 1000:.2f}", "false reviews",
+                           "raises", "cuts", up=after > before)
+                + " per 1,000 new profiles."
+            )
+
+    def duration(milliseconds: float) -> str:
+        hours, minutes = divmod(int(round(milliseconds / 60_000.0)), 60)
+        parts = [f"{hours} hour{'s' if hours != 1 else ''}"] if hours else []
+        if minutes or not hours:
+            parts.append(f"{minutes} minute{'s' if minutes != 1 else ''}")
+        return " ".join(parts)
+
+    def roughly(value: float) -> str:
+        value = abs(value)
+        return f"{int(round(value, -1) if value >= 100 else round(value)):,}"
+
+    def processing(name: str) -> str:
+        # The complete measured time per image, which also counts loading the
+        # photograph, falling back to the stage estimate when it was not timed.
+        cost = profile.get(name) or {}
+        if _is_number(cost.get("complete_ms")):
+            return f"about {duration(cost['complete_ms'] * DEPLOYMENT_SCALE_UPLOADS)}"
+        if _is_number(cost.get("time_ms")):
+            return (f"about {duration(cost['time_ms'] * DEPLOYMENT_SCALE_UPLOADS)} "
+                    "(estimated)")
+        return missing
+
+    if not cheapest or not best:
+        scale_lines = [f"The workload for {DEPLOYMENT_SCALE_UPLOADS:,} uploads is not available."]
+    elif cheapest == best:
+        scale_lines = [
+            f"{best} is both the cheapest combination and the one that detects the most "
+            "duplicates, so no balance between cost and detection is needed here."
+        ]
+    else:
+        scale_lines = [
+            f"{cheapest} is the cheapest combination and {best} detects the most duplicates.",
+            f"For {DEPLOYMENT_SCALE_UPLOADS:,} uploads, {cheapest} would need "
+            f"{processing(cheapest)} of processing, and {best} {processing(best)}. These "
+            "use the complete time per image measured on the machine used for these "
+            "runs, which also counts loading the photograph.",
+        ]
+        fpir_cheapest, fpir_best = estimate(cheapest, "fpir"), estimate(best, "fpir")
+        if fpir_cheapest is not None and fpir_best is not None:
+            fewer = (fpir_cheapest - fpir_best) * DEPLOYMENT_SCALE_UPLOADS
+            scale_lines.append(
+                f"For every {DEPLOYMENT_SCALE_UPLOADS:,} new profiles processed, {best} "
+                f"would raise roughly {roughly(fewer)} {'fewer' if fewer >= 0 else 'more'} "
+                "false reviews."
+            )
+        detected_cheapest = estimate(cheapest, detection_key)
+        detected_best = estimate(best, detection_key)
+        if detected_cheapest is not None and detected_best is not None:
+            extra = (detected_best - detected_cheapest) * 1000
+            scale_lines.append(
+                f"Of every 1,000 known duplicates, it would find about {roughly(extra)} "
+                f"{'more' if extra >= 0 else 'fewer'}."
+            )
+    scale_lines.append(
+        "Reviewer cost and the harm of a missed duplicate were not measured, so these "
+        "figures cannot say which combination is worth its cost."
+    )
+    return "\n\n".join([
+        "WHAT EACH COMBINATION COSTS AND WHAT IT BUYS",
+        render_plain_pipeline_table(
+            ["Combination", "End to end detection (95% CI)",
+             "False reviews per 1,000 (95% CI)", "Detection and embedding, ms",
+             "Model storage, MB"], rows
+        ),
+        _wrap_keeping_names(
+            "End to end detection counts every intended known duplicate, including "
+            "photographs that could not be processed. False reviews are counted per "
+            "1,000 new profile photographs that were processed. Times are the mean "
+            "detection plus the mean embedding per image from the pipeline comparison "
+            "run. The two crossed combinations were not timed in that run, so their "
+            "time adds one pipeline's detection to the other's embedding and is marked "
+            "(estimated). Storage is the size of the two weight files."
+        ),
+        _wrap_keeping_names(detector_sentence),
+        _wrap_keeping_names(recogniser_sentence),
+        _wrap_keeping_names(" ".join(scale_lines)),
+    ])
+
+
+def render_detector_settings_part(aggregate_root: Path = AGGREGATE_ROOT) -> str:
+    """Part D: how each detector's confidence threshold and input size shape
+    the kind of failure it makes. The settings are the code constants the
+    detectors actually ran with; the counts come from the saved breakdowns."""
+    root = Path(aggregate_root)
+    verification = root / VERIFICATION_COMPARISON_DIRNAME
+    missing = "not available"
+    scrfd_bfw = None
+    held_out = _artefact_value(_load_optional(root, "pipeline_comparison_metrics.json"),
+                               "held_out_metrics")
+    if isinstance(held_out, Mapping):
+        for key, metrics in held_out.items():
+            if pipeline_display_name(str(key)) == "SCRFD + ArcFace":
+                scrfd_bfw = _artefact_value(metrics, "coverage", "probe_failure_breakdown")
+
+    def pair_failures(base: Path, filename: str) -> Optional[Dict[str, int]]:
+        return _detector_failure_counts(
+            _artefact_value(_load_optional(base, filename), "failure_breakdown"))
+
+    failures = {
+        "YuNet": [
+            ("LFW", "pairs", pair_failures(root, "lfw_final_metrics.json")),
+            ("CPLFW", "pairs", pair_failures(root, "cplfw_metrics.json")),
+            ("BFW", "photographs", _detector_failure_counts(_artefact_value(
+                _load_optional(root, "bfw_open_set_test_metrics.json"),
+                "methods", METHOD_B, "coverage", "probe_failure_breakdown"))),
+        ],
+        "SCRFD": [
+            ("LFW", "pairs", pair_failures(verification, "lfw_final_metrics.json")),
+            ("CPLFW", "pairs", pair_failures(verification, "cplfw_metrics.json")),
+            ("BFW", "photographs", _detector_failure_counts(scrfd_bfw)),
+        ],
+    }
+
+    def leads(counts: Optional[Dict[str, int]], label: str) -> bool:
+        # Strictly more than every other failure type, so a tie leads nowhere.
+        if not counts or label not in counts:
+            return False
+        return all(counts[label] > number for other, number in counts.items() if other != label)
+
+    def dominant(entries: Sequence[Tuple[str, str, Optional[Dict[str, int]]]]) -> str:
+        # The failure type that leads in the most datasets, with the larger total
+        # breaking a tie, followed by its count wherever it leads.
+        votes: Dict[str, int] = {}
+        totals: Dict[str, int] = {}
+        for _, _, counts in entries:
+            for label, number in (counts or {}).items():
+                totals[label] = totals.get(label, 0) + number
+                if leads(counts, label):
+                    votes[label] = votes.get(label, 0) + 1
+        if not votes:
+            return missing
+        label = max(votes, key=lambda key: (votes[key], totals.get(key, 0)))
+        shown = [f"{dataset} {counts[label]:,} {unit}" for dataset, unit, counts in entries
+                 if counts and leads(counts, label)]
+        return f"{label}: " + ", ".join(shown)
+
+    def count(detector: str, dataset: str, label: str) -> str:
+        for name, _, counts in failures[detector]:
+            if name == dataset and counts:
+                return f"{counts[label]:,}"
+        return missing
+
+    rows = [
+        ["YuNet", f"{DETECTOR_SCORE_THRESHOLD:g}", "each photograph's own size",
+         dominant(failures["YuNet"])],
+        ["SCRFD", f"{ARCFACE_DETECTION_THRESHOLD:g}",
+         f"{ARCFACE_DETECTION_INPUT_SIZE} by {ARCFACE_DETECTION_INPUT_SIZE} pixels",
+         dominant(failures["SCRFD"])],
+    ]
+    return "\n\n".join([
+        "HOW DETECTOR SETTINGS SHAPE THE FAILURES",
+        render_plain_pipeline_table(
+            ["Detector", "Confidence threshold", "Input size", "Dominant failure and counts"],
+            rows,
+        ),
+        _wrap_keeping_names(
+            f"On LFW, YuNet lost {count('YuNet', 'LFW', 'multiple faces')} pairs to "
+            f"multiple faces and SCRFD lost {count('SCRFD', 'LFW', 'multiple faces')}. On "
+            f"CPLFW, YuNet lost {count('YuNet', 'CPLFW', 'zero faces')} pairs to zero "
+            f"faces and SCRFD lost {count('SCRFD', 'CPLFW', 'zero faces')}."
+        ),
+        _wrap_keeping_names(
+            f"A higher confidence threshold rejects weak candidates. YuNet, at "
+            f"{DETECTOR_SCORE_THRESHOLD:g}, therefore returns a second face less often than "
+            "SCRFD, but more often returns none when a face is turned or small. A lower "
+            "threshold finds difficult faces, but it also accepts faint faces in the "
+            "background, which the one face rule then rejects. SCRFD, at "
+            f"{ARCFACE_DETECTION_THRESHOLD:g}, also enlarges small images to "
+            f"{ARCFACE_DETECTION_INPUT_SIZE} by {ARCFACE_DETECTION_INPUT_SIZE} pixels "
+            "before searching them. The extra LFW detections from SCRFD were not checked "
+            "by hand, so they may be real people in the background or false detections."
+        ),
+    ])
+
+
+def render_statistical_support_part(aggregate_root: Path = AGGREGATE_ROOT) -> str:
+    """Part E: whether the combination with the highest end-to-end detection is
+    better than each other combination by more than sampling noise."""
+    heading = "IS THE BEST COMBINATION REALLY BETTER?"
+    missing = "not available"
+    payload = _load_optional(Path(aggregate_root), "comparative_statistics.json")
+    full = _artefact_value(payload, "analyses", "full_protocol")
+    pipelines = _artefact_value(full, "pipelines")
+    best = best_combination_by_detection(pipelines)
+    if best is None or not isinstance(pipelines, Mapping):
+        return "\n\n".join([
+            heading,
+            _wrap_keeping_names("The paired statistics are not available, so the best combination "
+                       "cannot be tested against the others."),
+            _wrap_keeping_names(STATISTICAL_SUPPORT_CAVEAT),
+        ])
+    differences = _artefact_value(full, "paired_differences")
+    others = [name for name in COMPARISON_PIPELINE_ORDER if name in pipelines and name != best]
+    others += [str(name) for name in pipelines
+               if name not in COMPARISON_PIPELINE_ORDER and name != best]
+
+    def best_minus_other(entry: Any, best_is_right: bool) -> Optional[Tuple[float, float, float]]:
+        # Saved differences are right minus left; turn each round so it reads
+        # as the best combination minus the other one, in percentage points.
+        values = [_artefact_value(entry, key) for key in ("estimate", "lower_95", "upper_95")]
+        if not all(_is_number(value) for value in values):
+            return None
+        point, lower, upper = (100.0 * float(value) for value in values)
+        return (point, lower, upper) if best_is_right else (-point, -upper, -lower)
+
+    def cell(interval: Optional[Tuple[float, float, float]]) -> str:
+        if interval is None:
+            return missing
+        return f"{interval[0]:.2f} ({interval[1]:.2f} to {interval[2]:.2f})"
+
+    def verdict(interval: Optional[Tuple[float, float, float]]) -> str:
+        return interval_verdict(interval[1], interval[2]) if interval else missing
+
+    rows: List[List[str]] = []
+    gains: List[Tuple[str, Optional[Tuple[float, float, float]]]] = []
+    reductions: List[Tuple[str, Optional[Tuple[float, float, float]]]] = []
+    for other in others:
+        match = next((entry for entry in (differences if isinstance(differences, list) else [])
+                      if isinstance(entry, Mapping)
+                      and entry.get("direction") == "right minus left"
+                      and {entry.get("left"), entry.get("right")} == {best, other}), None)
+        best_is_right = _artefact_value(match, "right") == best
+        gain = best_minus_other(
+            _artefact_value(match, "metrics", "end_to_end_duplicate_detection_rate"),
+            best_is_right)
+        change = best_minus_other(_artefact_value(match, "metrics", "fpir"), best_is_right)
+        # A fall in FPIR is the benefit, so the sign is turned round once more.
+        reduction = (-change[0], -change[2], -change[1]) if change else None
+        rows.append([other, cell(gain), verdict(gain), cell(reduction), verdict(reduction)])
+        gains.append((other, gain))
+        reductions.append((other, reduction))
+
+    def grouped(subject: str, results: Sequence[Tuple[str, Optional[Tuple[float, float, float]]]]) -> str:
+        groups: Dict[str, List[str]] = {}
+        for name, interval in results:
+            label = verdict(interval)
+            if label == "supported" and interval and interval[0] < 0:
+                label = "supported in the other direction"
+            groups.setdefault(label, []).append(name)
+        clauses = [f"{label} against {_join_names(names)}" for label, names in groups.items()]
+        return f"The {subject} is " + ", and ".join(clauses) + "."
+
+    rate = _artefact_value(pipelines, best, "end_to_end_duplicate_detection_rate", "estimate")
+    replicates = _artefact_value(payload, "replicates")
+    resampling = (f"resampling those identities {int(replicates):,} times"
+                  if _is_number(replicates) else "resampling those identities")
+    return "\n\n".join([
+        heading,
+        _wrap_keeping_names(
+            f"{best} has the highest end to end detection, "
+            f"{float(rate) * 100:.2f}%, so it is compared below with each other "
+            "combination. Both sides of each comparison use the same identities, and "
+            f"each 95% interval comes from {resampling}. Differences are in percentage "
+            "points. A difference is supported when its whole interval lies on one side "
+            "of zero, and not distinguishable otherwise."
+        ),
+        render_plain_pipeline_table(
+            ["Compared with", "Gain in end to end detection (95% CI)", "Verdict",
+             "Reduction in FPIR (95% CI)", "Verdict"], rows
+        ),
+        _wrap_keeping_names(grouped("gain in end to end detection", gains)),
+        _wrap_keeping_names(grouped("reduction in FPIR", reductions)),
+        _wrap_keeping_names(STATISTICAL_SUPPORT_CAVEAT),
+    ])
+
+
+def render_deployment_evaluation_summary(aggregate_root: Path = AGGREGATE_ROOT) -> str:
+    """The project as a deployment-oriented evaluation, with the evidence for
+    each of its five parts read from the saved artefacts.
+
+    Printed straight after the processing coverage section, because both treat
+    an unprocessed photograph as part of the result rather than as noise."""
+    root = Path(aggregate_root)
+    return "\n\n".join([
+        section_heading("DEPLOYMENT ORIENTED EVALUATION"),
+        _wrap_keeping_names(f"Contribution: {DEPLOYMENT_CONTRIBUTION}"),
+        _wrap_keeping_names(f"Research question: {DEPLOYMENT_RESEARCH_QUESTION}"),
+        _wrap_keeping_names(
+            "The five parts below give the evidence. They cover how each threshold was "
+            "set, what the datasets can show, what each combination costs, how detector "
+            "settings shape the failures, and whether the best combination is really "
+            "better. Every figure is read from the saved results."
+        ),
+        render_threshold_validation_part(root),
+        render_dataset_limits_part(root),
+        render_cost_and_workload_part(root),
+        render_detector_settings_part(root),
+        render_statistical_support_part(root),
+    ])
+
+
 def render_model_comparison_table(aggregate_root: Path = AGGREGATE_ROOT) -> str:
     """The five models side by side: what each does and what it cost.
 
@@ -15548,6 +16323,8 @@ def action_show_experiment_table(output_root: Path = AGGREGATE_ROOT) -> int:
     print(render_experiment_comparison_table(output_root))
     print("")
     print(render_processing_coverage_explanation(output_root))
+    print("")
+    print(render_deployment_evaluation_summary(output_root))
     print("")
     print(render_model_comparison_table(output_root))
     return 0

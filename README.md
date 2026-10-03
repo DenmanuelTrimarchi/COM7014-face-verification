@@ -10,17 +10,16 @@ Everything lives in one executable Python file, [ACP_arden.py](ACP_arden.py).
 
 ## Research question
 
-> Which combination of pretrained face detector and face recogniser gives the
-> best duplicate-profile screening performance in an open-set evaluation on
-> public benchmark datasets, once each combination is given its own
-> gallery-calibrated threshold, and what detection, review-workload and
-> computational cost does that choice carry?
+**Contribution.** A deployment oriented evaluation methodology for duplicate
+face detection, which counts unprocessed images, human review workload and
+computational cost when comparing detector and recogniser pipelines. The
+novelty is the evaluation, not a new model.
 
-Supporting questions: does gallery-specific calibration, rather than a
-threshold transferred from 1:1 verification, reduce false duplicate-profile
-reviews while retaining detection? Does multi-image enrolment contribute once
-both enrolment methods are separately calibrated? Does a learned review
-classifier improve on a calibrated threshold?
+> How effectively can pretrained face models screen new profile photographs
+> for duplicate identities under a human review policy, once unprocessed
+> photographs are counted, and which combination of detector and recogniser
+> best balances duplicates detected, moderator workload and computational
+> cost?
 
 Experiments 1–5 form the **baseline study**, using the official ten-fold LFW
 protocol to investigate:
